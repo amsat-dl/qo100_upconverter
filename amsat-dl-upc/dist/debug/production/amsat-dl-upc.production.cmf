@@ -1,0 +1,2306 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$/tmp/xcXtjFfTS.o
+idloc IDLOC 0 200000 200000 8 1
+init CODE 0 E E 4 1
+reset_vec CODE 0 0 0 4 1
+config CONFIG 0 300000 300000 E 1
+$dist/debug/production/amsat-dl-upc.production.o
+cinit CODE 0 4E06 4E06 84 1
+intcode_body CODE 0 4F8C 4F8C 7E 1
+text0 CODE 0 2F9C 2F9C 1F0 1
+text1 CODE 0 51B8 51B8 68 1
+text2 CODE 0 5614 5614 44 1
+text3 CODE 0 500A 500A 6E 1
+text4 CODE 0 3DEC 3DEC 154 1
+text5 CODE 0 5078 5078 6C 1
+text6 CODE 0 4532 4532 D4 1
+text7 CODE 0 58D8 58D8 E 1
+text8 CODE 0 4CEE 4CEE 90 1
+text9 CODE 0 3350 3350 1AA 1
+text10 CODE 0 4BB6 4BB6 9C 1
+text11 CODE 0 53FE 53FE 52 1
+text12 CODE 0 4C52 4C52 9C 1
+text13 CODE 0 4F0E 4F0E 7E 1
+text14 CODE 0 3F40 3F40 11C 1
+text15 CODE 0 205A 205A 2E4 1
+text16 CODE 0 1D00 1D00 35A 1
+text17 CODE 0 4374 4374 E6 1
+text18 CODE 0 5586 5586 48 1
+text19 CODE 0 14C6 14C6 488 1
+text20 CODE 0 9BA 9BA 658 1
+text21 CODE 0 5874 5874 22 1
+text22 CODE 0 54F0 54F0 4C 1
+text23 CODE 0 5896 5896 16 1
+text24 CODE 0 56DC 56DC 3E 1
+text25 CODE 0 49C0 49C0 AC 1
+text26 CODE 0 553C 553C 4A 1
+text27 CODE 0 485C 485C B4 1
+text28 CODE 0 194E 194E 3B2 1
+text29 CODE 0 28F0 28F0 266 1
+text30 CODE 0 1012 1012 4B4 1
+text31 CODE 0 3B20 3B20 168 1
+text32 CODE 0 4176 4176 10E 1
+text33 CODE 0 57FE 57FE 28 1
+text34 CODE 0 5286 5286 62 1
+text35 CODE 0 12 12 9A8 1
+text36 CODE 0 261C 261C 2D4 1
+text37 CODE 0 52E8 52E8 5E 1
+text38 CODE 0 5756 5756 38 1
+text39 CODE 0 578E 578E 38 1
+text40 CODE 0 571A 571A 3C 1
+text41 CODE 0 2D9C 2D9C 200 1
+text42 CODE 0 4606 4606 D0 1
+text43 CODE 0 4284 4284 F0 1
+text44 CODE 0 405C 405C 11A 1
+text45 CODE 0 34FA 34FA 198 1
+text46 CODE 0 233E 233E 2DE 1
+text47 CODE 0 569C 569C 40 1
+text48 CODE 0 3C88 3C88 164 1
+text49 CODE 0 3822 3822 188 1
+text50 CODE 0 53A4 53A4 5A 1
+text51 CODE 0 479A 479A C2 1
+text52 CODE 0 54A2 54A2 4E 1
+text53 CODE 0 5658 5658 44 1
+text54 CODE 0 5826 5826 28 1
+text55 CODE 0 58AC 58AC 16 1
+text56 CODE 0 3692 3692 190 1
+text57 CODE 0 5450 5450 52 1
+text58 CODE 0 57C6 57C6 38 1
+text59 CODE 0 584E 584E 26 1
+text60 CODE 0 318C 318C 1C4 1
+text61 CODE 0 50E4 50E4 6A 1
+text62 CODE 0 5220 5220 66 1
+text63 CODE 0 514E 514E 6A 1
+text64 CODE 0 4B12 4B12 A4 1
+text65 CODE 0 4D7E 4D7E 88 1
+text66 CODE 0 4910 4910 B0 1
+text67 CODE 0 46D6 46D6 C4 1
+text68 CODE 0 55CE 55CE 46 1
+text69 CODE 0 445A 445A D8 1
+text70 CODE 0 39AA 39AA 176 1
+text71 CODE 0 4A6C 4A6C A6 1
+text72 CODE 0 58C2 58C2 16 1
+text73 CODE 0 5346 5346 5E 1
+text74 CODE 0 2B56 2B56 246 1
+text76 CODE 0 4E8A 4E8A 84 1
+idataCOMRAM CODE 0 58F6 58F6 1 1
+cstackCOMRAM COMRAM 1 1 1 66 1
+cstackBANK0 BANK0 1 80 80 67 1
+cstackBANK2 BANK2 1 200 200 16 1
+temp COMRAM 1 73 73 1 1
+bssBANK0 BANK0 1 F0 F0 7 1
+bssBANK1 BANK1 1 100 100 E7 1
+intcode CODE 0 8 8 6 1
+idataBANK0 CODE 0 58E6 58E6 9 1
+idataBANK1 CODE 0 58EF 58EF 7 1
+dataBANK0 BANK0 1 E7 E7 9 1
+dataBANK1 BANK1 1 1E7 1E7 7 1
+dataCOMRAM COMRAM 1 72 72 1 1
+bssCOMRAM COMRAM 1 67 67 B 1
+mediumconst MEDIUMCONST 0 717E 717E E82 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM F7-FF 1
+RAM 1EE-1FF 1
+RAM 216-5FF 1
+SFR F80-FFF 1
+BANK0 F7-FF 1
+BANK1 1EE-1FF 1
+BANK2 216-2FF 1
+BANK3 300-3FF 1
+BANK4 400-4FF 1
+BANK5 500-5FF 1
+CONST 4-7 1
+CONST 58F7-717D 1
+STACK 216-5FF 1
+SMALLCONST 58F7-717D 1
+CODE 4-7 1
+CODE 58F7-717D 1
+BIGRAM 74-7F 1
+BIGRAM F7-FF 1
+BIGRAM 1EE-1FF 1
+BIGRAM 216-5FF 1
+COMRAM 74-7F 1
+EEDATA F00000-F000FF 1
+MEDIUMCONST 58F7-717D 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/debug/production/amsat-dl-upc.production.o
+8 intcode CODE >30395:/tmp/xcXEciuMy.s
+8 intcode CODE >17:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+4E8A text76 CODE >71:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4E8A text76 CODE >77:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4E9C text76 CODE >80:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4EA0 text76 CODE >83:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4EB2 text76 CODE >85:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4EB2 text76 CODE >86:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4EC0 text76 CODE >88:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4EC2 text76 CODE >89:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4EC4 text76 CODE >90:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4EC8 text76 CODE >94:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4EDC text76 CODE >95:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4EF4 text76 CODE >96:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4F04 text76 CODE >97:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4F0C text76 CODE >99:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+4F8C intcode_body CODE >17:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+4F9E intcode_body CODE >19:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+4FAC intcode_body CODE >20:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+4FC0 intcode_body CODE >21:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+4FE2 intcode_body CODE >25:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+4FF0 intcode_body CODE >26:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+4FF4 intcode_body CODE >27:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+4FF6 intcode_body CODE >29:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+2B56 text74 CODE >51:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2B56 text74 CODE >53:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2B86 text74 CODE >54:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2BB6 text74 CODE >55:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2BE6 text74 CODE >56:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2C16 text74 CODE >57:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2C46 text74 CODE >58:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2C76 text74 CODE >59:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2C7E text74 CODE >61:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2CAE text74 CODE >62:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2CDE text74 CODE >63:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2D0E text74 CODE >64:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2D3E text74 CODE >65:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2D6E text74 CODE >66:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+2D9A text74 CODE >70:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+5346 text73 CODE >20:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+5346 text73 CODE >22:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+5364 text73 CODE >24:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+53A2 text73 CODE >26:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+58C2 text72 CODE >7:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+58C2 text72 CODE >9:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+58C4 text72 CODE >10:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+58C6 text72 CODE >11:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+58CA text72 CODE >13:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+58CC text72 CODE >14:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+58D0 text72 CODE >15:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+58D4 text72 CODE >17:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+58D6 text72 CODE >18:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+4A6C text71 CODE >128:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4A6C text71 CODE >130:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4A80 text71 CODE >131:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4A90 text71 CODE >132:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4AA0 text71 CODE >133:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4AB0 text71 CODE >134:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4AC0 text71 CODE >135:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4AD0 text71 CODE >136:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4AE0 text71 CODE >137:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4AF0 text71 CODE >138:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4B00 text71 CODE >139:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4B10 text71 CODE >140:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+39AA text70 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+39AA text70 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+39B2 text70 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+39C8 text70 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+39D4 text70 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+39F0 text70 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3A0A text70 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3A1A text70 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3A2A text70 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3A46 text70 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3A62 text70 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3A7C text70 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3A8C text70 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3AA8 text70 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3AC2 text70 CODE >31:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3ADA text70 CODE >32:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3AE2 text70 CODE >33:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3AEA text70 CODE >34:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3AF2 text70 CODE >86:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+3B1E text70 CODE >90:/opt/microchip/xc8/v2.10/pic/sources/c99/common/memset.c
+445A text69 CODE >35:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+445A text69 CODE >37:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4476 text69 CODE >40:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4486 text69 CODE >41:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+44A2 text69 CODE >42:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+44BE text69 CODE >45:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+44EE text69 CODE >46:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+451C text69 CODE >49:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4528 text69 CODE >51:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4530 text69 CODE >52:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+55CE text68 CODE >71:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/kty82.c
+55CE text68 CODE >75:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/kty82.c
+55E0 text68 CODE >76:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/kty82.c
+55FE text68 CODE >77:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/kty82.c
+5602 text68 CODE >78:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/kty82.c
+560A text68 CODE >81:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/kty82.c
+5612 text68 CODE >82:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/kty82.c
+46D6 text67 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+46D6 text67 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+46DA text67 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+46E8 text67 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+46F0 text67 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+46F4 text67 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4702 text67 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+470A text67 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+470E text67 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4716 text67 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4728 text67 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+472C text67 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4730 text67 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4736 text67 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4738 text67 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4746 text67 CODE >30:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+474C text67 CODE >31:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4762 text67 CODE >32:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+476A text67 CODE >33:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+476C text67 CODE >35:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4772 text67 CODE >36:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4778 text67 CODE >38:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4788 text67 CODE >39:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4790 text67 CODE >40:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4798 text67 CODE >41:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awdiv.c
+4910 text66 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+4910 text66 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+4914 text66 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+4922 text66 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+492A text66 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+492E text66 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+493C text66 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+4944 text66 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+4956 text66 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+495A text66 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+495E text66 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+4964 text66 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+4966 text66 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+4974 text66 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+498A text66 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+4992 text66 CODE >28:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+4998 text66 CODE >29:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+499E text66 CODE >31:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+49AE text66 CODE >32:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+49B6 text66 CODE >33:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+49BE text66 CODE >34:/opt/microchip/xc8/v2.10/pic/sources/c99/common/awmod.c
+4D7E text65 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4D7E text65 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4D94 text65 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4D98 text65 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4D9C text65 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4DA6 text65 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4DA8 text65 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4DB6 text65 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4DD4 text65 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4DE4 text65 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4DEE text65 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4DF4 text65 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4DF4 text65 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4E04 text65 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c99/common/llmod.c
+4B12 text64 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B12 text64 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B22 text64 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B38 text64 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B3C text64 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B40 text64 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B4A text64 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B4C text64 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B5A text64 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B64 text64 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B82 text64 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B92 text64 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B94 text64 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4B9E text64 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4BA4 text64 CODE >28:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4BA4 text64 CODE >29:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+4BB4 text64 CODE >30:/opt/microchip/xc8/v2.10/pic/sources/c99/common/__lldiv.c
+514E text63 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul32.c
+514E text63 CODE >119:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul32.c
+515E text63 CODE >121:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul32.c
+516C text63 CODE >122:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul32.c
+517C text63 CODE >123:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul32.c
+5186 text63 CODE >124:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul32.c
+5190 text63 CODE >125:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul32.c
+51A6 text63 CODE >128:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul32.c
+51B6 text63 CODE >129:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul32.c
+5220 text62 CODE >28:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+5220 text62 CODE >30:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+5234 text62 CODE >31:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+5242 text62 CODE >32:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+5246 text62 CODE >34:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+5258 text62 CODE >36:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+525A text62 CODE >38:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+5268 text62 CODE >39:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+526C text62 CODE >41:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+527C text62 CODE >43:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+5284 text62 CODE >44:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+50E4 text61 CODE >46:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+50E4 text61 CODE >48:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+514C text61 CODE >49:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adc.c
+318C text60 CODE >405:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+318C text60 CODE >408:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+319C text60 CODE >410:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+31CC text60 CODE >411:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+31CE text60 CODE >413:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+31D2 text60 CODE >414:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3200 text60 CODE >415:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+322E text60 CODE >416:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3232 text60 CODE >417:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3262 text60 CODE >419:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3264 text60 CODE >420:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3292 text60 CODE >421:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3294 text60 CODE >422:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+32C4 text60 CODE >423:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+32C6 text60 CODE >425:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+32D0 text60 CODE >413:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+32E6 text60 CODE >429:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3314 text60 CODE >430:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3316 text60 CODE >431:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3346 text60 CODE >432:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+334E text60 CODE >433:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+584E text59 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul16.c
+584E text59 CODE >37:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul16.c
+585A text59 CODE >38:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul16.c
+5862 text59 CODE >39:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul16.c
+586A text59 CODE >52:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul16.c
+5872 text59 CODE >53:/opt/microchip/xc8/v2.10/pic/sources/c99/common/Umul16.c
+57C6 text58 CODE >5:/opt/microchip/xc8/v2.10/pic/sources/c99/common/isdigit.c
+57C6 text58 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/isdigit.c
+57FC text58 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c99/common/isdigit.c
+5450 text57 CODE >5:/opt/microchip/xc8/v2.10/pic/sources/c99/common/isspace.c
+5450 text57 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/isspace.c
+54A0 text57 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c99/common/isspace.c
+3692 text56 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c99/common/atoi.c
+3692 text56 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c99/common/atoi.c
+36A2 text56 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/atoi.c
+3720 text56 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c99/common/atoi.c
+3728 text56 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c99/common/atoi.c
+372C text56 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c99/common/atoi.c
+3764 text56 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c99/common/atoi.c
+379A text56 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c99/common/atoi.c
+37EA text56 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/atoi.c
+3820 text56 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c99/common/atoi.c
+58AC text55 CODE >39:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+58AE text55 CODE >42:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+58BC text55 CODE >44:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+58C0 text55 CODE >47:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+5826 text54 CODE >502:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5826 text54 CODE >504:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+583A text54 CODE >505:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5840 text54 CODE >507:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5846 text54 CODE >509:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+584C text54 CODE >510:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5658 text53 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c99/common/nf_fputs.c
+5658 text53 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c99/common/nf_fputs.c
+5660 text53 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c99/common/nf_fputs.c
+5664 text53 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/nf_fputs.c
+5676 text53 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c99/common/nf_fputs.c
+567A text53 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c99/common/nf_fputs.c
+569A text53 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c99/common/nf_fputs.c
+54A2 text52 CODE >5:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strlen.c
+54A2 text52 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strlen.c
+54AA text52 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strlen.c
+54AE text52 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strlen.c
+54B2 text52 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strlen.c
+54E2 text52 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strlen.c
+54EE text52 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strlen.c
+479A text51 CODE >72:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+479A text51 CODE >77:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+47A8 text51 CODE >78:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+47BC text51 CODE >82:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+47DE text51 CODE >83:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+47E6 text51 CODE >84:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+47EA text51 CODE >85:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+47FE text51 CODE >86:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+4802 text51 CODE >84:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+4820 text51 CODE >90:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+482E text51 CODE >91:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+4842 text51 CODE >94:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+485A text51 CODE >95:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+53A4 text50 CODE >259:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+53A4 text50 CODE >264:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+53CE text50 CODE >267:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+53D2 text50 CODE >268:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+53D8 text50 CODE >269:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+53FC text50 CODE >270:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3822 text49 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3822 text49 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3826 text49 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3834 text49 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3854 text49 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3858 text49 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3866 text49 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3886 text49 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+388A text49 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3896 text49 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+38B4 text49 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+38B8 text49 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+38BC text49 CODE >28:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+38CE text49 CODE >29:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+38D0 text49 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+38DE text49 CODE >32:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+38F0 text49 CODE >33:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+391E text49 CODE >34:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+393E text49 CODE >35:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3940 text49 CODE >37:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3952 text49 CODE >38:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3958 text49 CODE >40:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3968 text49 CODE >41:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3988 text49 CODE >42:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+39A8 text49 CODE >43:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aodiv.c
+3C88 text48 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3C88 text48 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3C8C text48 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3C9A text48 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3CBA text48 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3CBE text48 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3CCC text48 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3CEC text48 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3D0A text48 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3D0E text48 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3D12 text48 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3D24 text48 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3D26 text48 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3D34 text48 CODE >28:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3D62 text48 CODE >29:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3D82 text48 CODE >30:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3D94 text48 CODE >31:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3D9A text48 CODE >33:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3DAA text48 CODE >34:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3DCA text48 CODE >35:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+3DEA text48 CODE >36:/opt/microchip/xc8/v2.10/pic/sources/c99/common/aomod.c
+569C text47 CODE >1:/opt/microchip/xc8/v2.10/pic/sources/c99/common/abs.c
+569C text47 CODE >3:/opt/microchip/xc8/v2.10/pic/sources/c99/common/abs.c
+56DA text47 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c99/common/abs.c
+233E text46 CODE >274:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+233E text46 CODE >280:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+235E text46 CODE >281:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2374 text46 CODE >282:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2386 text46 CODE >283:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+23A6 text46 CODE >287:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+23B4 text46 CODE >288:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+23B6 text46 CODE >290:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+23E4 text46 CODE >291:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+23EC text46 CODE >292:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+240C text46 CODE >293:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2412 text46 CODE >297:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+241A text46 CODE >298:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2420 text46 CODE >299:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2424 text46 CODE >300:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+242A text46 CODE >301:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+24AC text46 CODE >302:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+24B2 text46 CODE >303:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+24B8 text46 CODE >304:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+251C text46 CODE >299:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2596 text46 CODE >308:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+25B6 text46 CODE >309:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+25BC text46 CODE >310:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+25F2 text46 CODE >314:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+261A text46 CODE >315:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+34FA text45 CODE >546:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+34FA text45 CODE >548:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+350C text45 CODE >552:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3514 text45 CODE >553:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3526 text45 CODE >554:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+352E text45 CODE >558:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3542 text45 CODE >559:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+354A text45 CODE >560:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3582 text45 CODE >561:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+358A text45 CODE >562:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3592 text45 CODE >565:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+35A4 text45 CODE >567:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+35B8 text45 CODE >568:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+35BC text45 CODE >566:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+35DA text45 CODE >573:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+35E2 text45 CODE >574:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+35E6 text45 CODE >575:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+361A text45 CODE >576:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+361E text45 CODE >577:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3622 text45 CODE >574:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3640 text45 CODE >581:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3652 text45 CODE >583:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3666 text45 CODE >584:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+366A text45 CODE >582:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3688 text45 CODE >586:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3688 text45 CODE >588:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3690 text45 CODE >589:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+405C text44 CODE >3:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strncmp.c
+405C text44 CODE >5:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strncmp.c
+406C text44 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strncmp.c
+4092 text44 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strncmp.c
+413C text44 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strncmp.c
+4174 text44 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c99/common/strncmp.c
+4284 text43 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+4284 text43 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+4290 text43 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+42AE text43 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+42B2 text43 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+42B6 text43 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+42C8 text43 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+42CA text43 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+42D8 text43 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+42EA text43 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+4318 text43 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+4338 text43 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+433A text43 CODE >28:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+434C text43 CODE >29:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+4352 text43 CODE >30:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+4352 text43 CODE >31:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+4372 text43 CODE >32:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lodiv.c
+4606 text42 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+4606 text42 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+4624 text42 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+4628 text42 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+462C text42 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+463E text42 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+4640 text42 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+464E text42 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+467C text42 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+469C text42 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+46AE text42 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+46B4 text42 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+46B4 text42 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+46D4 text42 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c99/common/lomod.c
+2D9C text41 CODE >593:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2D9C text41 CODE >599:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2DAA text41 CODE >600:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2DAC text41 CODE >602:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2DDA text41 CODE >603:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2DE2 text41 CODE >606:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2E02 text41 CODE >607:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2E0A text41 CODE >608:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2E10 text41 CODE >609:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2E14 text41 CODE >610:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2E1A text41 CODE >611:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2E90 text41 CODE >612:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2E96 text41 CODE >613:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2E9C text41 CODE >614:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2F00 text41 CODE >609:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2F72 text41 CODE >618:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2F9A text41 CODE >619:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+571A text40 CODE >5:/opt/microchip/xc8/v2.10/pic/sources/c99/common/isalpha.c
+571A text40 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/isalpha.c
+5754 text40 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c99/common/isalpha.c
+578E text39 CODE >5:/opt/microchip/xc8/v2.10/pic/sources/c99/common/isupper.c
+578E text39 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/isupper.c
+57C4 text39 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c99/common/isupper.c
+5756 text38 CODE >5:/opt/microchip/xc8/v2.10/pic/sources/c99/common/islower.c
+5756 text38 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/islower.c
+578C text38 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c99/common/islower.c
+52E8 text37 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c99/common/toupper.c
+52E8 text37 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c99/common/toupper.c
+533C text37 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/toupper.c
+5344 text37 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c99/common/toupper.c
+261C text36 CODE >623:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+261C text36 CODE >629:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+262A text36 CODE >630:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+262C text36 CODE >632:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+265A text36 CODE >633:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2662 text36 CODE >634:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2670 text36 CODE >635:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2678 text36 CODE >639:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2698 text36 CODE >640:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+26A0 text36 CODE >641:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+26A6 text36 CODE >642:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+26AA text36 CODE >643:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+26B0 text36 CODE >644:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+26B8 text36 CODE >645:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+26F0 text36 CODE >646:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2782 text36 CODE >647:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2796 text36 CODE >649:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+27A6 text36 CODE >650:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+27AC text36 CODE >651:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+27B2 text36 CODE >652:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2810 text36 CODE >642:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+288C text36 CODE >656:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+289A text36 CODE >657:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+28A0 text36 CODE >658:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+28B0 text36 CODE >659:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+28B6 text36 CODE >660:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+28C6 text36 CODE >664:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+28EE text36 CODE >665:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+12 text35 CODE >670:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+12 text35 CODE >680:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+36 text35 CODE >681:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+44 text35 CODE >683:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+54 text35 CODE >684:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+58 text35 CODE >688:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+62 text35 CODE >689:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+66 text35 CODE >692:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+68 text35 CODE >693:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+76 text35 CODE >694:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+7A text35 CODE >696:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+80 text35 CODE >700:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+86 text35 CODE >704:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+8C text35 CODE >708:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+92 text35 CODE >712:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+9A text35 CODE >713:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+9E text35 CODE >714:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+F2 text35 CODE >689:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+104 text35 CODE >716:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+112 text35 CODE >717:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+114 text35 CODE >723:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+138 text35 CODE >724:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+146 text35 CODE >725:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+16E text35 CODE >726:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+17C text35 CODE >727:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+17E text35 CODE >728:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+18A text35 CODE >731:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+1A6 text35 CODE >732:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+1AA text35 CODE >733:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+1B8 text35 CODE >732:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+212 text35 CODE >792:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+236 text35 CODE >793:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+244 text35 CODE >794:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+268 text35 CODE >795:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+284 text35 CODE >825:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2CC text35 CODE >827:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+2DA text35 CODE >828:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+314 text35 CODE >830:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+34C text35 CODE >835:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3B8 text35 CODE >838:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+3C8 text35 CODE >839:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+43A text35 CODE >841:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+472 text35 CODE >1138:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+496 text35 CODE >1140:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+4A4 text35 CODE >1141:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+4E2 text35 CODE >1143:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+51E text35 CODE >1149:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+542 text35 CODE >1151:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+550 text35 CODE >1152:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+578 text35 CODE >1154:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+598 text35 CODE >1182:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+5BC text35 CODE >1184:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+5CA text35 CODE >1185:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+608 text35 CODE >1187:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+640 text35 CODE >1192:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+676 text35 CODE >1194:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+686 text35 CODE >1195:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+6D0 text35 CODE >1197:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+708 text35 CODE >1274:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+750 text35 CODE >1276:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+766 text35 CODE >1277:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+774 text35 CODE >1278:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+7B2 text35 CODE >1280:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+7EE text35 CODE >1285:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+85A text35 CODE >1288:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+880 text35 CODE >1289:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+890 text35 CODE >1290:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+8DA text35 CODE >1292:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+916 text35 CODE >1350:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+93A text35 CODE >1351:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+948 text35 CODE >1352:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+95C text35 CODE >1353:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+968 text35 CODE >1357:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+976 text35 CODE >1358:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+982 text35 CODE >1362:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+9A6 text35 CODE >1363:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+9B8 text35 CODE >1365:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+5286 text34 CODE >1368:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+5286 text34 CODE >1373:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+528E text34 CODE >1374:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+5298 text34 CODE >1375:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+529C text34 CODE >1376:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+52C2 text34 CODE >1375:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+52DE text34 CODE >1378:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+52E6 text34 CODE >1382:/opt/microchip/xc8/v2.10/pic/sources/c99/common/doprnt.c
+57FE text33 CODE >5:/opt/microchip/xc8/v2.10/pic/sources/c99/common/printf.c
+57FE text33 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c99/common/printf.c
+5808 text33 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c99/common/printf.c
+5824 text33 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c99/common/printf.c
+4176 text32 CODE >281:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4176 text32 CODE >283:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4190 text32 CODE >284:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+41A2 text32 CODE >286:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+41E8 text32 CODE >287:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+422A text32 CODE >289:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+426E text32 CODE >290:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4282 text32 CODE >292:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3B20 text31 CODE >294:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3B20 text31 CODE >296:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3B3A text31 CODE >297:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3B4C text31 CODE >299:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3B92 text31 CODE >300:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3BD8 text31 CODE >301:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3C18 text31 CODE >303:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3C72 text31 CODE >304:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3C86 text31 CODE >306:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1012 text30 CODE >308:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1012 text30 CODE >310:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+102C text30 CODE >311:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+103E text30 CODE >313:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+107E text30 CODE >314:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+10BE text30 CODE >315:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+10FE text30 CODE >316:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+113E text30 CODE >317:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+117E text30 CODE >318:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+11BA text30 CODE >319:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+11FA text30 CODE >320:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+123A text30 CODE >321:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1280 text30 CODE >322:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+12B8 text30 CODE >323:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+12F8 text30 CODE >324:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1338 text30 CODE >325:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1378 text30 CODE >327:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+14B0 text30 CODE >331:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+14C4 text30 CODE >333:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+28F0 text29 CODE >335:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+28F0 text29 CODE >337:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+290A text29 CODE >338:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+291C text29 CODE >340:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2962 text29 CODE >341:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+29A2 text29 CODE >342:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+29E2 text29 CODE >343:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2A22 text29 CODE >344:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2A62 text29 CODE >345:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2AA2 text29 CODE >347:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2B40 text29 CODE >349:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2B54 text29 CODE >351:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+194E text28 CODE >353:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+194E text28 CODE >355:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1968 text28 CODE >356:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+197A text28 CODE >358:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+19BA text28 CODE >359:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+19FA text28 CODE >360:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1A3A text28 CODE >361:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1A76 text28 CODE >362:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1AB6 text28 CODE >363:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1AF6 text28 CODE >364:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1B36 text28 CODE >365:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1B72 text28 CODE >366:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1BB2 text28 CODE >367:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1BF2 text28 CODE >369:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1CEA text28 CODE >371:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1CFE text28 CODE >373:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+485C text27 CODE >375:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+485C text27 CODE >377:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4876 text27 CODE >378:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4888 text27 CODE >380:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+48C8 text27 CODE >382:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+48FA text27 CODE >383:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+490E text27 CODE >385:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+553C text26 CODE >142:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+553C text26 CODE >144:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+5548 text26 CODE >145:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+5554 text26 CODE >146:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+5560 text26 CODE >147:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+556C text26 CODE >148:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+5578 text26 CODE >149:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+5584 text26 CODE >150:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+49C0 text25 CODE >113:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+49C0 text25 CODE >115:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+49EA text25 CODE >118:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4A22 text25 CODE >119:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4A32 text25 CODE >120:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4A42 text25 CODE >122:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4A5E text25 CODE >123:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4A6A text25 CODE >125:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+56DC text24 CODE >189:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+56DC text24 CODE >191:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+56E4 text24 CODE >192:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5702 text24 CODE >193:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5718 text24 CODE >194:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5896 text23 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c99/common/putchar.c
+5896 text23 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c99/common/putchar.c
+58AA text23 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c99/common/putchar.c
+54F0 text22 CODE >56:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+54F0 text22 CODE >61:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+5508 text22 CODE >64:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+551E text22 CODE >65:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+5532 text22 CODE >68:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+553A text22 CODE >69:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+5874 text21 CODE >50:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+5874 text21 CODE >52:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+5894 text21 CODE >53:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+9BA text20 CODE >282:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+9BA text20 CODE >284:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+9D0 text20 CODE >285:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+9DC text20 CODE >286:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+A0A text20 CODE >287:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+A16 text20 CODE >288:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+A44 text20 CODE >289:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+A66 text20 CODE >290:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+A78 text20 CODE >291:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+A9C text20 CODE >292:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+AAE text20 CODE >293:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+AD2 text20 CODE >294:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+AE4 text20 CODE >295:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+AE8 text20 CODE >296:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+B00 text20 CODE >298:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+B2E text20 CODE >299:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+B50 text20 CODE >300:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+B5E text20 CODE >301:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+B7A text20 CODE >302:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+B90 text20 CODE >303:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+B94 text20 CODE >304:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+BAC text20 CODE >306:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+BDA text20 CODE >307:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+BFA text20 CODE >308:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+C8A text20 CODE >309:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+CBC text20 CODE >310:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+D16 text20 CODE >311:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+D34 text20 CODE >312:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+D66 text20 CODE >313:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+DC0 text20 CODE >314:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+DDE text20 CODE >315:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+E10 text20 CODE >316:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+E8A text20 CODE >317:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+F00 text20 CODE >318:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+F04 text20 CODE >319:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+F12 text20 CODE >322:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+F2E text20 CODE >323:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+F38 text20 CODE >324:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+F44 text20 CODE >325:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+F5E text20 CODE >326:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+F7A text20 CODE >327:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+F80 text20 CODE >328:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+F90 text20 CODE >329:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+FA0 text20 CODE >332:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+FB6 text20 CODE >333:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+FF0 text20 CODE >334:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+FFC text20 CODE >335:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1000 text20 CODE >336:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1010 text20 CODE >338:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1010 text20 CODE >340:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+14C6 text19 CODE >428:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+14C6 text19 CODE >430:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+14CA text19 CODE >436:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+14F0 text19 CODE >439:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1520 text19 CODE >440:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1548 text19 CODE >443:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1578 text19 CODE >444:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+15A0 text19 CODE >447:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+15D0 text19 CODE >448:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+15F8 text19 CODE >451:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1628 text19 CODE >452:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1650 text19 CODE >455:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1676 text19 CODE >456:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+16A4 text19 CODE >459:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+16CA text19 CODE >460:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+16F8 text19 CODE >465:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+16FA text19 CODE >468:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1720 text19 CODE >469:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+174E text19 CODE >472:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1774 text19 CODE >473:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+17A2 text19 CODE >479:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+17D2 text19 CODE >480:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+17FA text19 CODE >483:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+182A text19 CODE >484:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1852 text19 CODE >487:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1882 text19 CODE >488:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+18AA text19 CODE >491:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+18D8 text19 CODE >492:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1900 text19 CODE >495:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+1926 text19 CODE >498:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+194C text19 CODE >499:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5586 text18 CODE >72:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+5586 text18 CODE >74:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+55CC text18 CODE >75:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4374 text17 CODE >387:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4374 text17 CODE >389:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4378 text17 CODE >390:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4388 text17 CODE >392:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+43A6 text17 CODE >393:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+43B6 text17 CODE >394:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+43C6 text17 CODE >395:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+43CA text17 CODE >396:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+43DA text17 CODE >397:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+440E text17 CODE >389:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+440E text17 CODE >399:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4448 text17 CODE >401:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4458 text17 CODE >402:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1D00 text16 CODE >153:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1D00 text16 CODE >158:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1D4E text16 CODE >159:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1D9C text16 CODE >161:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1E02 text16 CODE >164:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1E36 text16 CODE >165:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1E36 text16 CODE >167:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1E46 text16 CODE >168:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1E62 text16 CODE >170:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1E8E text16 CODE >172:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1E92 text16 CODE >173:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1E9C text16 CODE >174:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1EA6 text16 CODE >172:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1EC0 text16 CODE >177:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1EEC text16 CODE >179:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1F04 text16 CODE >181:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1F38 text16 CODE >182:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1F6C text16 CODE >183:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1FA0 text16 CODE >184:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1FA4 text16 CODE >186:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1FB4 text16 CODE >187:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1FC4 text16 CODE >190:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+1FF2 text16 CODE >192:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2008 text16 CODE >193:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+201C text16 CODE >194:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2030 text16 CODE >195:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2058 text16 CODE >198:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+205A text15 CODE >200:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+205A text15 CODE >207:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+20A0 text15 CODE >209:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+20F4 text15 CODE >210:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+213E text15 CODE >214:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2158 text15 CODE >215:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+21A0 text15 CODE >217:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+21A0 text15 CODE >220:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+21AE text15 CODE >221:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+21D8 text15 CODE >222:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+21E8 text15 CODE >223:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+21EC text15 CODE >224:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2200 text15 CODE >225:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2210 text15 CODE >226:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2210 text15 CODE >227:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2220 text15 CODE >228:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2272 text15 CODE >230:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2288 text15 CODE >231:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2298 text15 CODE >232:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+22EA text15 CODE >235:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+2300 text15 CODE >236:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+232C text15 CODE >240:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+233C text15 CODE >243:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3F40 text14 CODE >245:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3F40 text14 CODE >247:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3F48 text14 CODE >249:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3F6A text14 CODE >253:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3F74 text14 CODE >254:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3F78 text14 CODE >252:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3FB2 text14 CODE >257:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+3FF0 text14 CODE >261:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+400C text14 CODE >262:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+404A text14 CODE >263:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+405A text14 CODE >266:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4F0E text13 CODE >55:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4F0E text13 CODE >58:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4F2C text13 CODE >60:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4F48 text13 CODE >61:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4F54 text13 CODE >62:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4F60 text13 CODE >64:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4F7E text13 CODE >65:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4F8A text13 CODE >69:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4C52 text12 CODE >90:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4C52 text12 CODE >93:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4C70 text12 CODE >96:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4C84 text12 CODE >97:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4C94 text12 CODE >98:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4CA4 text12 CODE >101:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4CB0 text12 CODE >102:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4CB4 text12 CODE >103:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4CC4 text12 CODE >104:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4CD4 text12 CODE >107:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4CE0 text12 CODE >108:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4CEC text12 CODE >110:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+53FE text11 CODE >77:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+53FE text11 CODE >79:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+5412 text11 CODE >80:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+5422 text11 CODE >81:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+5426 text11 CODE >82:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+5436 text11 CODE >85:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+5442 text11 CODE >86:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+544E text11 CODE >87:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/adf4351.c
+4BB6 text10 CODE >238:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4BB6 text10 CODE >240:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4BC6 text10 CODE >242:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4BD2 text10 CODE >243:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4BE8 text10 CODE >244:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4C1A text10 CODE >245:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4C48 text10 CODE >250:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4C50 text10 CODE >251:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3350 text9 CODE >397:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3354 text9 CODE >399:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3378 text9 CODE >400:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3380 text9 CODE >402:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3384 text9 CODE >404:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3398 text9 CODE >406:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+33A6 text9 CODE >407:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+33DC text9 CODE >408:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+33EA text9 CODE >409:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3400 text9 CODE >411:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3404 text9 CODE >412:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+340A text9 CODE >413:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+341C text9 CODE >411:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3456 text9 CODE >415:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3472 text9 CODE >416:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+347E text9 CODE >417:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+34AE text9 CODE >418:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+34B2 text9 CODE >419:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+34E2 text9 CODE >421:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+34E6 text9 CODE >423:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+34F8 text9 CODE >426:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4CEE text8 CODE >342:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4CEE text8 CODE >347:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4D32 text8 CODE >348:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4D76 text8 CODE >350:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4D7C text8 CODE >351:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+58D8 text7 CODE >353:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+58D8 text7 CODE >355:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+58DE text7 CODE >356:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+58E4 text7 CODE >357:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4532 text6 CODE >253:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4532 text6 CODE >255:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+454E text6 CODE >257:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4554 text6 CODE >258:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+456A text6 CODE >260:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4576 text6 CODE >261:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+457E text6 CODE >262:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+45AC text6 CODE >263:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+45DC text6 CODE >264:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+45EE text6 CODE >265:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4604 text6 CODE >269:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5078 text5 CODE >271:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5078 text5 CODE >273:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+50D6 text5 CODE >275:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+50DA text5 CODE >276:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+50DE text5 CODE >278:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+50E2 text5 CODE >280:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3DEC text4 CODE >377:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3DEC text4 CODE >380:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3E16 text4 CODE >381:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3E54 text4 CODE >382:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3E84 text4 CODE >383:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3E88 text4 CODE >384:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3EB6 text4 CODE >386:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3EBE text4 CODE >389:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3EDC text4 CODE >390:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3F0A text4 CODE >391:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3F0E text4 CODE >392:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3F3E text4 CODE >395:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+500A text3 CODE >359:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+500A text3 CODE >361:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5012 text3 CODE >364:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5024 text3 CODE >365:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5028 text3 CODE >366:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5032 text3 CODE >367:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5036 text3 CODE >368:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5050 text3 CODE >369:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5056 text3 CODE >370:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+506C text3 CODE >371:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5076 text3 CODE >375:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+5614 text2 CODE >9:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+5616 text2 CODE >11:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+5626 text2 CODE >12:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+563E text2 CODE >13:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+5656 text2 CODE >15:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/irq.c
+51B8 text1 CODE >12:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+51B8 text1 CODE >14:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+51CE text1 CODE >15:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+51D0 text1 CODE >16:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+51D2 text1 CODE >17:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+51D4 text1 CODE >18:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+51D6 text1 CODE >21:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+51D8 text1 CODE >22:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+51DA text1 CODE >23:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+51DC text1 CODE >25:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+51DE text1 CODE >26:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+51E0 text1 CODE >28:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+5210 text1 CODE >30:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+5214 text1 CODE >31:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+5218 text1 CODE >33:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+521A text1 CODE >34:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+521C text1 CODE >36:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+521E text1 CODE >37:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/driver/usart.c
+2F9C text0 CODE >125:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+2F9C text0 CODE >129:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+2FA0 text0 CODE >130:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+2FA4 text0 CODE >133:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+2FB2 text0 CODE >136:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+2FB6 text0 CODE >137:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+2FBA text0 CODE >139:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+2FBE text0 CODE >141:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+2FC2 text0 CODE >142:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+2FCE text0 CODE >143:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+2FDA text0 CODE >144:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+2FE6 text0 CODE >145:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+2FF2 text0 CODE >147:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3006 text0 CODE >149:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+304E text0 CODE >152:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3062 text0 CODE >154:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+309E text0 CODE >155:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+30B2 text0 CODE >156:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+30DE text0 CODE >157:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+30E2 text0 CODE >158:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+310E text0 CODE >160:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+311C text0 CODE >161:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+313A text0 CODE >162:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3148 text0 CODE >163:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+314C text0 CODE >166:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+314E text0 CODE >168:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3150 text0 CODE >170:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3152 text0 CODE >172:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3160 text0 CODE >175:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3160 text0 CODE >176:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3162 text0 CODE >178:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3166 text0 CODE >179:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+316A text0 CODE >180:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+316E text0 CODE >181:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3172 text0 CODE >182:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+3184 text0 CODE >183:/Daten1/Daten/funk/sat/Amsat-Boards/V3_4/upconverter/amsat-dl-upc/src/main.c
+4E06 cinit CODE >5173:/tmp/xcXEciuMy.s
+4E06 cinit CODE >5175:/tmp/xcXEciuMy.s
+4E06 cinit CODE >5178:/tmp/xcXEciuMy.s
+4E06 cinit CODE >5267:/tmp/xcXEciuMy.s
+4E08 cinit CODE >5268:/tmp/xcXEciuMy.s
+4E0A cinit CODE >5269:/tmp/xcXEciuMy.s
+4E0C cinit CODE >5270:/tmp/xcXEciuMy.s
+4E0E cinit CODE >5271:/tmp/xcXEciuMy.s
+4E10 cinit CODE >5272:/tmp/xcXEciuMy.s
+4E12 cinit CODE >5273:/tmp/xcXEciuMy.s
+4E16 cinit CODE >5274:/tmp/xcXEciuMy.s
+4E1A cinit CODE >5275:/tmp/xcXEciuMy.s
+4E1A cinit CODE >5276:/tmp/xcXEciuMy.s
+4E1C cinit CODE >5277:/tmp/xcXEciuMy.s
+4E20 cinit CODE >5278:/tmp/xcXEciuMy.s
+4E22 cinit CODE >5279:/tmp/xcXEciuMy.s
+4E24 cinit CODE >5280:/tmp/xcXEciuMy.s
+4E26 cinit CODE >5284:/tmp/xcXEciuMy.s
+4E28 cinit CODE >5285:/tmp/xcXEciuMy.s
+4E2A cinit CODE >5286:/tmp/xcXEciuMy.s
+4E2C cinit CODE >5287:/tmp/xcXEciuMy.s
+4E2E cinit CODE >5288:/tmp/xcXEciuMy.s
+4E30 cinit CODE >5289:/tmp/xcXEciuMy.s
+4E32 cinit CODE >5290:/tmp/xcXEciuMy.s
+4E36 cinit CODE >5291:/tmp/xcXEciuMy.s
+4E3A cinit CODE >5292:/tmp/xcXEciuMy.s
+4E3A cinit CODE >5293:/tmp/xcXEciuMy.s
+4E3C cinit CODE >5294:/tmp/xcXEciuMy.s
+4E40 cinit CODE >5295:/tmp/xcXEciuMy.s
+4E42 cinit CODE >5296:/tmp/xcXEciuMy.s
+4E44 cinit CODE >5297:/tmp/xcXEciuMy.s
+4E46 cinit CODE >5301:/tmp/xcXEciuMy.s
+4E48 cinit CODE >5302:/tmp/xcXEciuMy.s
+4E4A cinit CODE >5303:/tmp/xcXEciuMy.s
+4E4C cinit CODE >5304:/tmp/xcXEciuMy.s
+4E4E cinit CODE >5305:/tmp/xcXEciuMy.s
+4E50 cinit CODE >5306:/tmp/xcXEciuMy.s
+4E52 cinit CODE >5307:/tmp/xcXEciuMy.s
+4E54 cinit CODE >5308:/tmp/xcXEciuMy.s
+4E58 cinit CODE >5312:/tmp/xcXEciuMy.s
+4E5C cinit CODE >5313:/tmp/xcXEciuMy.s
+4E5E cinit CODE >5314:/tmp/xcXEciuMy.s
+4E5E cinit CODE >5315:/tmp/xcXEciuMy.s
+4E60 cinit CODE >5316:/tmp/xcXEciuMy.s
+4E62 cinit CODE >5317:/tmp/xcXEciuMy.s
+4E64 cinit CODE >5320:/tmp/xcXEciuMy.s
+4E68 cinit CODE >5321:/tmp/xcXEciuMy.s
+4E6A cinit CODE >5322:/tmp/xcXEciuMy.s
+4E6A cinit CODE >5323:/tmp/xcXEciuMy.s
+4E6C cinit CODE >5324:/tmp/xcXEciuMy.s
+4E6E cinit CODE >5325:/tmp/xcXEciuMy.s
+4E70 cinit CODE >5328:/tmp/xcXEciuMy.s
+4E74 cinit CODE >5329:/tmp/xcXEciuMy.s
+4E76 cinit CODE >5330:/tmp/xcXEciuMy.s
+4E76 cinit CODE >5331:/tmp/xcXEciuMy.s
+4E78 cinit CODE >5332:/tmp/xcXEciuMy.s
+4E7A cinit CODE >5333:/tmp/xcXEciuMy.s
+4E7C cinit CODE >5339:/tmp/xcXEciuMy.s
+4E7C cinit CODE >5341:/tmp/xcXEciuMy.s
+4E7E cinit CODE >5342:/tmp/xcXEciuMy.s
+4E80 cinit CODE >5344:/tmp/xcXEciuMy.s
+4E82 cinit CODE >5345:/tmp/xcXEciuMy.s
+4E84 cinit CODE >5346:/tmp/xcXEciuMy.s
+4E86 cinit CODE >5347:/tmp/xcXEciuMy.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___awdiv@counter 11 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__LdataBANK0 0 0 ABS 0 dataBANK0 dist/debug/production/amsat-dl-upc.production.o
+__LdataBANK1 0 0 ABS 0 dataBANK1 dist/debug/production/amsat-dl-upc.production.o
+__Lmediumconst 717E 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_PIN_PTT_INPUT_DEF 79F8 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__Hspace_0 30000E 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Hspace_1 216 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Hspace_2 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__CFG_IESO$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_adf4351_write_reg0 4176 0 CODE 0 text32 dist/debug/production/amsat-dl-upc.production.o
+_adf4351_write_reg1 3B20 0 CODE 0 text31 dist/debug/production/amsat-dl-upc.production.o
+_adf4351_write_reg2 1012 0 CODE 0 text30 dist/debug/production/amsat-dl-upc.production.o
+_adf4351_write_reg3 28F0 0 CODE 0 text29 dist/debug/production/amsat-dl-upc.production.o
+_adf4351_write_reg4 194E 0 CODE 0 text28 dist/debug/production/amsat-dl-upc.production.o
+_adf4351_write_reg5 485C 0 CODE 0 text27 dist/debug/production/amsat-dl-upc.production.o
+__HidataBANK0 0 0 ABS 0 idataBANK0 dist/debug/production/amsat-dl-upc.production.o
+__HidataBANK1 0 0 ABS 0 idataBANK1 dist/debug/production/amsat-dl-upc.production.o
+stoa@F1144 1E7 0 BANK1 1 dataBANK1 dist/debug/production/amsat-dl-upc.production.o
+_g_pending_cmd 72 0 COMRAM 1 dataCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_LED_CPU_OK_DEF 79DA 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+strncmp@_l D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+strncmp@_r F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Hibigdata 0 0 CODE 0 ibigdata dist/debug/production/amsat-dl-upc.production.o
+adf4351_set_rfout_enable@enable CF 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__mediumconst 717E 0 MEDIUMCONST 0 mediumconst /tmp/xcXtjFfTS.o
+_PIN_FSW0_DEF 79DF 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_PIN_FSW1_DEF 79DA 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/debug/production/amsat-dl-upc.production.o
+isalpha@c D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_usart_rx_irq_handler 4F0E 0 CODE 0 text76 dist/debug/production/amsat-dl-upc.production.o
+__CFG_MCLRE$ON 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_g_cmd_buf 1DD 0 BANK1 1 bssBANK1 dist/debug/production/amsat-dl-upc.production.o
+__size_of_KTY82_222_Adc2Temperature 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_adf4351_set_freq 4F0E 0 CODE 0 text13 dist/debug/production/amsat-dl-upc.production.o
+_adf4351_set_mode 4C52 0 CODE 0 text12 dist/debug/production/amsat-dl-upc.production.o
+_adf4351_set_tune 49C0 0 CODE 0 text25 dist/debug/production/amsat-dl-upc.production.o
+?_abs 1F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_gcd 16 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_pad 19 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_vfprintf 5F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Lsmallconst 0 0 SMALLCONST 0 smallconst dist/debug/production/amsat-dl-upc.production.o
+_PIE1 F9D 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_PIE2 FA0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+___sp 0 0 STACK 2 stack /tmp/xcXtjFfTS.o
+_atoi 3692 0 CODE 0 text56 dist/debug/production/amsat-dl-upc.production.o
+_ctoa 53A4 0 CODE 0 text50 dist/debug/production/amsat-dl-upc.production.o
+_dbuf 1BD 0 BANK1 1 bssBANK1 dist/debug/production/amsat-dl-upc.production.o
+_dtoa 233E 0 CODE 0 text46 dist/debug/production/amsat-dl-upc.production.o
+_main 2F9C 0 CODE 0 text0 dist/debug/production/amsat-dl-upc.production.o
+_nout 180 0 BANK1 1 bssBANK1 dist/debug/production/amsat-dl-upc.production.o
+_prec 69 0 COMRAM 1 bssCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_stoa 34FA 0 CODE 0 text45 dist/debug/production/amsat-dl-upc.production.o
+_utoa 2D9C 0 CODE 0 text41 dist/debug/production/amsat-dl-upc.production.o
+_xtoa 261C 0 CODE 0 text36 dist/debug/production/amsat-dl-upc.production.o
+abs@a 1F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+btemp 73 0 COMRAM 1 temp dist/debug/production/amsat-dl-upc.production.o
+gcd@a 16 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+gcd@b 1A 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+gcd@c 1E 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+pad@i 20 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+pad@p 1D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+pad@w 22 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+start E 0 CODE 0 init /tmp/xcXtjFfTS.o
+___aomod@counter 1D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__size_of___aodiv 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of___aomod 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of___awdiv 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of___awmod 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_atoi 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_ctoa 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_dtoa 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_main 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_stoa 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_utoa 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_xtoa 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of___lldiv 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of___llmod 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of___lodiv 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of___lomod 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+adf4351_set_mode@enable D1 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_check_usart$2056 208 0 BANK2 1 cstackBANK2 dist/debug/production/amsat-dl-upc.production.o
+_check_usart$3214 20E 0 BANK2 1 cstackBANK2 dist/debug/production/amsat-dl-upc.production.o
+pad@fp 19 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_toupper 52E8 0 CODE 0 text37 dist/debug/production/amsat-dl-upc.production.o
+?___lmul 17 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?___wmul D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_KTY82_222_Adc2Temperature 17 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+KTY82_222_Adc2Temperature@adc_value 17 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+isupper@c D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__size_of_init_switch 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__LidataBANK0 0 0 ABS 0 idataBANK0 dist/debug/production/amsat-dl-upc.production.o
+__LidataBANK1 0 0 ABS 0 idataBANK1 dist/debug/production/amsat-dl-upc.production.o
+_PIN_LED_CPU_OK_DEF 79D5 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__Hpowerup E 0 CODE 0 powerup dist/debug/production/amsat-dl-upc.production.o
+stoa@i 1E 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+stoa@l 26 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+stoa@p 24 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+stoa@s 14 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+stoa@w 20 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_freq_table 798F 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_vfpfcnvrt 9BA 0 CODE 0 text35 dist/debug/production/amsat-dl-upc.production.o
+___awmod@sign 12 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_ADF_FREQ_SEL 79A5 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+adf4351_calc_rcnt_block@bscdiv BD 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+ttemp5 74 0 COMRAM 1 temp dist/debug/production/amsat-dl-upc.production.o
+ttemp6 77 0 COMRAM 1 temp dist/debug/production/amsat-dl-upc.production.o
+ttemp7 7B 0 COMRAM 1 temp dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_SIO_DATA 79AF 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+adf4351_calc_rcnt_block@ctx BB 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+adf4351_calc_rcnt_block@div C1 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+_g_usart_rpos 6F 0 COMRAM 1 bssCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_g_usart_wpos 6D 0 COMRAM 1 bssCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_check_usart 9BA 0 CODE 0 text20 dist/debug/production/amsat-dl-upc.production.o
+__HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__size_of_vfpfcnvrt 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_default 4B12 0 CODE 0 text71 dist/debug/production/amsat-dl-upc.production.o
+___lodiv@divisor 15 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+utoa@d 28 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+utoa@i 44 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+utoa@n 3C 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+utoa@p 38 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+utoa@w 3A 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__accesstop 80 0 ABS 0 - /tmp/xcXtjFfTS.o
+intlevel0 0 0 CODE 0 text /tmp/xcXtjFfTS.o
+intlevel1 0 0 CODE 0 text /tmp/xcXtjFfTS.o
+intlevel2 0 0 CODE 0 text /tmp/xcXtjFfTS.o
+intlevel3 0 0 CODE 0 text /tmp/xcXtjFfTS.o
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_setup 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_OSCCONbits FD3 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_get_lock 55CE 0 CODE 0 text18 dist/debug/production/amsat-dl-upc.production.o
+wtemp8 74 0 COMRAM 1 temp dist/debug/production/amsat-dl-upc.production.o
+__CFG_EBTR0$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__CFG_EBTR1$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+___llmod@divisor 11 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__CFG_EBTR2$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__CFG_EBTR3$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__CFG_EBTRB$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+usart_rx_irq_handler@c 5 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+xtoa@c 49 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+xtoa@d 26 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+xtoa@i 47 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+xtoa@n 3F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+xtoa@p 3B 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+xtoa@w 3D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+xtoa@x 2E 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+adf4351_get_lock@ctx D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Hifardata 0 0 CODE 0 ifardata dist/debug/production/amsat-dl-upc.production.o
+__size_of_irq_set_handler 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_global_irq_handler 500A 0 CODE 0 intcode_body dist/debug/production/amsat-dl-upc.production.o
+___awdiv@sign 12 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Hclrtext 0 0 ABS 0 clrtext dist/debug/production/amsat-dl-upc.production.o
+_g_cmd_buf_pos F4 0 BANK0 1 bssBANK0 dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_get_lock 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_vfpfcnvrt 12 0 CODE 0 text35 dist/debug/production/amsat-dl-upc.production.o
+dtoa@fp 27 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_PIN_ADF_FREQ_SEL_DEF 79FD 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__pidataCOMRAM 58F6 0 CODE 0 idataCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__CFG_WDTPS$256 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_gpio_to_ch 2B56 0 CODE 0 text74 dist/debug/production/amsat-dl-upc.production.o
+adf4351_default@ctx D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_ADF_CE 79B5 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_ADF_LE 79B7 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+xtoa@fp 24 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___wmul@multiplicand F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_FSW0_DEF 79E4 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_FSW1_DEF 79DF 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_ADRESH FC4 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_ADRESL FC3 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_update_switch 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_reg0@ctx BB 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_reg1@ctx BB 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_reg2@ctx BB 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_reg3@ctx BB 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_reg4@ctx BB 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+adc_cfg_gpio@gpio 11 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_reg5@ctx BB 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__size_of_pa_mute 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+___awdiv@dividend D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___inthi_sp 0 0 STACK 2 stack /tmp/xcXtjFfTS.o
+___intlo_sp 0 0 STACK 2 stack /tmp/xcXtjFfTS.o
+__size_of_update_led 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_g_irq_handler_info F0 0 BANK0 1 bssBANK0 dist/debug/production/amsat-dl-upc.production.o
+adf4351_init@ctx 19 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+adf4351_init@pfd 1F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+adf4351_init@ref 1B 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_toupper 13 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_setup 5586 0 CODE 0 text26 dist/debug/production/amsat-dl-upc.production.o
+__Hintcode_body 0 0 ABS 0 intcode_body dist/debug/production/amsat-dl-upc.production.o
+__end_of___lmul 51B8 0 CODE 0 text63 dist/debug/production/amsat-dl-upc.production.o
+__end_of___wmul 5874 0 CODE 0 text59 dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_set_freq 4F8C 0 CODE 0 text13 dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_set_mode 4CEE 0 CODE 0 text12 dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_set_tune 4A6C 0 CODE 0 text25 dist/debug/production/amsat-dl-upc.production.o
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/debug/production/amsat-dl-upc.production.o
+gpio_to_ch@gpio D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__size_of_handle_cmd 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+main@ref E5 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+adf4351_calc_counters@integer C5 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__size_of_read_switch 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_BAUDCONbits FB8 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_init_gpios 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Hmediumconst 8000 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+?_printf 97 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+_adf4351_default 4A6C 0 CODE 0 text71 dist/debug/production/amsat-dl-upc.production.o
+_atoi$2850 1C 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_atoi$2851 20 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_atoi$2852 1E 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_set_freq 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_set_mode 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_set_tune 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Hintcodelo E 0 CODE 0 intcodelo dist/debug/production/amsat-dl-upc.production.o
+___awdiv@divisor F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_global_irq_handler 8 0 CODE 0 intcode dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_calc_counters 205A 0 CODE 0 text16 dist/debug/production/amsat-dl-upc.production.o
+__end_of___aodiv 39AA 0 CODE 0 text49 dist/debug/production/amsat-dl-upc.production.o
+__end_of___aomod 3DEC 0 CODE 0 text48 dist/debug/production/amsat-dl-upc.production.o
+_PIN_LED_ADF_LOCK_DEF 79D0 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of___awdiv 479A 0 CODE 0 text67 dist/debug/production/amsat-dl-upc.production.o
+__end_of___awmod 49C0 0 CODE 0 text66 dist/debug/production/amsat-dl-upc.production.o
+__size_of_isalpha 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of___lldiv 4BB6 0 CODE 0 text64 dist/debug/production/amsat-dl-upc.production.o
+__end_of___llmod 4E06 0 CODE 0 text65 dist/debug/production/amsat-dl-upc.production.o
+__end_of___lodiv 4374 0 CODE 0 text43 dist/debug/production/amsat-dl-upc.production.o
+__end_of___lomod 46D6 0 CODE 0 text42 dist/debug/production/amsat-dl-upc.production.o
+__size_of_isdigit 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_KTY82_222_Adc2Temperature 55CE 0 CODE 0 text68 dist/debug/production/amsat-dl-upc.production.o
+__size_of_islower 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+check_usart@dbm_2062 204 0 BANK2 1 cstackBANK2 dist/debug/production/amsat-dl-upc.production.o
+__size_of_isspace 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_isupper 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+___aodiv@quotient 1F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___lodiv@dividend D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_adc_voltage 514E 0 CODE 0 text61 dist/debug/production/amsat-dl-upc.production.o
+_PIN_LED_PTT_ACTIVE_DEF 79CB 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_calc_vco_core_freq 405C 0 CODE 0 text14 dist/debug/production/amsat-dl-upc.production.o
+__end_of_update_switch 5078 0 CODE 0 text3 dist/debug/production/amsat-dl-upc.production.o
+_adf4351_init 445A 0 CODE 0 text69 dist/debug/production/amsat-dl-upc.production.o
+?_strlen D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_PTT_INPUT 799F 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_g_usart_buf 100 0 BANK1 1 bssBANK1 dist/debug/production/amsat-dl-upc.production.o
+__size_of_strncmp 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_PIN_RF_R_DEF 79E9 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_PIN_RF_V_DEF 79EE 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+___aomod@dividend D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+adc_sample@gpio 11 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+utoa@fp 26 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+usart_getc@res 11 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__size_of_fputc 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_fputs 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+adf4351_calc_counters@ctx BB 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+adf4351_calc_counters@div C1 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+adf4351_calc_counters@mod C9 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_SIO_CLK_DEF 7A07 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_PIN_SIO_DATA_DEF 7A07 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_adf4351_calc_counters 1D00 0 CODE 0 text16 dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_latch@value D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_INTCON2bits FF1 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_gpio_to_ch 2D9C 0 CODE 0 text74 dist/debug/production/amsat-dl-upc.production.o
+___lldiv@counter 2F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Lintcodelo E 0 CODE 0 intcodelo dist/debug/production/amsat-dl-upc.production.o
+__CFG_FCMEN$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+___aomod@divisor 15 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_adc_cfg_gpio 5346 0 CODE 0 text73 dist/debug/production/amsat-dl-upc.production.o
+start_initialization 4E06 0 CODE 0 cinit dist/debug/production/amsat-dl-upc.production.o
+__CFG_PBADEN$ON 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+apply_ipc@ipc D7 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+_OSCCON FD3 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/debug/production/amsat-dl-upc.production.o
+adf4351_calc_counters@remainder BD 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+___lldiv@dividend 23 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___rparam_used 1 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_write_latch 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_memset 3B20 0 CODE 0 text70 dist/debug/production/amsat-dl-upc.production.o
+irq_set_handler@handler D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+adf4351_set_tune@pout D2 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+_adf4351_calc_rcnt_block 205A 0 CODE 0 text15 dist/debug/production/amsat-dl-upc.production.o
+_g_adf4351 186 0 BANK1 1 bssBANK1 dist/debug/production/amsat-dl-upc.production.o
+_SPBRGH FB0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__pcstackBANK0 80 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__pcstackBANK2 200 0 BANK2 1 cstackBANK2 dist/debug/production/amsat-dl-upc.production.o
+check_adf4351_lock@timespan2s 182 0 BANK1 1 bssBANK1 dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_init 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_calc_rcnt_block 233E 0 CODE 0 text15 dist/debug/production/amsat-dl-upc.production.o
+adc_sample@ch 15 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_write_reg0 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_write_reg1 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_write_reg2 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_write_reg3 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_write_reg4 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_write_reg5 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+islower@c D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+irq_set_handler@id 11 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+check_adf4351_lock@last_lock F6 0 BANK0 1 bssBANK0 dist/debug/production/amsat-dl-upc.production.o
+__end_of_printf 5826 0 CODE 0 text33 dist/debug/production/amsat-dl-upc.production.o
+adf4351_set_mode@ctx CF 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__end_of_pa_mute 4C52 0 CODE 0 text10 dist/debug/production/amsat-dl-upc.production.o
+__size_of_putchar 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+fputc@fp 10 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+fputs@fp 14 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+toupper@c 13 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+vfpfcnvrt@done 82 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__Hbank0 0 0 ABS 0 bank0 dist/debug/production/amsat-dl-upc.production.o
+__Hbank1 0 0 ABS 0 bank1 dist/debug/production/amsat-dl-upc.production.o
+__Hbank2 0 0 ABS 0 bank2 dist/debug/production/amsat-dl-upc.production.o
+__Hbank3 0 0 ABS 0 bank3 dist/debug/production/amsat-dl-upc.production.o
+__Hbank4 0 0 ABS 0 bank4 dist/debug/production/amsat-dl-upc.production.o
+__Hbank5 0 0 ABS 0 bank5 dist/debug/production/amsat-dl-upc.production.o
+__Hcinit 0 0 ABS 0 cinit dist/debug/production/amsat-dl-upc.production.o
+__Hconst 0 0 CONST 0 const dist/debug/production/amsat-dl-upc.production.o
+__end_of_strlen 54F0 0 CODE 0 text52 dist/debug/production/amsat-dl-upc.production.o
+__Hidata 0 0 CODE 0 idata dist/debug/production/amsat-dl-upc.production.o
+__Hidloc 200008 0 IDLOC 0 idloc dist/debug/production/amsat-dl-upc.production.o
+__Hnvbit 0 0 COMRAM 1 nvbit dist/debug/production/amsat-dl-upc.production.o
+__Hparam 0 0 COMRAM 1 rparam dist/debug/production/amsat-dl-upc.production.o
+__size_of_adc_cfg_gpio 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Hrdata 0 0 COMRAM 1 rdata dist/debug/production/amsat-dl-upc.production.o
+__Hstack 0 0 STACK 2 stack dist/debug/production/amsat-dl-upc.production.o
+__Htext0 0 0 ABS 0 text0 dist/debug/production/amsat-dl-upc.production.o
+__Htext1 0 0 ABS 0 text1 dist/debug/production/amsat-dl-upc.production.o
+__Htext2 0 0 ABS 0 text2 dist/debug/production/amsat-dl-upc.production.o
+__Htext3 0 0 ABS 0 text3 dist/debug/production/amsat-dl-upc.production.o
+__Htext4 0 0 ABS 0 text4 dist/debug/production/amsat-dl-upc.production.o
+__Htext5 0 0 ABS 0 text5 dist/debug/production/amsat-dl-upc.production.o
+__Htext6 0 0 ABS 0 text6 dist/debug/production/amsat-dl-upc.production.o
+__Htext7 0 0 ABS 0 text7 dist/debug/production/amsat-dl-upc.production.o
+__Htext8 0 0 ABS 0 text8 dist/debug/production/amsat-dl-upc.production.o
+__Htext9 0 0 ABS 0 text9 dist/debug/production/amsat-dl-upc.production.o
+_main$1993 E3 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+_PIN_SIO_CLK_DEF 7A02 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_LED_CPU_OK 7999 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_reg0@data C3 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/debug/production/amsat-dl-upc.production.o
+__Hbigram 0 0 ABS 0 bigram dist/debug/production/amsat-dl-upc.production.o
+_g_cmd_debounce_counter ED 0 BANK0 1 dataBANK0 dist/debug/production/amsat-dl-upc.production.o
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcXtjFfTS.o
+_init_switch 58D8 0 CODE 0 text7 dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_reg1@data C3 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__Hcomram 0 0 ABS 0 comram dist/debug/production/amsat-dl-upc.production.o
+__Hconfig 30000E 0 CONFIG 0 config dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_init 4532 0 CODE 0 text69 dist/debug/production/amsat-dl-upc.production.o
+__CFG_LPT1OSC$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_default 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_table_220 797F 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_reg2@data C9 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_RF_R_DEF 79EE 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_RF_V_DEF 79F3 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_isalpha 5756 0 CODE 0 text40 dist/debug/production/amsat-dl-upc.production.o
+__Lbank0 0 0 ABS 0 bank0 dist/debug/production/amsat-dl-upc.production.o
+__Lbank1 0 0 ABS 0 bank1 dist/debug/production/amsat-dl-upc.production.o
+__Lbank2 0 0 ABS 0 bank2 dist/debug/production/amsat-dl-upc.production.o
+__Lbank3 0 0 ABS 0 bank3 dist/debug/production/amsat-dl-upc.production.o
+__Lbank4 0 0 ABS 0 bank4 dist/debug/production/amsat-dl-upc.production.o
+__Lbank5 0 0 ABS 0 bank5 dist/debug/production/amsat-dl-upc.production.o
+__end_of_isdigit 57FE 0 CODE 0 text58 dist/debug/production/amsat-dl-upc.production.o
+__Lcinit 0 0 ABS 0 cinit dist/debug/production/amsat-dl-upc.production.o
+__Lconst 0 0 CONST 0 const dist/debug/production/amsat-dl-upc.production.o
+_adf4351_set_rfout_enable 53FE 0 CODE 0 text11 dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_reg3@data C3 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__Lidata 0 0 CODE 0 idata dist/debug/production/amsat-dl-upc.production.o
+__Lidloc 200000 0 IDLOC 0 idloc dist/debug/production/amsat-dl-upc.production.o
+__end_of_islower 578E 0 CODE 0 text38 dist/debug/production/amsat-dl-upc.production.o
+__Lnvbit 0 0 COMRAM 1 nvbit dist/debug/production/amsat-dl-upc.production.o
+__Lparam 0 0 COMRAM 1 rparam dist/debug/production/amsat-dl-upc.production.o
+handle_cmd@cmd DE 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__end_of_isspace 54A2 0 CODE 0 text57 dist/debug/production/amsat-dl-upc.production.o
+__Lrdata 0 0 COMRAM 1 rdata dist/debug/production/amsat-dl-upc.production.o
+__Lstack 0 0 STACK 2 stack dist/debug/production/amsat-dl-upc.production.o
+__end_of_isupper 57C6 0 CODE 0 text39 dist/debug/production/amsat-dl-upc.production.o
+__Ltext0 0 0 ABS 0 text0 dist/debug/production/amsat-dl-upc.production.o
+__Ltext1 0 0 ABS 0 text1 dist/debug/production/amsat-dl-upc.production.o
+__Ltext2 0 0 ABS 0 text2 dist/debug/production/amsat-dl-upc.production.o
+__Ltext3 0 0 ABS 0 text3 dist/debug/production/amsat-dl-upc.production.o
+__Ltext4 0 0 ABS 0 text4 dist/debug/production/amsat-dl-upc.production.o
+__Ltext5 0 0 ABS 0 text5 dist/debug/production/amsat-dl-upc.production.o
+__Ltext6 0 0 ABS 0 text6 dist/debug/production/amsat-dl-upc.production.o
+__Ltext7 0 0 ABS 0 text7 dist/debug/production/amsat-dl-upc.production.o
+__Ltext8 0 0 ABS 0 text8 dist/debug/production/amsat-dl-upc.production.o
+__Ltext9 0 0 ABS 0 text9 dist/debug/production/amsat-dl-upc.production.o
+_adc_sample 5220 0 CODE 0 text62 dist/debug/production/amsat-dl-upc.production.o
+__Hfarbss 0 0 FARRAM 0 farbss dist/debug/production/amsat-dl-upc.production.o
+_adf4351_write_latch 318C 0 CODE 0 text60 dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_reg4@data C7 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__Lintcode_body 0 0 ABS 0 intcode_body dist/debug/production/amsat-dl-upc.production.o
+adf4351_setup@ctx CD 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__end_of_strncmp 4176 0 CODE 0 text44 dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_reg5@data C2 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+_usart_rx_irq_handler 4E8A 0 CODE 0 text76 dist/debug/production/amsat-dl-upc.production.o
+_INTCONbits FF2 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__CFG_OSC$INTIO67 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_POWER_GOOD_DEF 79C6 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_usart_getc 54F0 0 CODE 0 text22 dist/debug/production/amsat-dl-upc.production.o
+_usart_init 51B8 0 CODE 0 text1 dist/debug/production/amsat-dl-upc.production.o
+_usart_putc 58AC 0 CODE 0 text55 dist/debug/production/amsat-dl-upc.production.o
+_usart_tstc 5874 0 CODE 0 text21 dist/debug/production/amsat-dl-upc.production.o
+__Habs1 0 0 ABS 0 abs1 dist/debug/production/amsat-dl-upc.production.o
+__Hdata 0 0 ABS 0 data dist/debug/production/amsat-dl-upc.production.o
+?_adf4351_get_lock D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Hinit 12 0 CODE 0 init dist/debug/production/amsat-dl-upc.production.o
+__Hrbit 0 0 COMRAM 1 rbit dist/debug/production/amsat-dl-upc.production.o
+__Hrbss 0 0 COMRAM 1 rbss dist/debug/production/amsat-dl-upc.production.o
+__Htemp 74 0 COMRAM 1 temp dist/debug/production/amsat-dl-upc.production.o
+__Htext 0 0 ABS 0 text dist/debug/production/amsat-dl-upc.production.o
+__Labs1 0 0 ABS 0 abs1 dist/debug/production/amsat-dl-upc.production.o
+__Ldata 0 0 ABS 0 data dist/debug/production/amsat-dl-upc.production.o
+__Linit E 0 CODE 0 init dist/debug/production/amsat-dl-upc.production.o
+__Lrbit 0 0 COMRAM 1 rbit dist/debug/production/amsat-dl-upc.production.o
+__Lrbss 0 0 COMRAM 1 rbss dist/debug/production/amsat-dl-upc.production.o
+__Ltemp 73 0 COMRAM 1 temp dist/debug/production/amsat-dl-upc.production.o
+__Ltext 0 0 ABS 0 text dist/debug/production/amsat-dl-upc.production.o
+__CFG_XINST$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+memset@dest D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___aodiv@counter 1D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+memset@c F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+memset@k 15 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+memset@n 11 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+memset@s 17 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___lmul 514E 0 CODE 0 text63 dist/debug/production/amsat-dl-upc.production.o
+___wmul 584E 0 CODE 0 text59 dist/debug/production/amsat-dl-upc.production.o
+__end_of_adc_cfg_gpio 53A4 0 CODE 0 text73 dist/debug/production/amsat-dl-upc.production.o
+___aomod@sign 1E 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___lomod@counter 1D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__LcstackBANK2 0 0 ABS 0 cstackBANK2 dist/debug/production/amsat-dl-upc.production.o
+_toupper$2949 19 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+int$flags 73 0 COMRAM 1 temp dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_SIO_DATA_DEF 7A0C 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+?_adc_voltage 30 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+isspace@c D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Hintret 0 0 ABS 0 intret dist/debug/production/amsat-dl-upc.production.o
+__Hirdata 0 0 CODE 0 irdata dist/debug/production/amsat-dl-upc.production.o
+__S0 30000E 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__S1 216 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__S2 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_abs 569C 0 CODE 0 text47 dist/debug/production/amsat-dl-upc.production.o
+_gcd 4374 0 CODE 0 text17 dist/debug/production/amsat-dl-upc.production.o
+_pad 479A 0 CODE 0 text51 dist/debug/production/amsat-dl-upc.production.o
+_table_220 717F 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+check_usart@power 20A 0 BANK2 1 cstackBANK2 dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_PA_ENABLE_DEF 79CB 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_g_ptt_debounce_counter E7 0 BANK0 1 dataBANK0 dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_VOLTAGE 79A7 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_PIN_ADF_CE_DEF 7A11 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+adf4351_calc_vco_core_freq@ctx D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+adf4351_calc_vco_core_freq@div 17 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_check_usart 1012 0 CODE 0 text20 dist/debug/production/amsat-dl-upc.production.o
+__HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___aodiv@sign 1E 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/debug/production/amsat-dl-upc.production.o
+__Hnvrram 0 0 COMRAM 1 nvrram dist/debug/production/amsat-dl-upc.production.o
+__size_of_toupper 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_PIN_USART_RX_DEF 79B7 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__size_of_adc_voltage 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_dtoa$2324 39 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_vfpfcnvrt$2366 84 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+_adf4351_set_tune$431 D5 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_calc_vco_core_freq 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_abs 56DC 0 CODE 0 text47 dist/debug/production/amsat-dl-upc.production.o
+__end_of_gcd 445A 0 CODE 0 text17 dist/debug/production/amsat-dl-upc.production.o
+__end_of_pad 485C 0 CODE 0 text51 dist/debug/production/amsat-dl-upc.production.o
+int_func 4F8C 0 CODE 0 intcode_body dist/debug/production/amsat-dl-upc.production.o
+_g_pout E9 0 BANK0 1 dataBANK0 dist/debug/production/amsat-dl-upc.production.o
+__CFG_CCP2MX$PORTC 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_SIO_CLK 79B1 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_PIN_USART_TX_DEF 79BC 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_PIN_ADF_LOCK_DEF 7A16 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+adf4351_write_latch@mask 15 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Lintentry 0 0 ABS 0 intentry dist/debug/production/amsat-dl-upc.production.o
+___lldiv@divisor 27 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Hramtop 600 0 RAM 0 ramtop dist/debug/production/amsat-dl-upc.production.o
+strlen@a F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+strlen@s D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_read_switch 4CEE 0 CODE 0 text8 dist/debug/production/amsat-dl-upc.production.o
+__Hrparam 0 0 COMRAM 1 rparam dist/debug/production/amsat-dl-upc.production.o
+__size_of_adc_init 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_LED_PTT_ACTIVE_DEF 79D0 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+read_switch@fsw0 10 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+read_switch@fsw1 11 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_putchar 58AC 0 CODE 0 text23 dist/debug/production/amsat-dl-upc.production.o
+__pdataBANK0 E7 0 BANK0 1 dataBANK0 dist/debug/production/amsat-dl-upc.production.o
+__pdataBANK1 1E7 0 BANK1 1 dataBANK1 dist/debug/production/amsat-dl-upc.production.o
+usart_rx_irq_handler@udata 1 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__activetblptr 2 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+usart_rx_irq_handler@wposn 6 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Hstruct 0 0 COMRAM 1 struct dist/debug/production/amsat-dl-upc.production.o
+__size_of___lmul 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of___wmul 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/debug/production/amsat-dl-upc.production.o
+__LbssBANK1 0 0 ABS 0 bssBANK1 dist/debug/production/amsat-dl-upc.production.o
+__Htext10 0 0 ABS 0 text10 dist/debug/production/amsat-dl-upc.production.o
+__Htext11 0 0 ABS 0 text11 dist/debug/production/amsat-dl-upc.production.o
+__Htext12 0 0 ABS 0 text12 dist/debug/production/amsat-dl-upc.production.o
+__Htext13 0 0 ABS 0 text13 dist/debug/production/amsat-dl-upc.production.o
+__Htext14 0 0 ABS 0 text14 dist/debug/production/amsat-dl-upc.production.o
+__Htext15 0 0 ABS 0 text15 dist/debug/production/amsat-dl-upc.production.o
+__Htext16 0 0 ABS 0 text16 dist/debug/production/amsat-dl-upc.production.o
+__Htext17 0 0 ABS 0 text17 dist/debug/production/amsat-dl-upc.production.o
+__Htext18 0 0 ABS 0 text18 dist/debug/production/amsat-dl-upc.production.o
+__Htext19 0 0 ABS 0 text19 dist/debug/production/amsat-dl-upc.production.o
+__Htext20 0 0 ABS 0 text20 dist/debug/production/amsat-dl-upc.production.o
+__Htext21 0 0 ABS 0 text21 dist/debug/production/amsat-dl-upc.production.o
+__Htext22 0 0 ABS 0 text22 dist/debug/production/amsat-dl-upc.production.o
+__Htext23 0 0 ABS 0 text23 dist/debug/production/amsat-dl-upc.production.o
+__Htext24 0 0 ABS 0 text24 dist/debug/production/amsat-dl-upc.production.o
+__Htext25 0 0 ABS 0 text25 dist/debug/production/amsat-dl-upc.production.o
+__Htext26 0 0 ABS 0 text26 dist/debug/production/amsat-dl-upc.production.o
+__Htext27 0 0 ABS 0 text27 dist/debug/production/amsat-dl-upc.production.o
+__Htext28 0 0 ABS 0 text28 dist/debug/production/amsat-dl-upc.production.o
+__Htext29 0 0 ABS 0 text29 dist/debug/production/amsat-dl-upc.production.o
+__Htext30 0 0 ABS 0 text30 dist/debug/production/amsat-dl-upc.production.o
+__Htext31 0 0 ABS 0 text31 dist/debug/production/amsat-dl-upc.production.o
+__Htext32 0 0 ABS 0 text32 dist/debug/production/amsat-dl-upc.production.o
+__Htext33 0 0 ABS 0 text33 dist/debug/production/amsat-dl-upc.production.o
+__Htext34 0 0 ABS 0 text34 dist/debug/production/amsat-dl-upc.production.o
+__Htext35 0 0 ABS 0 text35 dist/debug/production/amsat-dl-upc.production.o
+__Htext36 0 0 ABS 0 text36 dist/debug/production/amsat-dl-upc.production.o
+__Htext37 0 0 ABS 0 text37 dist/debug/production/amsat-dl-upc.production.o
+__Htext38 0 0 ABS 0 text38 dist/debug/production/amsat-dl-upc.production.o
+__Htext39 0 0 ABS 0 text39 dist/debug/production/amsat-dl-upc.production.o
+__Htext40 0 0 ABS 0 text40 dist/debug/production/amsat-dl-upc.production.o
+__Htext41 0 0 ABS 0 text41 dist/debug/production/amsat-dl-upc.production.o
+__Htext42 0 0 ABS 0 text42 dist/debug/production/amsat-dl-upc.production.o
+__Htext43 0 0 ABS 0 text43 dist/debug/production/amsat-dl-upc.production.o
+__Htext44 0 0 ABS 0 text44 dist/debug/production/amsat-dl-upc.production.o
+__Htext45 0 0 ABS 0 text45 dist/debug/production/amsat-dl-upc.production.o
+__Htext46 0 0 ABS 0 text46 dist/debug/production/amsat-dl-upc.production.o
+__Htext47 0 0 ABS 0 text47 dist/debug/production/amsat-dl-upc.production.o
+__Htext48 0 0 ABS 0 text48 dist/debug/production/amsat-dl-upc.production.o
+__Htext49 0 0 ABS 0 text49 dist/debug/production/amsat-dl-upc.production.o
+__Htext50 0 0 ABS 0 text50 dist/debug/production/amsat-dl-upc.production.o
+__Htext51 0 0 ABS 0 text51 dist/debug/production/amsat-dl-upc.production.o
+__Htext52 0 0 ABS 0 text52 dist/debug/production/amsat-dl-upc.production.o
+__Htext53 0 0 ABS 0 text53 dist/debug/production/amsat-dl-upc.production.o
+__Htext54 0 0 ABS 0 text54 dist/debug/production/amsat-dl-upc.production.o
+__Htext55 0 0 ABS 0 text55 dist/debug/production/amsat-dl-upc.production.o
+__Htext56 0 0 ABS 0 text56 dist/debug/production/amsat-dl-upc.production.o
+__Htext57 0 0 ABS 0 text57 dist/debug/production/amsat-dl-upc.production.o
+__Htext58 0 0 ABS 0 text58 dist/debug/production/amsat-dl-upc.production.o
+__Htext59 0 0 ABS 0 text59 dist/debug/production/amsat-dl-upc.production.o
+__Htext60 0 0 ABS 0 text60 dist/debug/production/amsat-dl-upc.production.o
+__Htext61 0 0 ABS 0 text61 dist/debug/production/amsat-dl-upc.production.o
+__Htext62 0 0 ABS 0 text62 dist/debug/production/amsat-dl-upc.production.o
+__Htext63 0 0 ABS 0 text63 dist/debug/production/amsat-dl-upc.production.o
+__Htext64 0 0 ABS 0 text64 dist/debug/production/amsat-dl-upc.production.o
+__Htext65 0 0 ABS 0 text65 dist/debug/production/amsat-dl-upc.production.o
+__Htext66 0 0 ABS 0 text66 dist/debug/production/amsat-dl-upc.production.o
+__Htext67 0 0 ABS 0 text67 dist/debug/production/amsat-dl-upc.production.o
+__Htext68 0 0 ABS 0 text68 dist/debug/production/amsat-dl-upc.production.o
+__Htext69 0 0 ABS 0 text69 dist/debug/production/amsat-dl-upc.production.o
+__Htext70 0 0 ABS 0 text70 dist/debug/production/amsat-dl-upc.production.o
+__Htext71 0 0 ABS 0 text71 dist/debug/production/amsat-dl-upc.production.o
+__Htext72 0 0 ABS 0 text72 dist/debug/production/amsat-dl-upc.production.o
+__Htext73 0 0 ABS 0 text73 dist/debug/production/amsat-dl-upc.production.o
+__Htext74 0 0 ABS 0 text74 dist/debug/production/amsat-dl-upc.production.o
+__Htext76 0 0 ABS 0 text76 dist/debug/production/amsat-dl-upc.production.o
+__Htext77 0 0 ABS 0 text77 dist/debug/production/amsat-dl-upc.production.o
+__end_of_adc_sample 5286 0 CODE 0 text62 dist/debug/production/amsat-dl-upc.production.o
+usart_init@baud 30 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+vfpfcnvrt@fmt 4D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+vfpfcnvrt@llu 8F 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+_g_applied_cmd EF 0 BANK0 1 dataBANK0 dist/debug/production/amsat-dl-upc.production.o
+_PIN_ADF_LE_DEF 7A0C 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+check_adf4351_lock@unlock_cnt 71 0 COMRAM 1 bssCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___awmod@counter 11 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_RCSTAbits FAB 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_PIE1bits F9D 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+update_switch@cmd DF 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__end_of_usart_getc 553C 0 CODE 0 text22 dist/debug/production/amsat-dl-upc.production.o
+__end_of_usart_init 5220 0 CODE 0 text1 dist/debug/production/amsat-dl-upc.production.o
+__end_of_usart_putc 58C2 0 CODE 0 text55 dist/debug/production/amsat-dl-upc.production.o
+__end_of_usart_tstc 5896 0 CODE 0 text21 dist/debug/production/amsat-dl-upc.production.o
+_memset 39AA 0 CODE 0 text70 dist/debug/production/amsat-dl-upc.production.o
+pad@buf 1B 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+stoa@nuls 17 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__ptext10 4BB6 0 CODE 0 text10 dist/debug/production/amsat-dl-upc.production.o
+__ptext11 53FE 0 CODE 0 text11 dist/debug/production/amsat-dl-upc.production.o
+__ptext12 4C52 0 CODE 0 text12 dist/debug/production/amsat-dl-upc.production.o
+__ptext13 4F0E 0 CODE 0 text13 dist/debug/production/amsat-dl-upc.production.o
+__ptext14 3F40 0 CODE 0 text14 dist/debug/production/amsat-dl-upc.production.o
+__ptext15 205A 0 CODE 0 text15 dist/debug/production/amsat-dl-upc.production.o
+__ptext16 1D00 0 CODE 0 text16 dist/debug/production/amsat-dl-upc.production.o
+__ptext17 4374 0 CODE 0 text17 dist/debug/production/amsat-dl-upc.production.o
+__ptext18 5586 0 CODE 0 text18 dist/debug/production/amsat-dl-upc.production.o
+__ptext19 14C6 0 CODE 0 text19 dist/debug/production/amsat-dl-upc.production.o
+__ptext20 9BA 0 CODE 0 text20 dist/debug/production/amsat-dl-upc.production.o
+__ptext21 5874 0 CODE 0 text21 dist/debug/production/amsat-dl-upc.production.o
+__ptext22 54F0 0 CODE 0 text22 dist/debug/production/amsat-dl-upc.production.o
+__ptext23 5896 0 CODE 0 text23 dist/debug/production/amsat-dl-upc.production.o
+__ptext24 56DC 0 CODE 0 text24 dist/debug/production/amsat-dl-upc.production.o
+__ptext25 49C0 0 CODE 0 text25 dist/debug/production/amsat-dl-upc.production.o
+__ptext26 553C 0 CODE 0 text26 dist/debug/production/amsat-dl-upc.production.o
+__ptext27 485C 0 CODE 0 text27 dist/debug/production/amsat-dl-upc.production.o
+__ptext28 194E 0 CODE 0 text28 dist/debug/production/amsat-dl-upc.production.o
+__ptext29 28F0 0 CODE 0 text29 dist/debug/production/amsat-dl-upc.production.o
+__ptext30 1012 0 CODE 0 text30 dist/debug/production/amsat-dl-upc.production.o
+__ptext31 3B20 0 CODE 0 text31 dist/debug/production/amsat-dl-upc.production.o
+__ptext32 4176 0 CODE 0 text32 dist/debug/production/amsat-dl-upc.production.o
+__ptext33 57FE 0 CODE 0 text33 dist/debug/production/amsat-dl-upc.production.o
+__ptext34 5286 0 CODE 0 text34 dist/debug/production/amsat-dl-upc.production.o
+__ptext35 12 0 CODE 0 text35 dist/debug/production/amsat-dl-upc.production.o
+__ptext36 261C 0 CODE 0 text36 dist/debug/production/amsat-dl-upc.production.o
+__ptext37 52E8 0 CODE 0 text37 dist/debug/production/amsat-dl-upc.production.o
+__ptext38 5756 0 CODE 0 text38 dist/debug/production/amsat-dl-upc.production.o
+__ptext39 578E 0 CODE 0 text39 dist/debug/production/amsat-dl-upc.production.o
+__ptext40 571A 0 CODE 0 text40 dist/debug/production/amsat-dl-upc.production.o
+__ptext41 2D9C 0 CODE 0 text41 dist/debug/production/amsat-dl-upc.production.o
+__ptext42 4606 0 CODE 0 text42 dist/debug/production/amsat-dl-upc.production.o
+__ptext43 4284 0 CODE 0 text43 dist/debug/production/amsat-dl-upc.production.o
+__ptext44 405C 0 CODE 0 text44 dist/debug/production/amsat-dl-upc.production.o
+__ptext45 34FA 0 CODE 0 text45 dist/debug/production/amsat-dl-upc.production.o
+__ptext46 233E 0 CODE 0 text46 dist/debug/production/amsat-dl-upc.production.o
+__ptext47 569C 0 CODE 0 text47 dist/debug/production/amsat-dl-upc.production.o
+__ptext48 3C88 0 CODE 0 text48 dist/debug/production/amsat-dl-upc.production.o
+__ptext49 3822 0 CODE 0 text49 dist/debug/production/amsat-dl-upc.production.o
+__ptext50 53A4 0 CODE 0 text50 dist/debug/production/amsat-dl-upc.production.o
+__ptext51 479A 0 CODE 0 text51 dist/debug/production/amsat-dl-upc.production.o
+__ptext52 54A2 0 CODE 0 text52 dist/debug/production/amsat-dl-upc.production.o
+__ptext53 5658 0 CODE 0 text53 dist/debug/production/amsat-dl-upc.production.o
+__ptext54 5826 0 CODE 0 text54 dist/debug/production/amsat-dl-upc.production.o
+__ptext55 58AC 0 CODE 0 text55 dist/debug/production/amsat-dl-upc.production.o
+__ptext56 3692 0 CODE 0 text56 dist/debug/production/amsat-dl-upc.production.o
+__ptext57 5450 0 CODE 0 text57 dist/debug/production/amsat-dl-upc.production.o
+__ptext58 57C6 0 CODE 0 text58 dist/debug/production/amsat-dl-upc.production.o
+__ptext59 584E 0 CODE 0 text59 dist/debug/production/amsat-dl-upc.production.o
+__ptext60 318C 0 CODE 0 text60 dist/debug/production/amsat-dl-upc.production.o
+__ptext61 50E4 0 CODE 0 text61 dist/debug/production/amsat-dl-upc.production.o
+__ptext62 5220 0 CODE 0 text62 dist/debug/production/amsat-dl-upc.production.o
+__ptext63 514E 0 CODE 0 text63 dist/debug/production/amsat-dl-upc.production.o
+__ptext64 4B12 0 CODE 0 text64 dist/debug/production/amsat-dl-upc.production.o
+__ptext65 4D7E 0 CODE 0 text65 dist/debug/production/amsat-dl-upc.production.o
+__ptext66 4910 0 CODE 0 text66 dist/debug/production/amsat-dl-upc.production.o
+__ptext67 46D6 0 CODE 0 text67 dist/debug/production/amsat-dl-upc.production.o
+__ptext68 55CE 0 CODE 0 text68 dist/debug/production/amsat-dl-upc.production.o
+__ptext69 445A 0 CODE 0 text69 dist/debug/production/amsat-dl-upc.production.o
+__ptext70 39AA 0 CODE 0 text70 dist/debug/production/amsat-dl-upc.production.o
+__ptext71 4A6C 0 CODE 0 text71 dist/debug/production/amsat-dl-upc.production.o
+__ptext72 58C2 0 CODE 0 text72 dist/debug/production/amsat-dl-upc.production.o
+__ptext73 5346 0 CODE 0 text73 dist/debug/production/amsat-dl-upc.production.o
+__ptext74 2B56 0 CODE 0 text74 dist/debug/production/amsat-dl-upc.production.o
+__ptext76 4E8A 0 CODE 0 text76 dist/debug/production/amsat-dl-upc.production.o
+__ptext77 0 0 CODE 0 text77 dist/debug/production/amsat-dl-upc.production.o
+__size_of_global_irq_handler 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+___aodiv 3822 0 CODE 0 text49 dist/debug/production/amsat-dl-upc.production.o
+___aomod 3C88 0 CODE 0 text48 dist/debug/production/amsat-dl-upc.production.o
+___awdiv 46D6 0 CODE 0 text67 dist/debug/production/amsat-dl-upc.production.o
+___awmod 4910 0 CODE 0 text66 dist/debug/production/amsat-dl-upc.production.o
+adf4351_set_freq@freq D3 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__pintcode_body 4F8C 0 CODE 0 intcode_body dist/debug/production/amsat-dl-upc.production.o
+___lldiv 4B12 0 CODE 0 text64 dist/debug/production/amsat-dl-upc.production.o
+___llmod 4D7E 0 CODE 0 text65 dist/debug/production/amsat-dl-upc.production.o
+___lodiv 4284 0 CODE 0 text43 dist/debug/production/amsat-dl-upc.production.o
+___lomod 4606 0 CODE 0 text42 dist/debug/production/amsat-dl-upc.production.o
+__size_of_gpio_to_ch 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/debug/production/amsat-dl-upc.production.o
+__Lbigram 0 0 ABS 0 bigram dist/debug/production/amsat-dl-upc.production.o
+___lmul@multiplier 17 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__CFG_BORV$3 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+irq_set_handler@udata F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_ADF_CE_DEF 7A16 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+?_atoi 14 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_ctoa 24 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_dtoa 27 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_stoa 12 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_utoa 26 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_xtoa 24 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Lcomram 0 0 ABS 0 comram dist/debug/production/amsat-dl-upc.production.o
+__Lconfig 300000 0 CONFIG 0 config dist/debug/production/amsat-dl-upc.production.o
+_printf 57FE 0 CODE 0 text33 dist/debug/production/amsat-dl-upc.production.o
+usart_init@spbrg_value 34 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+strncmp@l 14 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+strncmp@n 11 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+strncmp@r 16 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_xtoa$2351 37 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_xtoa$2352 39 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+adf4351_set_rfout_enable@ctx CD 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+___wmul@multiplier D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_adf4351_calc_vco_core_freq 3F40 0 CODE 0 text14 dist/debug/production/amsat-dl-upc.production.o
+?_gpio_to_ch D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_write_latch 3350 0 CODE 0 text60 dist/debug/production/amsat-dl-upc.production.o
+__Lfarbss 0 0 FARRAM 0 farbss dist/debug/production/amsat-dl-upc.production.o
+_PIN_TEMP_DEF 79F3 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_strlen 54A2 0 CODE 0 text52 dist/debug/production/amsat-dl-upc.production.o
+__Lfardata 0 0 FARRAM 0 fardata dist/debug/production/amsat-dl-upc.production.o
+__size_of_vfprintf 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+stackhi 5FF 0 ABS 0 - /tmp/xcXtjFfTS.o
+stacklo 216 0 ABS 0 - /tmp/xcXtjFfTS.o
+_PIN_PA_ENABLE_DEF 79C6 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_set_rfout_enable 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+stoa@cp 22 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+stoa@fp 12 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Lintcode 8 0 CODE 0 intcode dist/debug/production/amsat-dl-upc.production.o
+_OSCTUNE F9B 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Lintret 0 0 ABS 0 intret dist/debug/production/amsat-dl-upc.production.o
+__Lirdata 0 0 CODE 0 irdata dist/debug/production/amsat-dl-upc.production.o
+_ADCON0bits FC2 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_ADCON1bits FC1 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_ADCON2bits FC0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_adc_init 58C2 0 CODE 0 text72 dist/debug/production/amsat-dl-upc.production.o
+__CFG_LVP$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+putchar@c 12 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_vfpfcnvrt 4B 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Lspace_0 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Lspace_1 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Lspace_2 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+usart_putc@c D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__pbssCOMRAM 67 0 COMRAM 1 bssCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__size_of_memset 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_ADF_LE_DEF 7A11 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_USART_RX_DEF 79BC 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__HcstackBANK2 0 0 ABS 0 cstackBANK2 dist/debug/production/amsat-dl-upc.production.o
+_PIR1bits F9E 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_calc_counters 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+___aodiv@divisor 15 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_toupper 5346 0 CODE 0 text37 dist/debug/production/amsat-dl-upc.production.o
+___aodiv@dividend D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_adc_init 58D8 0 CODE 0 text72 dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_FSW0 799D 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_FSW1 799B 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_RF_R 79A9 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_RF_V 79AB 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_TEMP 79AD 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___lomod@divisor 15 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+printf@ap B9 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_USART_TX_DEF 79C1 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+end_of_initialization 4E7C 0 CODE 0 cinit dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_ADF_LOCK_DEF 7A1B 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__Lnvrram 0 0 COMRAM 1 nvrram dist/debug/production/amsat-dl-upc.production.o
+__Hintentry 0 0 ABS 0 intentry dist/debug/production/amsat-dl-upc.production.o
+__CFG_STVREN$ON 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_RCONbits FD0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+adf4351_set_tune@ctx CF 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+adf4351_set_tune@icp D1 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__size_of_printf 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+fputc@c E 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+fputs@c 16 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+fputs@i 17 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+fputs@s 12 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___awdiv@quotient 13 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?___aodiv D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?___aomod D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?___awdiv D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?___awmod D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_pa_mute 4BB6 0 CODE 0 text10 dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_ADF_FREQ_SEL_DEF 7A02 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+?___lldiv 23 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?___llmod D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?___lodiv D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?___lomod D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+vfprintf@fmt 61 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Hreset_vec 4 0 CODE 0 reset_vec dist/debug/production/amsat-dl-upc.production.o
+adf4351_set_tune@lownoise D3 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/debug/production/amsat-dl-upc.production.o
+__HbssBANK1 0 0 ABS 0 bssBANK1 dist/debug/production/amsat-dl-upc.production.o
+_update_led 3DEC 0 CODE 0 text4 dist/debug/production/amsat-dl-upc.production.o
+___awmod@dividend D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Lramtop 600 0 RAM 0 ramtop dist/debug/production/amsat-dl-upc.production.o
+_PIN_POWER_GOOD 798F 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__size_of_strlen 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Lrparam 0 0 COMRAM 1 rparam dist/debug/production/amsat-dl-upc.production.o
+__pcinit 4E06 0 CODE 0 cinit dist/debug/production/amsat-dl-upc.production.o
+vfpfcnvrt@ap 4F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+vfpfcnvrt@cp 80 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+vfpfcnvrt@fp 4B 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+vfpfcnvrt@ll 86 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__ptext0 2F9C 0 CODE 0 text0 dist/debug/production/amsat-dl-upc.production.o
+__ptext1 51B8 0 CODE 0 text1 dist/debug/production/amsat-dl-upc.production.o
+__ptext2 5614 0 CODE 0 text2 dist/debug/production/amsat-dl-upc.production.o
+__ptext3 500A 0 CODE 0 text3 dist/debug/production/amsat-dl-upc.production.o
+__ptext4 3DEC 0 CODE 0 text4 dist/debug/production/amsat-dl-upc.production.o
+__ptext5 5078 0 CODE 0 text5 dist/debug/production/amsat-dl-upc.production.o
+__ptext6 4532 0 CODE 0 text6 dist/debug/production/amsat-dl-upc.production.o
+__ptext7 58D8 0 CODE 0 text7 dist/debug/production/amsat-dl-upc.production.o
+__ptext8 4CEE 0 CODE 0 text8 dist/debug/production/amsat-dl-upc.production.o
+__ptext9 3350 0 CODE 0 text9 dist/debug/production/amsat-dl-upc.production.o
+adf4351_calc_counters@frac CD 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__Lstruct 0 0 COMRAM 1 struct dist/debug/production/amsat-dl-upc.production.o
+vfprintf@ap 63 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+vfprintf@fp 5F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+vfprintf@cfmt 65 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+global_irq_handler@dummy C 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__Ltext10 0 0 ABS 0 text10 dist/debug/production/amsat-dl-upc.production.o
+__Ltext11 0 0 ABS 0 text11 dist/debug/production/amsat-dl-upc.production.o
+__Ltext12 0 0 ABS 0 text12 dist/debug/production/amsat-dl-upc.production.o
+__Ltext13 0 0 ABS 0 text13 dist/debug/production/amsat-dl-upc.production.o
+__Ltext14 0 0 ABS 0 text14 dist/debug/production/amsat-dl-upc.production.o
+__Ltext15 0 0 ABS 0 text15 dist/debug/production/amsat-dl-upc.production.o
+__Ltext16 0 0 ABS 0 text16 dist/debug/production/amsat-dl-upc.production.o
+__Ltext17 0 0 ABS 0 text17 dist/debug/production/amsat-dl-upc.production.o
+__Ltext18 0 0 ABS 0 text18 dist/debug/production/amsat-dl-upc.production.o
+__Ltext19 0 0 ABS 0 text19 dist/debug/production/amsat-dl-upc.production.o
+__Ltext20 0 0 ABS 0 text20 dist/debug/production/amsat-dl-upc.production.o
+__Ltext21 0 0 ABS 0 text21 dist/debug/production/amsat-dl-upc.production.o
+__Ltext22 0 0 ABS 0 text22 dist/debug/production/amsat-dl-upc.production.o
+__Ltext23 0 0 ABS 0 text23 dist/debug/production/amsat-dl-upc.production.o
+__Ltext24 0 0 ABS 0 text24 dist/debug/production/amsat-dl-upc.production.o
+__Ltext25 0 0 ABS 0 text25 dist/debug/production/amsat-dl-upc.production.o
+__Ltext26 0 0 ABS 0 text26 dist/debug/production/amsat-dl-upc.production.o
+__Ltext27 0 0 ABS 0 text27 dist/debug/production/amsat-dl-upc.production.o
+__Ltext28 0 0 ABS 0 text28 dist/debug/production/amsat-dl-upc.production.o
+__Ltext29 0 0 ABS 0 text29 dist/debug/production/amsat-dl-upc.production.o
+__Ltext30 0 0 ABS 0 text30 dist/debug/production/amsat-dl-upc.production.o
+__Ltext31 0 0 ABS 0 text31 dist/debug/production/amsat-dl-upc.production.o
+__Ltext32 0 0 ABS 0 text32 dist/debug/production/amsat-dl-upc.production.o
+__Ltext33 0 0 ABS 0 text33 dist/debug/production/amsat-dl-upc.production.o
+__Ltext34 0 0 ABS 0 text34 dist/debug/production/amsat-dl-upc.production.o
+__Ltext35 0 0 ABS 0 text35 dist/debug/production/amsat-dl-upc.production.o
+__Ltext36 0 0 ABS 0 text36 dist/debug/production/amsat-dl-upc.production.o
+__Ltext37 0 0 ABS 0 text37 dist/debug/production/amsat-dl-upc.production.o
+__Ltext38 0 0 ABS 0 text38 dist/debug/production/amsat-dl-upc.production.o
+__Ltext39 0 0 ABS 0 text39 dist/debug/production/amsat-dl-upc.production.o
+__Ltext40 0 0 ABS 0 text40 dist/debug/production/amsat-dl-upc.production.o
+__Ltext41 0 0 ABS 0 text41 dist/debug/production/amsat-dl-upc.production.o
+__Ltext42 0 0 ABS 0 text42 dist/debug/production/amsat-dl-upc.production.o
+__Ltext43 0 0 ABS 0 text43 dist/debug/production/amsat-dl-upc.production.o
+__Ltext44 0 0 ABS 0 text44 dist/debug/production/amsat-dl-upc.production.o
+__Ltext45 0 0 ABS 0 text45 dist/debug/production/amsat-dl-upc.production.o
+__Ltext46 0 0 ABS 0 text46 dist/debug/production/amsat-dl-upc.production.o
+__Ltext47 0 0 ABS 0 text47 dist/debug/production/amsat-dl-upc.production.o
+__Ltext48 0 0 ABS 0 text48 dist/debug/production/amsat-dl-upc.production.o
+__Ltext49 0 0 ABS 0 text49 dist/debug/production/amsat-dl-upc.production.o
+__Ltext50 0 0 ABS 0 text50 dist/debug/production/amsat-dl-upc.production.o
+__Ltext51 0 0 ABS 0 text51 dist/debug/production/amsat-dl-upc.production.o
+__Ltext52 0 0 ABS 0 text52 dist/debug/production/amsat-dl-upc.production.o
+__Ltext53 0 0 ABS 0 text53 dist/debug/production/amsat-dl-upc.production.o
+__Ltext54 0 0 ABS 0 text54 dist/debug/production/amsat-dl-upc.production.o
+__Ltext55 0 0 ABS 0 text55 dist/debug/production/amsat-dl-upc.production.o
+__Ltext56 0 0 ABS 0 text56 dist/debug/production/amsat-dl-upc.production.o
+__Ltext57 0 0 ABS 0 text57 dist/debug/production/amsat-dl-upc.production.o
+__Ltext58 0 0 ABS 0 text58 dist/debug/production/amsat-dl-upc.production.o
+__Ltext59 0 0 ABS 0 text59 dist/debug/production/amsat-dl-upc.production.o
+__Ltext60 0 0 ABS 0 text60 dist/debug/production/amsat-dl-upc.production.o
+__Ltext61 0 0 ABS 0 text61 dist/debug/production/amsat-dl-upc.production.o
+__Ltext62 0 0 ABS 0 text62 dist/debug/production/amsat-dl-upc.production.o
+__Ltext63 0 0 ABS 0 text63 dist/debug/production/amsat-dl-upc.production.o
+__Ltext64 0 0 ABS 0 text64 dist/debug/production/amsat-dl-upc.production.o
+__Ltext65 0 0 ABS 0 text65 dist/debug/production/amsat-dl-upc.production.o
+__Ltext66 0 0 ABS 0 text66 dist/debug/production/amsat-dl-upc.production.o
+__Ltext67 0 0 ABS 0 text67 dist/debug/production/amsat-dl-upc.production.o
+__Ltext68 0 0 ABS 0 text68 dist/debug/production/amsat-dl-upc.production.o
+__Ltext69 0 0 ABS 0 text69 dist/debug/production/amsat-dl-upc.production.o
+__Ltext70 0 0 ABS 0 text70 dist/debug/production/amsat-dl-upc.production.o
+__Ltext71 0 0 ABS 0 text71 dist/debug/production/amsat-dl-upc.production.o
+__Ltext72 0 0 ABS 0 text72 dist/debug/production/amsat-dl-upc.production.o
+__Ltext73 0 0 ABS 0 text73 dist/debug/production/amsat-dl-upc.production.o
+__Ltext74 0 0 ABS 0 text74 dist/debug/production/amsat-dl-upc.production.o
+__Ltext76 0 0 ABS 0 text76 dist/debug/production/amsat-dl-upc.production.o
+__Ltext77 0 0 ABS 0 text77 dist/debug/production/amsat-dl-upc.production.o
+_handle_cmd 3350 0 CODE 0 text9 dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_VOLTAGE_DEF 79E9 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__ramtop 600 0 RAM 0 ramtop /tmp/xcXtjFfTS.o
+__size_of_check_usart 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_vfprintf 5286 0 CODE 0 text34 dist/debug/production/amsat-dl-upc.production.o
+_init_gpios 14C6 0 CODE 0 text19 dist/debug/production/amsat-dl-upc.production.o
+__end_of_pa_unmute 4606 0 CODE 0 text6 dist/debug/production/amsat-dl-upc.production.o
+__Lpowerup E 0 CODE 0 powerup dist/debug/production/amsat-dl-upc.production.o
+__end_of_pa_update 50E4 0 CODE 0 text5 dist/debug/production/amsat-dl-upc.production.o
+__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/debug/production/amsat-dl-upc.production.o
+check_usart@c 214 0 BANK2 1 cstackBANK2 dist/debug/production/amsat-dl-upc.production.o
+_isalpha 571A 0 CODE 0 text40 dist/debug/production/amsat-dl-upc.production.o
+_isdigit 57C6 0 CODE 0 text58 dist/debug/production/amsat-dl-upc.production.o
+__size_of_pa_unmute 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_pa_update 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_islower 5756 0 CODE 0 text38 dist/debug/production/amsat-dl-upc.production.o
+_isspace 5450 0 CODE 0 text57 dist/debug/production/amsat-dl-upc.production.o
+___lodiv@quotient 1D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_isupper 578E 0 CODE 0 text39 dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_PA_ENABLE 79A3 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__Lreset_vec 0 0 CODE 0 reset_vec dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_TEMP_DEF 79F8 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+adc_voltage@gpio 30 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_vfprintf 52E8 0 CODE 0 text34 dist/debug/production/amsat-dl-upc.production.o
+__end_of_init_switch 58E6 0 CODE 0 text7 dist/debug/production/amsat-dl-upc.production.o
+_strncmp 405C 0 CODE 0 text44 dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_PTT_INPUT_DEF 79FD 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_LED_ADF_LOCK_DEF 79D5 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+___lomod@dividend D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+KTY82_222_Adc2Temperature@res 19 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___param_bank 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+adf4351_set_freq@ctx D1 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__CFG_WDT$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/debug/production/amsat-dl-upc.production.o
+__end_of__initialization 4E7C 0 CODE 0 cinit dist/debug/production/amsat-dl-upc.production.o
+___awmod@divisor F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__CFG_WRT0$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_USART_RX 7993 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_USART_TX 7995 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__CFG_WRT1$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__CFG_WRT2$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__CFG_WRT3$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__CFG_WRTB$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Libigdata 0 0 CODE 0 ibigdata dist/debug/production/amsat-dl-upc.production.o
+__CFG_WRTC$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_adf4351_calc_rcnt_block 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__CFG_WRTD$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_apply_ipc 571A 0 CODE 0 text24 dist/debug/production/amsat-dl-upc.production.o
+?_fputc E 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__pidataBANK0 58E6 0 CODE 0 idataBANK0 dist/debug/production/amsat-dl-upc.production.o
+__pidataBANK1 58EF 0 CODE 0 idataBANK1 dist/debug/production/amsat-dl-upc.production.o
+_pa_unmute 4532 0 CODE 0 text6 dist/debug/production/amsat-dl-upc.production.o
+_pa_update 5078 0 CODE 0 text5 dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_set_rfout_enable 5450 0 CODE 0 text11 dist/debug/production/amsat-dl-upc.production.o
+__end_of_irq_set_handler 5658 0 CODE 0 text2 dist/debug/production/amsat-dl-upc.production.o
+__size_of_apply_ipc 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Lclrtext 0 0 ABS 0 clrtext dist/debug/production/amsat-dl-upc.production.o
+_isspace$2877 13 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+check_usart@temp 212 0 BANK2 1 cstackBANK2 dist/debug/production/amsat-dl-upc.production.o
+_adc_voltage 50E4 0 CODE 0 text61 dist/debug/production/amsat-dl-upc.production.o
+___lmul@product 1F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+ctoa@fp 24 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___lmul@multiplicand 1B 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__CFG_PWRT$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+___lldiv@quotient 2B 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+___lodiv@counter 25 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_KTY82_222_Adc2Temperature 5614 0 CODE 0 text68 dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_POWER_GOOD 7991 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+_TXSTAbits FAC 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__pmediumconst 717E 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__end_of_update_led 3F40 0 CODE 0 text4 dist/debug/production/amsat-dl-upc.production.o
+__size_of_adc_sample 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_LED_ADF_LOCK 7997 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+___llmod@dividend D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__CFG_BOREN$SBORDIS 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+___llmod@counter 15 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+vfpfcnvrt@c 8E 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+_PIN_VOLTAGE_DEF 79E4 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+check_usart@dbm 200 0 BANK2 1 cstackBANK2 dist/debug/production/amsat-dl-upc.production.o
+_apply_ipc 56DC 0 CODE 0 text24 dist/debug/production/amsat-dl-upc.production.o
+__end_of_atoi 3822 0 CODE 0 text56 dist/debug/production/amsat-dl-upc.production.o
+__end_of_ctoa 53FE 0 CODE 0 text50 dist/debug/production/amsat-dl-upc.production.o
+__end_of_dtoa 261C 0 CODE 0 text46 dist/debug/production/amsat-dl-upc.production.o
+__end_of_main 318C 0 CODE 0 text0 dist/debug/production/amsat-dl-upc.production.o
+__end_of_stoa 3692 0 CODE 0 text45 dist/debug/production/amsat-dl-upc.production.o
+__end_of_utoa 2F9C 0 CODE 0 text41 dist/debug/production/amsat-dl-upc.production.o
+__end_of_xtoa 28F0 0 CODE 0 text36 dist/debug/production/amsat-dl-upc.production.o
+__pintcode 8 0 CODE 0 intcode dist/debug/production/amsat-dl-upc.production.o
+isdigit@c D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__size_of_usart_getc 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_usart_init 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_usart_putc 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_usart_tstc 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+printf@fmt 97 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__end_of_fputc 584E 0 CODE 0 text54 dist/debug/production/amsat-dl-upc.production.o
+__end_of_fputs 569C 0 CODE 0 text53 dist/debug/production/amsat-dl-upc.production.o
+_PORTA F80 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_PORTB F81 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_PORTC F82 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_RCREG FAE 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_SPBRG FAF 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_TRISA F92 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_TRISB F93 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_TRISC F94 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+_TXREG FAD 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_handle_cmd 34FA 0 CODE 0 text9 dist/debug/production/amsat-dl-upc.production.o
+?_adc_sample 11 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__CFG_CP0$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__CFG_CP1$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__HRAM 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Hbss 0 0 RAM 1 bss dist/debug/production/amsat-dl-upc.production.o
+__Hram 0 0 ABS 0 ram dist/debug/production/amsat-dl-upc.production.o
+__Hsfr 0 0 ABS 0 sfr dist/debug/production/amsat-dl-upc.production.o
+__LRAM 1 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Lbss 0 0 RAM 1 bss dist/debug/production/amsat-dl-upc.production.o
+__Lram 0 0 ABS 0 ram dist/debug/production/amsat-dl-upc.production.o
+__Lsfr 0 0 ABS 0 sfr dist/debug/production/amsat-dl-upc.production.o
+__CFG_CP2$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_ADF_LOCK 79B3 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__CFG_CP3$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+atoi@neg 1A 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_flags 6B 0 COMRAM 1 bssCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_fputc 5826 0 CODE 0 text54 dist/debug/production/amsat-dl-upc.production.o
+_fputs 5658 0 CODE 0 text53 dist/debug/production/amsat-dl-upc.production.o
+_g_ipc EB 0 BANK0 1 dataBANK0 dist/debug/production/amsat-dl-upc.production.o
+__CFG_CPB$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__CFG_CPD$OFF 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_write_reg0 4284 0 CODE 0 text32 dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_write_reg1 3C88 0 CODE 0 text31 dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_write_reg2 14C6 0 CODE 0 text30 dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_write_reg3 2B56 0 CODE 0 text29 dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_write_reg4 1D00 0 CODE 0 text28 dist/debug/production/amsat-dl-upc.production.o
+__end_of_adf4351_write_reg5 4910 0 CODE 0 text27 dist/debug/production/amsat-dl-upc.production.o
+_width 67 0 COMRAM 1 bssCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_init_gpios 194E 0 CODE 0 text19 dist/debug/production/amsat-dl-upc.production.o
+_putchar 5896 0 CODE 0 text23 dist/debug/production/amsat-dl-upc.production.o
+?_isalpha D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_isdigit D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+adf4351_calc_vco_core_freq@rf_out_freq F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_islower D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_isspace D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_usart_getc D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_isupper D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_usart_tstc D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_adf4351_setup 553C 0 CODE 0 text26 dist/debug/production/amsat-dl-upc.production.o
+__size_of_abs 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_gcd 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__size_of_pad 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__HdataBANK0 0 0 ABS 0 dataBANK0 dist/debug/production/amsat-dl-upc.production.o
+__HdataBANK1 0 0 ABS 0 dataBANK1 dist/debug/production/amsat-dl-upc.production.o
+atoi@n 21 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+atoi@s 14 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+?_strncmp D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__initialization 4E06 0 CODE 0 cinit dist/debug/production/amsat-dl-upc.production.o
+__pbssBANK0 F0 0 BANK0 1 bssBANK0 dist/debug/production/amsat-dl-upc.production.o
+__pbssBANK1 100 0 BANK1 1 bssBANK1 dist/debug/production/amsat-dl-upc.production.o
+__pdataCOMRAM 72 0 COMRAM 1 dataCOMRAM dist/debug/production/amsat-dl-upc.production.o
+__end_of_read_switch 4D7E 0 CODE 0 text8 dist/debug/production/amsat-dl-upc.production.o
+ctoa@c 26 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+ctoa@w 27 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+handle_cmd@timeout DC 0 BANK0 1 cstackBANK0 dist/debug/production/amsat-dl-upc.production.o
+__Hfardata 0 0 FARRAM 0 fardata dist/debug/production/amsat-dl-upc.production.o
+___wmul@product 11 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_adf4351_get_lock 5586 0 CODE 0 text18 dist/debug/production/amsat-dl-upc.production.o
+__Hsmallconst 0 0 SMALLCONST 0 smallconst dist/debug/production/amsat-dl-upc.production.o
+_irq_set_handler 5614 0 CODE 0 text2 dist/debug/production/amsat-dl-upc.production.o
+dtoa@d 29 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+dtoa@i 49 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+dtoa@n 41 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+dtoa@p 3B 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+dtoa@s 3F 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+dtoa@w 3D 0 COMRAM 1 cstackCOMRAM dist/debug/production/amsat-dl-upc.production.o
+_freq_table 797F 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+__Lifardata 0 0 CODE 0 ifardata dist/debug/production/amsat-dl-upc.production.o
+_g_cpu_led_update_cnt 184 0 BANK1 1 bssBANK1 dist/debug/production/amsat-dl-upc.production.o
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/debug/production/amsat-dl-upc.production.o
+__size_of_usart_rx_irq_handler 0 0 ABS 0 - dist/debug/production/amsat-dl-upc.production.o
+__Hintcode E 0 CODE 0 intcode dist/debug/production/amsat-dl-upc.production.o
+_update_switch 500A 0 CODE 0 text3 dist/debug/production/amsat-dl-upc.production.o
+__end_of_PIN_LED_PTT_ACTIVE 79A1 0 MEDIUMCONST 0 mediumconst dist/debug/production/amsat-dl-upc.production.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+idloc 0 200000 200000 8 1
+cstackCOMRAM 1 1 1 73 1
+cstackBANK0 1 80 80 77 1
+cstackBANK2 1 200 200 16 1
+reset_vec 0 0 0 4 1
+bssBANK1 1 100 100 EE 1
+intcode 0 8 8 58EF 1
+mediumconst 0 717E 717E E82 1
+config 0 300000 300000 E 1
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

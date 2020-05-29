@@ -1,0 +1,146 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"5 src/driver/gpio.h
+[; ;src/driver/gpio.h: 5: typedef struct gpio_pin_def {
+[s S1 `*Vuc 1 `*Vuc 1 `uc 1 ]
+[n S1 gpio_pin_def pPORT pTRIS mask ]
+"21 src/driver/adc.h
+[; ;src/driver/adc.h: 21: extern u32 adc_voltage(gpio_pin gpio);
+[v _adc_voltage `(ul ~T0 @X0 0 ef1`*CS1 ]
+[v F55 `*CS1 ~T0 @X0 1 t ]
+"17 src/pinmap.h
+[; ;src/pinmap.h: 17: extern const gpio_pin PIN_TEMP;
+[v _PIN_TEMP `C*CS1 ~T0 @X0 0 e ]
+"26 src/driver/kty82.c
+[; ;src/driver/kty82.c: 26: float temptab[] = {
+[v _temptab `f ~T0 @X0 -> 17 `i e ]
+[i _temptab
+:U ..
+-> -> 1630 `i `f
+-> -> 1722 `i `f
+-> -> 1922 `i `f
+-> -> 2080 `i `f
+-> -> 2245 `i `f
+-> -> 2417 `i `f
+-> -> 2597 `i `f
+-> -> 2785 `i `f
+-> -> 2980 `i `f
+-> -> 3182 `i `f
+-> -> 3392 `i `f
+-> -> 3607 `i `f
+-> -> 3817 `i `f
+-> -> 4008 `i `f
+-> -> 4166 `i `f
+-> -> 4280 `i `f
+-> -U -> 1 `i `f
+..
+]
+"49
+[; ;src/driver/kty82.c: 49: s16 KTY82_222_Adc2Temperature(u16 adc_value)
+[v _KTY82_222_Adc2Temperature `(s ~T0 @X0 1 ef1`us ]
+"50
+[; ;src/driver/kty82.c: 50: {
+{
+[e :U _KTY82_222_Adc2Temperature ]
+"49
+[; ;src/driver/kty82.c: 49: s16 KTY82_222_Adc2Temperature(u16 adc_value)
+[v _adc_value `us ~T0 @X0 1 r1 ]
+"50
+[; ;src/driver/kty82.c: 50: {
+[f ]
+"51
+[; ;src/driver/kty82.c: 51:  float Rptc;
+[v _Rptc `f ~T0 @X0 1 a ]
+"52
+[; ;src/driver/kty82.c: 52:  int i;
+[v _i `i ~T0 @X0 1 a ]
+"53
+[; ;src/driver/kty82.c: 53:  float x;
+[v _x `f ~T0 @X0 1 a ]
+"56
+[; ;src/driver/kty82.c: 56:  float Umess = (float)adc_value/1000.0;
+[v _Umess `f ~T0 @X0 1 a ]
+[e = _Umess -> / -> -> _adc_value `f `d .1000.0 `f ]
+"59
+[; ;src/driver/kty82.c: 59:  Rptc = Umess * (float)3300 / ((float)5100/1000.0 - Umess);
+[e = _Rptc -> / -> * _Umess -> -> 3300 `i `f `d - / -> -> -> 5100 `i `f `d .1000.0 -> _Umess `d `f ]
+"61
+[; ;src/driver/kty82.c: 61:  if(Rptc <= temptab[0])
+[e $ ! <= _Rptc *U + &U _temptab * -> -> -> 0 `i `ui `ux -> -> # *U &U _temptab `ui `ux 5  ]
+"62
+[; ;src/driver/kty82.c: 62:  {
+{
+"64
+[; ;src/driver/kty82.c: 64:   return 0;
+[e ) -> -> 0 `i `s ]
+[e $UE 4  ]
+"65
+[; ;src/driver/kty82.c: 65:  }
+}
+[e :U 5 ]
+"68
+[; ;src/driver/kty82.c: 68:  i=0;
+[e = _i -> 0 `i ]
+"69
+[; ;src/driver/kty82.c: 69:  while(temptab[i]!=-1)
+[e $U 6  ]
+[e :U 7 ]
+"70
+[; ;src/driver/kty82.c: 70:  {
+{
+"71
+[; ;src/driver/kty82.c: 71:   if(temptab[i] >= Rptc) break;
+[e $ ! >= *U + &U _temptab * -> -> _i `ui `ux -> -> # *U &U _temptab `ui `ux _Rptc 9  ]
+[e $U 8  ]
+[e :U 9 ]
+"72
+[; ;src/driver/kty82.c: 72:   i++;
+[e ++ _i -> 1 `i ]
+"73
+[; ;src/driver/kty82.c: 73:  }
+}
+[e :U 6 ]
+"69
+[; ;src/driver/kty82.c: 69:  while(temptab[i]!=-1)
+[e $ != *U + &U _temptab * -> -> _i `ui `ux -> -> # *U &U _temptab `ui `ux -> -U -> 1 `i `f 7  ]
+[e :U 8 ]
+"76
+[; ;src/driver/kty82.c: 76:  if(temptab[i]!=-1)
+[e $ ! != *U + &U _temptab * -> -> _i `ui `ux -> -> # *U &U _temptab `ui `ux -> -U -> 1 `i `f 10  ]
+"77
+[; ;src/driver/kty82.c: 77:  {
+{
+"80
+[; ;src/driver/kty82.c: 80:   x = i - (Rptc - temptab[i])/(temptab[i-1] - temptab[i]);
+[e = _x - -> _i `f / - _Rptc *U + &U _temptab * -> -> _i `ui `ux -> -> # *U &U _temptab `ui `ux - *U + &U _temptab * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U _temptab `ui `ux *U + &U _temptab * -> -> _i `ui `ux -> -> # *U &U _temptab `ui `ux ]
+"83
+[; ;src/driver/kty82.c: 83:   return (s16)(x*10.0);
+[e ) -> * -> _x `d .10.0 `s ]
+[e $UE 4  ]
+"84
+[; ;src/driver/kty82.c: 84:  }
+}
+[e :U 10 ]
+"86
+[; ;src/driver/kty82.c: 86:  return 111;
+[e ) -> -> 111 `i `s ]
+[e $UE 4  ]
+"87
+[; ;src/driver/kty82.c: 87: }
+[e :UE 4 ]
+}
+"89
+[; ;src/driver/kty82.c: 89: s16 readKTY82(void)
+[v _readKTY82 `(s ~T0 @X0 1 ef ]
+"90
+[; ;src/driver/kty82.c: 90: {
+{
+[e :U _readKTY82 ]
+[f ]
+"91
+[; ;src/driver/kty82.c: 91:  return KTY82_222_Adc2Temperature(adc_voltage(PIN_TEMP));
+[e ) ( _KTY82_222_Adc2Temperature (1 -> ( _adc_voltage (1 _PIN_TEMP `us ]
+[e $UE 11  ]
+"92
+[; ;src/driver/kty82.c: 92: }
+[e :UE 11 ]
+}

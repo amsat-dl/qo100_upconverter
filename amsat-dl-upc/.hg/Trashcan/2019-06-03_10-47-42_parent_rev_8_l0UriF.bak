@@ -1,0 +1,167 @@
+diff --git a/nbproject/configurations.xml b/nbproject/configurations.xml
+--- a/nbproject/configurations.xml
++++ b/nbproject/configurations.xml
+@@ -42,6 +42,7 @@
+         <itemPath>src/driver/irq.c</itemPath>
+       </logicalFolder>
+       <itemPath>src/main.c</itemPath>
++      <itemPath>src/pinmap.c</itemPath>
+     </logicalFolder>
+     <logicalFolder name="ExternalFiles"
+                    displayName="Important Files"
+diff --git a/src/driver/adf4351.c b/src/driver/adf4351.c
+--- a/src/driver/adf4351.c
++++ b/src/driver/adf4351.c
+@@ -1,9 +1,6 @@
+ #include <config.h>
+-#include <pinmap.h>
+-#include <mtstd/errorcodes.h>
+-#include <xc.h>
+ #include <string.h>
+ #include <stdio.h>
+ 
+ #include "adf4351.h"
+ 
+@@ -5,8 +2,9 @@
+ #include <string.h>
+ #include <stdio.h>
+ 
+ #include "adf4351.h"
+ 
++#include <pinmap.h>
+ 
+ //
+ //prototypes
+@@ -42,8 +40,8 @@
+ 	ctx->pfd  = pfd;
+ 
+ 	//init latch enable and chipselect gpios
+-    gpio_set_output(PIN_ADF_LE, GPIO_LEVEL_LOW);
+-    gpio_set_output(PIN_ADF_CE, GPIO_LEVEL_HIGH);
++    gpio_set_lvl_low(PIN_ADF_LE);
++    gpio_set_lvl_high(PIN_ADF_CE);
+ 
+ 	//apply default settings
+ 	adf4351_default(ctx);
+@@ -380,8 +378,8 @@
+     //printf("0x%08lX\n", value);
+     u32 mask = 0x80000000ULL;
+ 
+-    gpio_set_output(PIN_ADF_CLK, GPIO_LEVEL_LOW);
++    gpio_set_lvl_low(PIN_SIO_CLK);
+     __delay_us(1);
+ 	//write 32bit
+     while(mask) {
+         if(value&mask) {
+@@ -384,6 +382,6 @@
+     __delay_us(1);
+ 	//write 32bit
+     while(mask) {
+         if(value&mask) {
+-            gpio_set_output(PIN_ADF_DATA, GPIO_LEVEL_HIGH);
++            gpio_set_lvl_high(PIN_SIO_DATA);
+         } else {
+@@ -389,4 +387,4 @@
+         } else {
+-            gpio_set_output(PIN_ADF_DATA, GPIO_LEVEL_LOW);
++            gpio_set_lvl_low(PIN_SIO_DATA);
+         }
+         __delay_us(1);
+@@ -391,4 +389,4 @@
+         }
+         __delay_us(1);
+-        gpio_set_output(PIN_ADF_CLK, GPIO_LEVEL_HIGH);
++        gpio_set_lvl_high(PIN_SIO_CLK);
+         __delay_us(1);
+@@ -394,8 +392,8 @@
+         __delay_us(1);
+-        gpio_set_output(PIN_ADF_CLK, GPIO_LEVEL_LOW);
++        gpio_set_lvl_low(PIN_SIO_CLK);
+         __delay_us(1);
+         //next bit
+         mask >>= 1;
+     }
+ 
+ 	//pulse latch-enable
+@@ -396,8 +394,8 @@
+         __delay_us(1);
+         //next bit
+         mask >>= 1;
+     }
+ 
+ 	//pulse latch-enable
+-	gpio_set_output(PIN_ADF_LE, GPIO_LEVEL_HIGH);
++	gpio_set_lvl_high(PIN_ADF_LE);
+ 	__delay_us(1);
+@@ -403,4 +401,4 @@
+ 	__delay_us(1);
+-	gpio_set_output(PIN_ADF_LE, GPIO_LEVEL_LOW);
++	gpio_set_lvl_low(PIN_ADF_LE);
+ 	__delay_us(50);
+ }
+diff --git a/src/driver/base/i2c.c b/src/driver/base/i2c.c
+--- a/src/driver/base/i2c.c
++++ b/src/driver/base/i2c.c
+@@ -1,5 +1,4 @@
+ #include <config.h>
+-#include <mtstd/errorcodes.h>
+ #include "i2c.h"
+ 
+ //
+diff --git a/src/driver/gpio.h b/src/driver/gpio.h
+--- a/src/driver/gpio.h
++++ b/src/driver/gpio.h
+@@ -1,16 +1,6 @@
+ #ifndef __DRIVER_GPIO_H__
+ #define __DRIVER_GPIO_H__
+ 
+-typedef enum {
+-	GPIO_DIR_IN  = 0,
+-	GPIO_DIR_OUT = 1,
+-} gpio_direction;
+-
+-typedef enum {
+-	GPIO_LEVEL_LOW = 0,
+-	GPIO_LEVEL_HIGH = 1,
+-} gpio_level;
+-
+ //gpio-pin-definition
+ typedef struct gpio_pin_def {
+ 	volatile unsigned char *pPORT;
+@@ -22,8 +12,11 @@
+ typedef const gpio_pin_def *gpio_pin;
+ 
+ //helper macros
+-#define GPIO_DEFINE_PIN(name, port, pin) \
+-	static const gpio_pin_def name##_DEF = {&PORT##port, &TRIS##port, (1<<pin)}; \
+-	static const gpio_pin     name       = &name##_DEF;
++#define GPIO_DEFINE_PIN_C(name, port, pin) \
++	const gpio_pin_def name##_DEF = {&PORT##port, &TRIS##port, (1<<pin)}; \
++	const gpio_pin     name       = &name##_DEF;
++
++#define GPIO_DEFINE_PIN_H(name) \
++	extern const gpio_pin     name;
+ 
+ //gpio functions
+@@ -28,15 +21,10 @@
+ 
+ //gpio functions
+-static inline void gpio_set_direction(gpio_pin pin, u8 out) {
+-	if(out) *(pin->pTRIS) &= ~pin->mask;
+-	else    *(pin->pTRIS) |= pin->mask;
+-}
+-static inline void gpio_set_output(gpio_pin pin, u8 out) {
+-	if(out) *(pin->pPORT) |=  pin->mask;
+-	else    *(pin->pPORT) &= ~pin->mask;
+-}
+-static inline u8 gpio_get_input(gpio_pin pin) {
+-	return (*(pin->pPORT) & pin->mask) != 0;
+-}
++#define gpio_set_dir_in(pin)  *((pin)->pTRIS) |=  (pin)->mask
++#define gpio_set_dir_out(pin) *((pin)->pTRIS) &= ~(pin)->mask
++#define gpio_set_lvl_low(pin)     *((pin)->pPORT) |=  (pin)->mask
++#define gpio_set_lvl_high(pin)    *((pin)->pPORT) &= ~(pin)->mask
++#define gpio_get_input(pin) ((*((pin)->pPORT) & (pin)->mask) != 0)
++
+ 
+ #endif // __DRIVER_GPIO_H__

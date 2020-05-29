@@ -1,0 +1,142 @@
+diff -r 203fef954787+ -r 203fef954787 src/main.c
+--- a/src/main.c	Mo Nov 04 09:32:47 2019 +0100
++++ b/src/main.c	Mi Nov 06 14:35:50 2019 +0100
+@@ -18,8 +18,8 @@
+ #pragma config BORV = 3         // Brown Out Reset Voltage bits (Minimum setting)
+ 
+ // CONFIG2H
+-#pragma config WDT = OFF         // Watchdog Timer Enable bit (WDT enabled)
+-#pragma config WDTPS = 64        // Watchdog Timer Postscale Select bits (1:32768)
++#pragma config WDT = ON         // Watchdog Timer Enable bit (WDT enabled)
++#pragma config WDTPS = 256      // Watchdog Timer Postscale Select bits (1:256)
+ 
+ // CONFIG3H
+ #pragma config CCP2MX = PORTC   // CCP2 MUX bit (CCP2 input/output is multiplexed with RC1)
+@@ -88,7 +90,7 @@
+ static char g_cmd_buf[10];
+ static int g_cmd_buf_pos = 0;
+ static int g_cpu_led_update_cnt = 0;
+-static unsigned int g_pa_mute_counter = 20;
++static int g_old_ptt_input = -1;
+ 
+ //1129000 LNB Freq
+ static const u32 freq_table[4] = {
+@@ -102,7 +104,9 @@
+ static void init_switch(void);
+ static void update_switch(void);
+ static void update_led(void);
+-static void update_pa(void);
++static void pa_mute(void);
++static void pa_unmute(void);
++static void pa_update(void);
+ static void handle_cmd(u8 cmd);
+ static void init_gpios(void);
+ 
+@@ -148,8 +156,7 @@
+     
+     //main loop
+     for(;;) {
+-        //WDTCON=1;
+-        //CLRWDT();
++        CLRWDT();
+         check_usart();
+         update_switch();
+         update_led();
+@@ -153,5 +160,5 @@
+         check_usart();
+         update_switch();
+         update_led();
+-        update_pa();
++        pa_update();
+         __delay_ms(10);
+@@ -157,5 +164,4 @@
+         __delay_ms(10);
+-        //SLEEP(); //This is actually IDLE as of OSCCON:IDLEN configuration
+     }
+ }
+ 
+@@ -169,5 +175,5 @@
+     printf("ipc set to %i\n", g_ipc); 
+ }
+ 
+-static void mute_pa(unsigned int counter)
++static void pa_mute(void)
+ {
+@@ -173,25 +179,5 @@
+ {
+-    gpio_set_lvl_low(PIN_PA_ENABLE);
+-    gpio_set_lvl_high(PIN_LED_PTT_ACTIVE);        
+-    
+-    if (g_pa_mute_counter < counter) {
+-        g_pa_mute_counter = counter;
+-    } else {
+-    }
+-    
+-}
+-
+-static void update_pa(void) {
+-    if (g_pa_mute_counter > 0) {
+-        gpio_set_lvl_low(PIN_PA_ENABLE);
+-        gpio_set_lvl_high(PIN_LED_PTT_ACTIVE);
+-        g_pa_mute_counter--;
+-    } else {
+-        if (adf4351_get_lock(&g_adf4351)) {
+-            if (0 == gpio_get_input(PIN_PTT_INPUT)) {
+-                gpio_set_lvl_high(PIN_PA_ENABLE);
+-                gpio_set_lvl_low(PIN_LED_PTT_ACTIVE);
+-            } else {
++    adf4351_set_rfout_enable(&g_adf4351, FALSE);
+                 gpio_set_lvl_low(PIN_PA_ENABLE);            
+                 gpio_set_lvl_high(PIN_LED_PTT_ACTIVE);        
+             }
+@@ -195,4 +181,22 @@
+                 gpio_set_lvl_low(PIN_PA_ENABLE);            
+                 gpio_set_lvl_high(PIN_LED_PTT_ACTIVE);        
+             }
++
++static void pa_unmute(void)
++{
++    gpio_set_lvl_high(PIN_PA_ENABLE);
++    gpio_set_lvl_low(PIN_LED_PTT_ACTIVE);
++    __delay_ms(2);
++    adf4351_set_rfout_enable(&g_adf4351, TRUE);
++}
++
++static void pa_update(void)
++{
++    BOOL ptt_input = gpio_get_input(PIN_PTT_INPUT);
++
++    if(ptt_input != g_old_ptt_input) {
++        //ptt changed
++        if (FALSE == ptt_input) {
++            pa_unmute();
++            g_old_ptt_input = FALSE;
+         } else {
+@@ -198,5 +202,8 @@
+         } else {
+-            mute_pa(10);
++            if(adf4351_get_lock(&g_adf4351)) {
++                pa_mute();
++                g_old_ptt_input = TRUE;
++            }
+         }
+     }
+ }
+@@ -303,7 +322,7 @@
+     if((cmd != g_applied_cmd) && (cmd < 4)) {
+         int timeout = 100;
+         
+-        mute_pa(10);
++        pa_mute();
+ 
+         printf("handle_cmd(%i)\r\n",cmd);        
+         
+@@ -312,7 +331,7 @@
+         printf("ADF4351 SET MODE\r\n");
+         adf4351_set_mode(&g_adf4351, TRUE);
+         
+-        while((adf4351_get_lock(&g_adf4351) == FALSE) && timeout) {
++        while((adf4351_get_lock(&g_adf4351) == FALSE) && (timeout>0)) {
+             timeout--;
+             __delay_ms(1);
+         }

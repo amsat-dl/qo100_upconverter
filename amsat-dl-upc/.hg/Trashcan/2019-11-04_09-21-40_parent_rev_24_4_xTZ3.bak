@@ -1,0 +1,51 @@
+diff --git a/nbproject/configurations.xml b/nbproject/configurations.xml
+--- a/nbproject/configurations.xml
++++ b/nbproject/configurations.xml
+@@ -5,7 +5,4 @@
+                    displayName="Header Files"
+                    projectFiles="true">
+       <logicalFolder name="driver" displayName="driver" projectFiles="true">
+-        <logicalFolder name="base" displayName="base" projectFiles="true">
+-          <itemPath>src/driver/base/i2c.h</itemPath>
+-        </logicalFolder>
+         <itemPath>src/driver/adf4351.h</itemPath>
+@@ -11,5 +8,4 @@
+         <itemPath>src/driver/adf4351.h</itemPath>
+-        <itemPath>src/driver/i2c_native.h</itemPath>
+         <itemPath>src/driver/usart.h</itemPath>
+         <itemPath>src/driver/irq.h</itemPath>
+         <itemPath>src/driver/gpio.h</itemPath>
+@@ -31,7 +27,4 @@
+                    displayName="Source Files"
+                    projectFiles="true">
+       <logicalFolder name="driver" displayName="driver" projectFiles="true">
+-        <logicalFolder name="base" displayName="base" projectFiles="true">
+-          <itemPath>src/driver/base/i2c.c</itemPath>
+-        </logicalFolder>
+         <itemPath>src/driver/adf4351.c</itemPath>
+@@ -37,5 +30,4 @@
+         <itemPath>src/driver/adf4351.c</itemPath>
+-        <itemPath>src/driver/i2c_native.c</itemPath>
+         <itemPath>src/driver/usart.c</itemPath>
+         <itemPath>src/driver/irq.c</itemPath>
+       </logicalFolder>
+@@ -212,9 +204,6 @@
+         <property key="programoptions.uselvpprogramming" value="false"/>
+         <property key="voltagevalue" value="5.0"/>
+       </PICkit3PlatformTool>
+-      <XC8-CO>
+-        <property key="coverage-enable" value=""/>
+-      </XC8-CO>
+       <XC8-config-global>
+         <property key="advanced-elf" value="true"/>
+         <property key="gcc-opt-driver-new" value="true"/>
+@@ -389,9 +378,6 @@
+         <property key="programoptions.uselvpprogramming" value="false"/>
+         <property key="voltagevalue" value="5.0"/>
+       </PICkit3PlatformTool>
+-      <XC8-CO>
+-        <property key="coverage-enable" value=""/>
+-      </XC8-CO>
+       <XC8-config-global>
+         <property key="advanced-elf" value="true"/>
+         <property key="gcc-opt-driver-new" value="true"/>

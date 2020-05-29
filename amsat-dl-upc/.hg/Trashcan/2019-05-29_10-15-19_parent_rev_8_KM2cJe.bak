@@ -1,0 +1,154 @@
+diff --git a/src/driver/ad9553.h b/src/driver/ad9553.h
+new file mode 100644
+--- /dev/null
++++ b/src/driver/ad9553.h
+@@ -0,0 +1,7 @@
++#ifndef __AD9553_H__
++#define __AD9553_H__
++
++extern void ad9553_init(void);
++extern void ad9553_set_freq(u32 freq);
++
++#endif //__AD9553_H__
+diff --git a/src/main.c b/src/main.c
+--- a/src/main.c
++++ b/src/main.c
+@@ -76,8 +76,9 @@
+ #include <driver/i2c_native.h>
+ #include <driver/lnb.h>
+ #include <driver/usart.h>
++#include <driver/ad9553.h>
+ #include "../hg.h"
+ 
+ //local variables
+ static u8 g_pending_cmd = 0xFF;
+ static u8 g_applied_cmd = 0xFF;
+@@ -79,7 +80,10 @@
+ #include "../hg.h"
+ 
+ //local variables
+ static u8 g_pending_cmd = 0xFF;
+ static u8 g_applied_cmd = 0xFF;
++static u8 g_pending_qrg = 0xFF;
++static u8 g_applied_qrg = 0xFF;
++static BOOL g_lnb_configured = FALSE;
+ static adf4351_ctx g_adf4351;
+ static i2c_data_native g_i2c_bus;
+@@ -84,6 +88,6 @@
+ static adf4351_ctx g_adf4351;
+ static i2c_data_native g_i2c_bus;
+-static int g_ipc = ADF4351_ICP_031;
++static int g_ipc = ADF4351_ICP_188;
+ static int g_pout = ADF4351_POUT_1;
+ static char g_cmd_buf[10];
+ static int  g_cmd_buf_pos = 0;
+@@ -95,6 +99,10 @@
+     711000,  689000,  669000,  595000, 594000,
+ };
+ 
++static const u32 qrg_freq_table[4] = {
++    26000000, 27000000, 28000000, 29000000
++};
++
+ //local functions declarations
+ static void check_usart(void);
+ 
+@@ -103,6 +111,9 @@
+ static void update_switch(void);
+ static void update_led(void);
+ static void handle_cmd(u8 cmd);
++static u8 read_qrg(void);
++static void handle_qrg(u8 qrg);
++static void update_qrg(void);
+ static void init_gpios(void);
+ 
+ 
+@@ -132,5 +143,5 @@
+     printf("\nAMSAT DL SDC %s\n\n", HG_DISPLAY);
+     
+     i2c_native_init(&g_i2c_bus, 100000);
+-    lnb_good = lnb_configure((i2c_dev)&g_i2c_bus, I2C_ADDR_LNBH26);
++    g_lnb_configured = lnb_configure((i2c_dev)&g_i2c_bus, I2C_ADDR_LNBH26);
+     //set lnb good led
+@@ -136,6 +147,6 @@
+     //set lnb good led
+-    gpio_set_output(PIN_LED_LNB_GOOD, (lnb_good==0)?0:1);
+-    adf4351_init(&g_adf4351, 40000ULL, 40000ULL);
++    gpio_set_output(PIN_LED_LNB_GOOD, (!gpio_get_input(PIN_LNB_FAULT)&&g_lnb_configured)?0:1);
++    adf4351_init(&g_adf4351, 40000ULL, 10000ULL);
+     adf4351_set_tune(&g_adf4351, g_ipc, g_pout, TRUE);
+     init_switch();
+     adf4351_set_mode(&g_adf4351, TRUE);
+@@ -139,6 +150,7 @@
+     adf4351_set_tune(&g_adf4351, g_ipc, g_pout, TRUE);
+     init_switch();
+     adf4351_set_mode(&g_adf4351, TRUE);
++    ad9553_init();
+ 
+     //disable irq priority system
+     RCONbits.IPEN = 0;
+@@ -156,6 +168,7 @@
+         check_usart();
+         update_switch();
+         update_led();
++        update_qrg();
+         SLEEP(); //This is actually IDLE as of OSCCON:IDLEN configuration
+     }
+ }
+@@ -260,7 +273,8 @@
+     gpio_set_output(PIN_LED_HI_LOW, (g_applied_cmd>4)?1:0);
+     //update ADF lock led
+     gpio_set_output(PIN_LED_ADF_LOCK, (adf4351_get_lock(&g_adf4351)==FALSE)?1:0);
++    gpio_set_output(PIN_LED_LNB_GOOD, (!gpio_get_input(PIN_LNB_FAULT)&&g_lnb_configured)?0:1);
+ }
+ 
+ static void handle_cmd(u8 cmd)
+ {
+@@ -263,8 +277,8 @@
+ }
+ 
+ static void handle_cmd(u8 cmd)
+ {
+-    if((cmd < 10) && (cmd != g_applied_cmd)) {
++    if((cmd != g_applied_cmd) && (cmd < 10)) {
+         int timeout = 1000;
+ 
+         adf4351_set_freq(&g_adf4351, freq_table[cmd]);
+@@ -279,6 +293,37 @@
+     }
+ }
+ 
++static u8 read_qrg(void)
++{
++    u8 qrg1, qrg2;
++
++    //read values
++    qrg1 = gpio_get_input(PIN_LNB_QRG1)?0:1;
++    qrg2 = gpio_get_input(PIN_LNB_QRG2)?0:1;
++
++    return (qrg2<<1) | (qrg1<<0);
++}
++
++static void handle_qrg(u8 qrg)
++{
++    if((qrg != g_applied_qrg) && (qrg < 4)) {
++        //ad9553_set_freq(qrg_freq_table[qrg]);
++        g_applied_qrg = qrg;
++    }
++}
++
++static void update_qrg(void)
++{
++    u8 qrg = read_qrg();
++
++    //handle read out value
++    if(g_pending_qrg == qrg) {
++        handle_qrg(g_pending_qrg);
++    } else {
++        g_pending_qrg = qrg;
++    }
++}
++
+ static void init_gpios(void)
+ {
+     ADCON1bits.PCFG = 0xF;

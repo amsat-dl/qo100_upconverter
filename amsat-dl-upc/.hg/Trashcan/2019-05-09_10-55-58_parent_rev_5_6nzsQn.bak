@@ -1,0 +1,20 @@
+diff --git a/nbproject/configurations.xml b/nbproject/configurations.xml
+--- a/nbproject/configurations.xml
++++ b/nbproject/configurations.xml
+@@ -23,6 +23,7 @@
+       </logicalFolder>
+       <itemPath>src/config.h</itemPath>
+       <itemPath>src/pinmap.h</itemPath>
++      <itemPath>src/app.h</itemPath>
+     </logicalFolder>
+     <logicalFolder name="LinkerScript"
+                    displayName="Linker Files"
+@@ -42,6 +43,8 @@
+         <itemPath>src/driver/irq.c</itemPath>
+       </logicalFolder>
+       <itemPath>src/main.c</itemPath>
++      <itemPath>src/app.c</itemPath>
++      <itemPath>src/retarget.c</itemPath>
+     </logicalFolder>
+     <logicalFolder name="ExternalFiles"
+                    displayName="Important Files"

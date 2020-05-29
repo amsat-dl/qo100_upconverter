@@ -1,0 +1,30 @@
+diff --git a/src/driver/adf4351.c b/src/driver/adf4351.c
+--- a/src/driver/adf4351.c
++++ b/src/driver/adf4351.c
+@@ -103,7 +103,7 @@
+ //set tuning parameters
+ void adf4351_set_tune(adf4351_ctx* ctx, u8 icp, u8 pout, BOOL lownoise)
+ {
+-	//printf("adf4351_set_tune(%p, %u, %u, %i)\n", ctx, icp, pout, lownoise);
++	printf("adf4351_set_tune(%p, %u, %u, %i)\n", ctx, icp, pout, lownoise);
+ 
+     //update registers
+     ctx->reg2.lownoise = lownoise?0:3;
+@@ -132,7 +132,7 @@
+ 
+ static void adf4351_setup(adf4351_ctx* ctx)
+ {
+-    //printf("freq [%lu]:\n", g_freq);
++    printf("freq [%lu]:\n", g_freq);
+     adf4351_write_reg5(ctx);
+     adf4351_write_reg4(ctx);
+     adf4351_write_reg3(ctx);
+@@ -377,7 +377,7 @@
+ //write value into latch
+ static void adf4351_write_latch(u32 value)
+ {
+-    //printf("0x%08lX\n", value);
++    printf("0x%08lX\n", value);
+     u32 mask = 0x80000000ULL;
+ 
+     gpio_set_output(PIN_ADF_CLK, GPIO_LEVEL_LOW);

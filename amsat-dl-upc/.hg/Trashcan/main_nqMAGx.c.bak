@@ -1,0 +1,435 @@
+/*
+ * File:   main.c
+ * Author: be
+ *
+ * Created on 23. April 2019, 16:56
+ */
+
+// PIC18F2520 Configuration Bit Settings
+
+// CONFIG1H
+#pragma config OSC = INTIO67    // Oscillator Selection bits (Internal oscillator block, port function on RA6 and RA7)
+#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor disabled)
+#pragma config IESO = OFF       // Internal/External Oscillator Switchover bit (Oscillator Switchover mode disabled)
+
+// CONFIG2L
+#pragma config PWRT = OFF       // Power-up Timer Enable bit (PWRT disabled)
+#pragma config BOREN = SBORDIS  // Brown-out Reset Enable bits (Brown-out Reset enabled in hardware only (SBOREN is disabled))
+#pragma config BORV = 3         // Brown Out Reset Voltage bits (Minimum setting)
+
+// CONFIG2H
+#pragma config WDT = OFF         // Watchdog Timer Enable bit (WDT enabled)
+#pragma config WDTPS = 64        // Watchdog Timer Postscale Select bits (1:32768)
+
+// CONFIG3H
+#pragma config CCP2MX = PORTC   // CCP2 MUX bit (CCP2 input/output is multiplexed with RC1)
+#pragma config PBADEN = ON     // PORTB A/D Enable bit (PORTB<4:0> pins are configured as analog input on Reset)
+#pragma config LPT1OSC = OFF    // Low-Power Timer1 Oscillator Enable bit (Timer1 configured for higher power operation)
+#ifdef __RELEASE__
+#pragma config MCLRE = OFF       // MCLR Pin Enable bit (MCLR pin disabled; RE3 input pin enabled)
+#else
+#pragma config MCLRE = ON       // MCLR Pin Enable bit (MCLR pin enabled; RE3 input pin disabled)
+#endif //__RELEASE__
+
+// CONFIG4L
+#pragma config STVREN = ON      // Stack Full/Underflow Reset Enable bit (Stack full/underflow will cause Reset)
+#pragma config LVP = OFF         // Single-Supply ICSP Enable bit (Single-Supply ICSP disabled)
+#pragma config XINST = OFF       // Extended Instruction Set Enable bit (Instruction set extension and Indexed Addressing mode enabled)
+
+// CONFIG5L
+#pragma config CP0 = OFF        // Code Protection bit (Block 0 (000800-001FFFh) not code-protected)
+#pragma config CP1 = OFF        // Code Protection bit (Block 1 (002000-003FFFh) not code-protected)
+#pragma config CP2 = OFF        // Code Protection bit (Block 2 (004000-005FFFh) not code-protected)
+#pragma config CP3 = OFF        // Code Protection bit (Block 3 (006000-007FFFh) not code-protected)
+
+// CONFIG5H
+#pragma config CPB = OFF        // Boot Block Code Protection bit (Boot block (000000-0007FFh) not code-protected)
+#pragma config CPD = OFF        // Data EEPROM Code Protection bit (Data EEPROM not code-protected)
+
+// CONFIG6L
+#pragma config WRT0 = OFF       // Write Protection bit (Block 0 (000800-001FFFh) not write-protected)
+#pragma config WRT1 = OFF       // Write Protection bit (Block 1 (002000-003FFFh) not write-protected)
+#pragma config WRT2 = OFF       // Write Protection bit (Block 2 (004000-005FFFh) not write-protected)
+#pragma config WRT3 = OFF       // Write Protection bit (Block 3 (006000-007FFFh) not write-protected)
+
+// CONFIG6H
+#pragma config WRTC = OFF       // Configuration Register Write Protection bit (Configuration registers (300000-3000FFh) not write-protected)
+#pragma config WRTB = OFF       // Boot Block Write Protection bit (Boot block (000000-0007FFh) not write-protected)
+#pragma config WRTD = OFF       // Data EEPROM Write Protection bit (Data EEPROM not write-protected)
+
+// CONFIG7L
+#pragma config EBTR0 = OFF      // Table Read Protection bit (Block 0 (000800-001FFFh) not protected from table reads executed in other blocks)
+#pragma config EBTR1 = OFF      // Table Read Protection bit (Block 1 (002000-003FFFh) not protected from table reads executed in other blocks)
+#pragma config EBTR2 = OFF      // Table Read Protection bit (Block 2 (004000-005FFFh) not protected from table reads executed in other blocks)
+#pragma config EBTR3 = OFF      // Table Read Protection bit (Block 3 (006000-007FFFh) not protected from table reads executed in other blocks)
+
+// CONFIG7H
+#pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot block (000000-0007FFh) not protected from table reads executed in other blocks)
+
+// #pragma config statements should precede project file includes.
+// Use project enums instead of #define for ON and OFF.
+#include <config.h>
+#include <pinmap.h>
+#include <stdio.h>
+#include <string.h>
+#include <driver/adf4351.h>
+#include <driver/usart.h>
+#include <driver/kty82.h>
+#include <driver/adc.h>
+#include "../hg.h"
+
+//local variables
+static u8 g_pending_cmd = 0xFF;
+static u8 g_applied_cmd = 0xFF;
+static u8 g_pending_qrg = 0xFF;
+static u8 g_applied_qrg = 0xFF;
+static BOOL g_lnb_configured = FALSE;
+static adf4351_ctx g_adf4351;
+static int g_ipc = ADF4351_ICP_188;
+static int g_pout = ADF4351_POUT_1;
+static char g_cmd_buf[10];
+static int g_cmd_buf_pos = 0;
+static int g_cpu_led_update_cnt = 0;
+static unsigned int g_pa_mute_counter = 20;
+
+//1129000 LNB Freq
+static const u32 freq_table[4] = {
+    1970000, 1968000, 1570000, 1110000,
+};
+
+//local functions declarations
+static void check_usart(void);
+
+static u8  read_switch(void);
+static void init_switch(void);
+static void update_switch(void);
+static void update_led(void);
+static void update_pa(void);
+static void handle_cmd(u8 cmd);
+static void init_gpios(void);
+
+
+//
+//main function
+//
+void main(void)
+{
+    //clock setup
+    OSCTUNE = 0x80;
+    OSCCON = 0xF2;
+    
+    //wait for clock to get stable
+    while(!OSCCONbits.IOFS);
+
+    //disable all interrupts
+    PIE1 = 0;
+    PIE2 = 0;
+
+    init_gpios();
+
+    adc_init();
+    adc_cfg_gpio(PIN_TEMP);
+    adc_cfg_gpio(PIN_RF_V);
+    adc_cfg_gpio(PIN_RF_R);
+    adc_cfg_gpio(PIN_VOLTAGE);
+
+    usart_init(115200);
+    
+    //welcome message
+    printf("\nAMSAT DL UPC %s\n\n", HG_DISPLAY);
+    
+    printf("ADF4351 INIT\r\n");
+    adf4351_init(&g_adf4351, 10000, 10000);
+    printf("ADF4351 SET TUNE\r\n");
+    adf4351_set_tune(&g_adf4351, g_ipc, g_pout, TRUE);
+    printf("INIT SWITCH\r\n");
+    init_switch();
+    
+    //disable irq priority system
+    RCONbits.IPEN = 0;
+    //enable all peripheral interrupt sources
+    INTCONbits.PEIE = 1;
+    //enable all interrupt sources
+    INTCONbits.GIE = 1;
+    
+    printf("cmd: ");
+    
+    //main loop
+    for(;;) {
+        //WDTCON=1;
+        //CLRWDT();
+        check_usart();
+        update_switch();
+        update_led();
+        update_pa();
+        __delay_ms(10);
+        //SLEEP(); //This is actually IDLE as of OSCCON:IDLEN configuration
+    }
+}
+
+//
+//local functions
+//
+static void apply_ipc(int ipc)
+{
+    g_ipc = ipc;
+    adf4351_set_tune(&g_adf4351, g_ipc, g_pout, TRUE);
+    printf("ipc set to %i\n", g_ipc); 
+}
+
+static void mute_pa(unsigned int counter)
+{
+    gpio_set_lvl_low(PIN_PA_ENABLE);
+    gpio_set_lvl_high(PIN_LED_PTT_ACTIVE);        
+    
+    if (g_pa_mute_counter < counter) {
+        g_pa_mute_counter = counter;
+    } else {
+    }
+    
+}
+
+static void update_pa(void) {
+    if (g_pa_mute_counter > 0) {
+        gpio_set_lvl_low(PIN_PA_ENABLE);
+        gpio_set_lvl_high(PIN_LED_PTT_ACTIVE);
+        g_pa_mute_counter--;
+    } else {
+        if (adf4351_get_lock(&g_adf4351)) {
+            if (0 == gpio_get_input(PIN_PTT_INPUT)) {
+                gpio_set_lvl_high(PIN_PA_ENABLE);
+                gpio_set_lvl_low(PIN_LED_PTT_ACTIVE);
+            } else {
+                gpio_set_lvl_low(PIN_PA_ENABLE);            
+                gpio_set_lvl_high(PIN_LED_PTT_ACTIVE);        
+            }
+        } else {
+            mute_pa(10);
+        }
+    }
+}
+
+static void check_usart(void)
+{
+    if(usart_tstc()) {
+        int c = usart_getc();
+        if((c == 13) || (g_cmd_buf_pos >= sizeof(g_cmd_buf))) {
+            putchar('\n');
+            if(strncmp(g_cmd_buf, "ipc ", 4) == 0) {
+                if((g_cmd_buf[4] >= '0') && (g_cmd_buf[4] <= '9')) {
+                    apply_ipc(g_cmd_buf[4] - '0');
+                } else if((g_cmd_buf[4] >= 'a') && (g_cmd_buf[4] <= 'f')) {
+                    apply_ipc(g_cmd_buf[4] - 87);
+                } else if((g_cmd_buf[4] >= 'A') && (g_cmd_buf[4] <= 'F')) {
+                    apply_ipc(g_cmd_buf[4] - 55);
+                } else {
+                    printf("ipc value %c not in range [0-F]\n", g_cmd_buf[4]);
+                }
+            } else if(strncmp(g_cmd_buf, "pout ", 5) == 0) {
+                if((g_cmd_buf[5] >= '0') && (g_cmd_buf[5] <= '3')) {
+                    g_pout = g_cmd_buf[5] - '0';
+                    adf4351_set_tune(&g_adf4351, g_ipc, g_pout, TRUE);
+                    printf("pout set to %i\n", g_pout);
+                } else {
+                    printf("pwr value %c not in range [0-3]\n", g_cmd_buf[5]);
+                }
+            } else if(strncmp(g_cmd_buf, "temp", 5) == 0) {
+                s16 temp = KTY82_222_Adc2Temperature(adc_sample(PIN_TEMP));
+                printf("temperature is %li.%li\n", temp/10, (temp<0)?-temp%10:temp%10);
+            } else if(strncmp(g_cmd_buf, "rfv", 4) == 0) {
+                s32 dbm = (s32)(adc_voltage(PIN_RF_V)/40000) - 80;
+                printf("rfv is %li dBm\n", dbm);
+            } else if(strncmp(g_cmd_buf, "rfr", 4) == 0) {
+                s32 dbm = (s32)(adc_voltage(PIN_RF_R)/40000) - 80;
+                printf("rfr is %li dBm\n", dbm);
+            } else if(strncmp(g_cmd_buf, "power", 6) == 0) {
+                u32 power = ((adc_voltage(PIN_VOLTAGE) * 2)+5000)/10000;
+                printf("power voltage is %lu.%02luV\n", power/100, power%100);
+            } else {
+                printf("invalid command!\n");
+            }
+            //reset buffer
+            memset(g_cmd_buf, 0, g_cmd_buf_pos);
+            g_cmd_buf_pos = 0;
+            printf("cmd: ");
+        } else if(c == 8) {
+			if(g_cmd_buf_pos > 0) {
+				g_cmd_buf_pos--;
+				g_cmd_buf[g_cmd_buf_pos] = 0;
+				printf("\b \b");
+			} 
+        } else {
+            g_cmd_buf[g_cmd_buf_pos++] = c;
+            if((c > 31) && (c < 128)) {
+                putchar(c);
+            } else {
+                putchar('.');
+            }
+        }
+    }
+}
+
+static u8 read_switch(void)
+{
+    u8 fsw0, fsw1;
+
+    //read values
+    fsw0 = gpio_get_input(PIN_FSW0)?0:1;
+    fsw1 = gpio_get_input(PIN_FSW1)?0:1;
+
+    return (fsw0<<0) | (fsw1<<1);
+}
+
+static void init_switch(void)
+{
+    g_pending_cmd = read_switch();
+    handle_cmd(g_pending_cmd);
+}
+
+static void update_switch(void)
+{
+    u8 cmd = read_switch();
+
+    //handle read out value
+    if(g_pending_cmd == cmd) {
+        handle_cmd(g_pending_cmd);
+    } else {
+        g_pending_cmd = cmd;
+    }
+}
+
+static void update_led(void)
+{
+    //update cpu alive led more or less every second (~250ms*4)
+    if(g_cpu_led_update_cnt++ >= 4) {
+        if(gpio_get_input(PIN_LED_CPU_OK)) {
+            gpio_set_lvl_low(PIN_LED_CPU_OK);
+        } else {
+            gpio_set_lvl_high(PIN_LED_CPU_OK);
+        }
+        g_cpu_led_update_cnt = 0;
+    }
+    //update ADF lock led
+    if(adf4351_get_lock(&g_adf4351) == FALSE) {
+        gpio_set_lvl_high(PIN_LED_ADF_LOCK);
+    } else {
+        gpio_set_lvl_low(PIN_LED_ADF_LOCK);
+    }
+    
+}
+
+static void handle_cmd(u8 cmd)
+{
+    if((cmd != g_applied_cmd) && (cmd < 4)) {
+        int timeout = 100;
+        
+        mute_pa(10);
+
+        printf("handle_cmd(%i)\r\n",cmd);        
+        
+        printf("ADF4351 SET FREQ\r\n");
+        adf4351_set_freq(&g_adf4351, freq_table[cmd]);
+        printf("ADF4351 SET MODE\r\n");
+        adf4351_set_mode(&g_adf4351, TRUE);
+        
+        while((adf4351_get_lock(&g_adf4351) == FALSE) && timeout) {
+            timeout--;
+            __delay_ms(1);
+        }
+        if(timeout <= 0) {
+            printf("lock timed out!\n");
+        }
+        g_applied_cmd = cmd;
+        
+        printf("applied_cmd:=%i\r\n",cmd);
+        
+    }
+}
+
+static void init_gpios(void)
+{
+    ADCON1bits.PCFG = 0xF;
+
+    //
+    //PORT A
+    //
+    //ADF4351 Lock Detect
+    gpio_set_dir_in(PIN_ADF_LOCK);
+    
+    //ADF4351 Chip Enable
+    gpio_set_lvl_low(PIN_ADF_CE);
+    gpio_set_dir_out(PIN_ADF_CE);
+    
+    //ADF4351 Latch Enable
+    gpio_set_lvl_low(PIN_ADF_LE);
+    gpio_set_dir_out(PIN_ADF_LE);
+    
+    //Serial Data
+    gpio_set_lvl_low(PIN_SIO_DATA);
+    gpio_set_dir_out(PIN_SIO_DATA);
+    
+    //Serial Clock
+    gpio_set_lvl_low(PIN_SIO_CLK);
+    gpio_set_dir_out(PIN_SIO_CLK);
+
+    //AD9553 Reset
+    gpio_set_lvl_low(PIN_ADF4351_TMP);
+    gpio_set_dir_out(PIN_ADF4351_TMP);
+
+    //LED high/low
+    gpio_set_dir_in(PIN_ADF_FREQ_SEL);
+    gpio_set_lvl_high(PIN_ADF_FREQ_SEL);
+
+    //PTT input
+    gpio_set_dir_in(PIN_PTT_INPUT);
+    gpio_set_lvl_high(PIN_PTT_INPUT);
+
+    //
+    //PORT B
+    //
+    INTCON2bits.nRBPU = 0; //enable internal pull-up on Port B
+    
+    //FSW0
+    gpio_set_dir_in(PIN_FSW0);
+    gpio_set_lvl_high(PIN_FSW0); //pull-up
+    
+    //FSW1
+    gpio_set_dir_in(PIN_FSW1);
+    gpio_set_lvl_high(PIN_FSW1); //pull-up
+
+    //
+    //PORT C
+    //
+    //LED cpu ok
+    gpio_set_lvl_low(PIN_LED_CPU_OK);
+    gpio_set_dir_out(PIN_LED_CPU_OK);
+
+    //LED lock
+    gpio_set_lvl_low(PIN_LED_ADF_LOCK);
+    gpio_set_dir_out(PIN_LED_ADF_LOCK);
+
+    //PA
+    gpio_set_lvl_low(PIN_PA_ENABLE);
+    gpio_set_dir_out(PIN_PA_ENABLE);
+    
+    //LED PTT active
+    gpio_set_lvl_high(PIN_LED_PTT_ACTIVE);        
+    gpio_set_dir_out(PIN_LED_PTT_ACTIVE);        
+    
+    //Serial TX
+    gpio_set_dir_in(PIN_USART_TX);
+
+    //Serial RX
+    gpio_set_dir_in(PIN_USART_RX);
+}
+
+//retarget for printf
+int fputc(int c, FILE *fp)
+{
+    if(c == '\n') {
+        usart_putc('\r');
+    }
+    usart_putc((char)c);
+
+    return (unsigned char)c;
+}

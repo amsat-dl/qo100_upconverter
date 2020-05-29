@@ -1,0 +1,11 @@
+diff --git a/nbproject/configurations.xml b/nbproject/configurations.xml
+--- a/nbproject/configurations.xml
++++ b/nbproject/configurations.xml
+@@ -42,6 +42,7 @@
+         <itemPath>src/driver/irq.c</itemPath>
+       </logicalFolder>
+       <itemPath>src/main.c</itemPath>
++      <itemPath>src/pinmap.c</itemPath>
+     </logicalFolder>
+     <logicalFolder name="ExternalFiles"
+                    displayName="Important Files"

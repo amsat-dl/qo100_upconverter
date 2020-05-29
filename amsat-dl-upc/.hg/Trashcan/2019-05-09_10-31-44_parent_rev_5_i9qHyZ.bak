@@ -1,0 +1,139 @@
+diff --git a/src/main.c b/src/main.c
+--- a/src/main.c
++++ b/src/main.c
+@@ -79,7 +79,6 @@
+ #include "../hg.h"
+ 
+ //local variables
+-static u8 g_applied_cmd = 0xFF;
+ static adf4351_ctx g_adf4351;
+ static i2c_data_native g_i2c_bus;
+ static int g_ipc = ADF4351_ICP_031;
+@@ -88,11 +87,5 @@
+ static int  g_cmd_buf_pos = 0;
+ static int g_cpu_led_update_cnt = 0;
+ 
+-//1129000 LNB Freq
+-static const u32 freq_table[10] = {
+-    1101000, 1079000, 1059000, 985000, 984000,
+-    711000,  689000,  669000,  595000, 594000,
+-};
+-
+ //local functions declarations
+ static void check_usart(void);
+@@ -97,6 +90,5 @@
+ //local functions declarations
+ static void check_usart(void);
+-static void update_switch(void);
+ static void update_led(void);
+ static void handle_cmd(u8 cmd);
+ static void init_gpios(void);
+@@ -125,7 +117,7 @@
+     usart_init(115200);
+     
+     //welcome message
+-    printf("\nAMSAT DL SDC %s\n\n", HG_DISPLAY);
++    printf("\nUPC 2750MHz\n");
+     
+     i2c_native_init(&g_i2c_bus, 100000);
+     lnb_good = lnb_configure((i2c_dev)&g_i2c_bus, I2C_ADDR_LNBH26);
+@@ -134,7 +126,6 @@
+     adf4351_init(&g_adf4351, 40000ULL, 250ULL);
+     adf4351_set_tune(&g_adf4351, g_ipc, g_pout, TRUE);
+     adf4351_set_mode(&g_adf4351, TRUE);
+-    update_switch();
+ 
+     //disable irq priority system
+     RCONbits.IPEN = 0;
+@@ -143,6 +134,17 @@
+     //enable all interrupt sources
+     INTCONbits.GIE = 1;
+     
++    int timeout = 1000;
++
++    adf4351_set_freq(&g_adf4351, 2750000);
++    while((adf4351_get_lock(&g_adf4351) == FALSE) && timeout) {
++        timeout--;
++        __delay_ms(1);
++    }
++    if(timeout <= 0) {
++        printf("lock timed out!\n");
++    }
++    
+     printf("cmd: ");
+     
+     //main loop
+@@ -150,7 +152,6 @@
+         WDTCON=1;
+         CLRWDT();
+         check_usart();
+-        update_switch();
+         update_led();
+         SLEEP(); //This is actually IDLE as of OSCCON:IDLEN configuration
+     }
+@@ -214,22 +215,8 @@
+     }
+ }
+ 
+-static void update_switch(void)
+-{
+-    u8 rb1, rb2, rb3, rb4;
+-
+-    //read values
+-    rb1 = gpio_get_input(PIN_SJ3)?0:1;
+-    rb2 = gpio_get_input(PIN_SJ4)?0:1;
+-    rb3 = gpio_get_input(PIN_SJ5)?0:1;
+-    rb4 = gpio_get_input(PIN_SJ6)?0:1;
+-
+-    //handle read out value
+-    handle_cmd((rb4<<0) | (rb3<<1) | (rb2<<2) | (rb1<<3));
+-}
+-
+ static void update_led(void)
+ {
+     //update cpu alive led more or less every second (~250ms*4)
+     if(g_cpu_led_update_cnt++ >= 4) {
+         gpio_set_output(PIN_LED_CPU_OK, gpio_get_input(PIN_LED_CPU_OK)?0:1);
+@@ -231,7 +218,8 @@
+ static void update_led(void)
+ {
+     //update cpu alive led more or less every second (~250ms*4)
+     if(g_cpu_led_update_cnt++ >= 4) {
+         gpio_set_output(PIN_LED_CPU_OK, gpio_get_input(PIN_LED_CPU_OK)?0:1);
++        gpio_set_output(PIN_LED_HI_LOW, gpio_get_input(PIN_LED_CPU_OK)?0:1);
+         g_cpu_led_update_cnt = 0;
+     }
+@@ -236,8 +224,6 @@
+         g_cpu_led_update_cnt = 0;
+     }
+-    //update hi/low led
+-    gpio_set_output(PIN_LED_HI_LOW, (g_applied_cmd>4)?1:0);
+     //update ADF lock led
+     gpio_set_output(PIN_LED_ADF_LOCK, (adf4351_get_lock(&g_adf4351)==FALSE)?1:0);
+ }
+ 
+@@ -240,24 +226,7 @@
+     //update ADF lock led
+     gpio_set_output(PIN_LED_ADF_LOCK, (adf4351_get_lock(&g_adf4351)==FALSE)?1:0);
+ }
+ 
+-static void handle_cmd(u8 cmd)
+-{
+-    if((cmd < 10) && (cmd != g_applied_cmd)) {
+-        int timeout = 1000;
+-
+-        adf4351_set_freq(&g_adf4351, freq_table[cmd]);
+-        while((adf4351_get_lock(&g_adf4351) == FALSE) && timeout) {
+-            timeout--;
+-            __delay_ms(1);
+-        }
+-        if(timeout <= 0) {
+-            printf("lock timed out!\n");
+-        }
+-        g_applied_cmd = cmd;
+-    }
+-}
+-
+ static void init_gpios(void)
+ {
+     ADCON1bits.PCFG = 0xF;

@@ -1,0 +1,762 @@
+diff --git a/nbproject/configurations.xml b/nbproject/configurations.xml
+--- a/nbproject/configurations.xml
++++ b/nbproject/configurations.xml
+@@ -5,7 +5,4 @@
+                    displayName="Header Files"
+                    projectFiles="true">
+       <logicalFolder name="driver" displayName="driver" projectFiles="true">
+-        <logicalFolder name="base" displayName="base" projectFiles="true">
+-          <itemPath>src/driver/base/i2c.h</itemPath>
+-        </logicalFolder>
+         <itemPath>src/driver/adf4351.h</itemPath>
+@@ -11,5 +8,4 @@
+         <itemPath>src/driver/adf4351.h</itemPath>
+-        <itemPath>src/driver/i2c_native.h</itemPath>
+         <itemPath>src/driver/usart.h</itemPath>
+         <itemPath>src/driver/irq.h</itemPath>
+         <itemPath>src/driver/gpio.h</itemPath>
+@@ -31,7 +27,4 @@
+                    displayName="Source Files"
+                    projectFiles="true">
+       <logicalFolder name="driver" displayName="driver" projectFiles="true">
+-        <logicalFolder name="base" displayName="base" projectFiles="true">
+-          <itemPath>src/driver/base/i2c.c</itemPath>
+-        </logicalFolder>
+         <itemPath>src/driver/adf4351.c</itemPath>
+@@ -37,5 +30,4 @@
+         <itemPath>src/driver/adf4351.c</itemPath>
+-        <itemPath>src/driver/i2c_native.c</itemPath>
+         <itemPath>src/driver/usart.c</itemPath>
+         <itemPath>src/driver/irq.c</itemPath>
+       </logicalFolder>
+@@ -212,9 +204,6 @@
+         <property key="programoptions.uselvpprogramming" value="false"/>
+         <property key="voltagevalue" value="5.0"/>
+       </PICkit3PlatformTool>
+-      <XC8-CO>
+-        <property key="coverage-enable" value=""/>
+-      </XC8-CO>
+       <XC8-config-global>
+         <property key="advanced-elf" value="true"/>
+         <property key="gcc-opt-driver-new" value="true"/>
+@@ -389,9 +378,6 @@
+         <property key="programoptions.uselvpprogramming" value="false"/>
+         <property key="voltagevalue" value="5.0"/>
+       </PICkit3PlatformTool>
+-      <XC8-CO>
+-        <property key="coverage-enable" value=""/>
+-      </XC8-CO>
+       <XC8-config-global>
+         <property key="advanced-elf" value="true"/>
+         <property key="gcc-opt-driver-new" value="true"/>
+diff --git a/src/driver/base/i2c.c b/src/driver/base/i2c.c
+deleted file mode 100755
+--- a/src/driver/base/i2c.c
++++ /dev/null
+@@ -1,370 +0,0 @@
+-#include <config.h>
+-#include "i2c.h"
+-
+-//
+-//I2C operations
+-//
+-
+-int i2c_setbaud(i2c_dev dev, int baud)
+-{
+-	if(!dev) return ERROR_NODEV;
+-	if(!((i2c_driver_ops*)dev)->setbaud) return 0;
+-	return ((i2c_driver_ops*)dev)->setbaud(dev, baud);
+-}
+-
+-int i2c_transfer(i2c_dev dev, i2c_msg *msg, int num)
+-{
+-	if(!dev) return ERROR_NODEV;
+-	return ((i2c_driver_ops*)dev)->transfer(dev, msg, num);
+-}
+-
+-int i2c_probe_addr(i2c_dev dev, u8 addr)
+-{
+-	i2c_msg msg;
+-	msg.addr  = addr;
+-	msg.flags = I2C_STARTCOND | I2C_STOPCOND;
+-	msg.len   = 0;
+-	msg.data  = NULL;
+-	return i2c_transfer(dev, &msg, 1);
+-}
+-
+-int i2c_read_byte(i2c_dev dev, u8 addr, u8 *data)
+-{
+-	return i2c_read_data(dev, addr, data, 1);
+-}
+-
+-int i2c_write_byte(i2c_dev dev, u8 addr, u8 data)
+-{
+-	return i2c_write_data(dev, addr, &data, 1);
+-}
+-
+-int i2c_read_data(i2c_dev dev, u8 addr, u8 *data, int len)
+-{
+-	i2c_msg msg;
+-	msg.addr  = addr;
+-	msg.flags = I2C_STARTCOND | I2C_STOPCOND | I2C_READ;
+-	msg.len   = len;
+-	msg.data  = data;
+-	return i2c_transfer(dev, &msg, 1);
+-}
+-
+-int i2c_write_data(i2c_dev dev, u8 addr, const u8 *data, int len)
+-{
+-	i2c_msg msg;
+-	msg.addr  = addr;
+-	msg.flags = I2C_STARTCOND | I2C_STOPCOND;
+-	msg.len   = len;
+-	msg.data  = (u8*)data;
+-	return i2c_transfer(dev, &msg, 1);
+-}
+-
+-
+-//
+-//SMBUS wrapper
+-//
+-int smbus8_write_byte(i2c_dev dev, u8 addr, u8 reg, u8  data)
+-{
+-	i2c_msg msg;
+-	u8 tmp[2];
+-
+-	msg.addr  = addr;
+-	msg.flags = I2C_STARTCOND | I2C_STOPCOND;
+-	msg.len   = 2;
+-	msg.data  = tmp;
+-
+-	tmp[0] = reg;
+-	tmp[1] = data;
+-
+-	return i2c_transfer(dev, &msg, 1);
+-}
+-
+-int smbus8_write_data(i2c_dev dev, u8 addr, u8 reg, const u8* data, int len)
+-{
+-	i2c_msg msg[2];
+-
+-	msg[0].addr  = addr;
+-	msg[0].flags = I2C_STARTCOND;
+-	msg[0].len   = 1;
+-	msg[0].data  = &reg;
+-
+-	msg[1].addr  = addr;
+-	msg[1].flags = I2C_STOPCOND;
+-	msg[1].len   = len;
+-	msg[1].data  = (u8*)data;
+-
+-	return i2c_transfer(dev, msg, 2);
+-}
+-
+-int smbus8_write_short(i2c_dev dev, u8 addr, u8 reg, u16 data)
+-{
+-	i2c_msg msg;
+-	u8 tmp[4];
+-
+-	/* ALIGNMENT! */
+-
+-	msg.addr  = addr;
+-	msg.flags = I2C_STARTCOND | I2C_STOPCOND;
+-	msg.len   = 3;
+-	msg.data  = tmp + 1;
+-
+-	tmp[1] = reg;
+-	* (u16 *) (&tmp[2]) = data;
+-
+-	return i2c_transfer(dev, &msg, 1);
+-}
+-
+-int smbus8_read_byte(i2c_dev dev, u8 addr, u8 reg, u8 *data)
+-{
+-	i2c_msg msg[2];
+-
+-	msg[0].addr  = addr;
+-	msg[0].flags = I2C_STARTCOND;
+-	msg[0].len   = 1;
+-	msg[0].data  = &reg;
+-
+-	msg[1].addr  = addr;
+-	msg[1].flags = I2C_STARTCOND | I2C_STOPCOND | I2C_READ;
+-	msg[1].len   = 1;
+-	msg[1].data  = data;
+-
+-	return i2c_transfer(dev, msg, 2);
+-}
+-
+-int smbus8_read_data(i2c_dev dev, u8 addr, u8 reg, u8 *data, int len)
+-{
+-	i2c_msg msg[2];
+-
+-	msg[0].addr  = addr;
+-	msg[0].flags = I2C_STARTCOND;
+-	msg[0].len   = 1;
+-	msg[0].data  = &reg;
+-
+-	msg[1].addr  = addr;
+-	msg[1].flags = I2C_STARTCOND | I2C_STOPCOND | I2C_READ;
+-	msg[1].len   = len;
+-	msg[1].data  = data;
+-
+-	return i2c_transfer(dev, msg, 2);
+-}
+-
+-int smbus8_read_short(i2c_dev dev, u8 addr, u8 reg, u16*data)
+-{
+-	i2c_msg msg[2];
+-
+-	msg[0].addr  = addr;
+-	msg[0].flags = I2C_STARTCOND;
+-	msg[0].len   = 1;
+-	msg[0].data  = &reg;
+-
+-	msg[1].addr  = addr;
+-	msg[1].flags = I2C_STARTCOND | I2C_STOPCOND | I2C_READ;
+-	msg[1].len   = 2;
+-	msg[1].data  = data;
+-
+-	return i2c_transfer(dev, msg, 2);
+-}
+-
+-int smbus8_write_regset(i2c_dev dev, u8 addr, const smbus8_regset *regset)
+-{
+-	i2c_msg msg;
+-	u8 tmp[2];
+-
+-	msg.addr  = addr;
+-	msg.flags = I2C_STARTCOND | I2C_STOPCOND;
+-	msg.len   = 2;
+-	msg.data  = tmp;
+-
+-	while ((regset->reg != 0xFF) || (regset->val != 0xFF)) {
+-		int res;
+-
+-		tmp[0] = regset->reg;
+-		tmp[1] = regset->val;
+-		regset++;
+-
+-		if (0 != (res = i2c_transfer(dev, &msg, 1)))
+-			return res;
+-
+-	}
+-
+-	return 0;
+-}
+-
+-int smbus16_write_data(i2c_dev dev, u8 addr, u16 reg, const u8 *data, int len)
+-{
+-        i2c_msg msg[2];
+-        u8 ger[2];
+-
+-        ger[0] = (reg>>8) & 0x00FF;
+-        ger[1] = reg & 0x00FF;
+-
+-        msg[0].addr  = addr;
+-        msg[0].flags = I2C_STARTCOND;
+-        msg[0].len   = 2;
+-        msg[0].data  = ger;
+-
+-        msg[1].addr  = addr;
+-        msg[1].flags = I2C_STOPCOND;
+-        msg[1].len   = len;
+-        msg[1].data  = (u8*)data;
+-
+-        return i2c_transfer(dev, msg, 2);
+-}
+-
+-int smbus16_write_data_raw(i2c_dev dev, u8 addr, u16 reg, const u8 *data, int len)
+-{
+-        i2c_msg msg[2];
+-        u8 ger[2];
+-
+-        ger[0] = (reg>>8) & 0x00FF;
+-        ger[1] = reg & 0x00FF;
+-
+-        msg[0].addr  = addr;
+-        msg[0].flags = I2C_STARTCOND;
+-        msg[0].len   = 2;
+-        msg[0].data  = ger;
+-
+-        msg[1].addr  = addr;
+-        msg[1].flags = I2C_STOPCOND;
+-        msg[1].len   = len;
+-        msg[1].data  = (u8*)data;
+-
+-        return i2c_transfer(dev, msg, 2);
+-}
+-
+-int smbus16_write_byte(i2c_dev dev, u8 addr, u16 reg, u8 data)
+-{
+-	i2c_msg msg;
+-	u8 tmp[3];
+-
+-	msg.addr  = addr;
+-	msg.flags = I2C_STARTCOND | I2C_STOPCOND;
+-	msg.len   = 3;
+-	msg.data  = tmp;
+-
+-	tmp[0] = (reg>>8) & 0xFF;
+-	tmp[1] = (reg>>0) & 0xFF;
+-	tmp[2] = data;
+-
+-	return i2c_transfer(dev, &msg, 1);
+-}
+-
+-int smbus16_read_byte(i2c_dev dev, u8 addr, u16 reg, u8 *data)
+-{
+-	i2c_msg msg[2];
+-
+-	msg[0].addr  = addr;
+-	msg[0].flags = I2C_STARTCOND;
+-	msg[0].len   = 2;
+-	msg[0].data  = &reg;
+-
+-	msg[1].addr  = addr;
+-	msg[1].flags = I2C_STARTCOND | I2C_STOPCOND | I2C_READ;
+-	msg[1].len   = 1;
+-	msg[1].data  = data;
+-
+-	return i2c_transfer(dev, msg, 2);
+-}
+-
+-int smbus16_read_data(i2c_dev dev, u8 addr, u16 reg, u8 *data, int len)
+-{
+-        i2c_msg msg[2];
+-        u8 ger[2];
+-
+-        ger[0] = (reg>>8) & 0x00FF;
+-        ger[1] = reg & 0x00FF;
+-
+-        msg[0].addr  = addr;
+-        msg[0].flags = I2C_STARTCOND | I2C_STOPCOND;
+-        msg[0].len   = 2;
+-        msg[0].data  = ger;
+-
+-        msg[1].addr  = addr;
+-        msg[1].flags = I2C_STARTCOND | I2C_STOPCOND | I2C_READ;
+-        msg[1].len   = len;
+-        msg[1].data  = data;
+-
+-        return i2c_transfer(dev, msg, 2);
+-}
+-
+-int smbus16_read_data_raw(i2c_dev dev, u8 addr, u16 reg, u8 *data, int len)
+-{
+-        i2c_msg msg[2];
+-        u8 ger[2];
+-
+-        ger[0] = (reg>>8) & 0x00FF;
+-        ger[1] = reg & 0x00FF;
+-
+-        msg[0].addr  = addr;
+-        msg[0].flags = I2C_STARTCOND;
+-        msg[0].len   = 2;
+-        msg[0].data  = ger;
+-
+-        msg[1].addr  = addr;
+-        msg[1].flags = I2C_STARTCOND | I2C_STOPCOND | I2C_READ;
+-        msg[1].len   = len;
+-        msg[1].data  = data;
+-
+-        return i2c_transfer(dev, msg, 2);
+-}
+-
+-
+-
+-int smbus16_write_short(i2c_dev dev, u8 addr, u16 reg, u16 data)
+-{
+-	i2c_msg msg;
+-    u8 tmp[3];
+-
+-	/* ALIGNMENT! */
+-
+-	msg.addr  = addr;
+-	msg.flags = I2C_STARTCOND | I2C_STOPCOND;
+-	msg.len   = 4;
+-	msg.data  = tmp;
+-
+-	* (u16 *) (&tmp[0]) = reg;
+-	* (u16 *) (&tmp[2]) = data;
+-
+-	return i2c_transfer(dev, &msg, 1);
+-}
+-
+-int smbus16_read_short(i2c_dev dev, u8 addr, u16 reg, u16*data)
+-{
+-	i2c_msg msg[2];
+-
+-	msg[0].addr  = addr;
+-	msg[0].flags = I2C_STARTCOND;
+-	msg[0].len   = 2;
+-	msg[0].data  = &reg;
+-
+-	msg[1].addr  = addr;
+-	msg[1].flags = I2C_STARTCOND | I2C_STOPCOND | I2C_READ;
+-	msg[1].len   = 2;
+-	msg[1].data  = data;
+-
+-	return i2c_transfer(dev, msg, 2);
+-}
+-
+-int smbus16_write_regset(i2c_dev dev, u8 addr, const smbus16_regset *regset)
+-{
+-	i2c_msg msg;
+-	u8 tmp[4];
+-
+-	msg.addr  = addr;
+-	msg.flags = I2C_STARTCOND | I2C_STOPCOND;
+-	msg.len   = 4;
+-	msg.data  = tmp;
+-
+-	while ((regset->reg != 0xFFFF) || (regset->val != 0xFFFF)) {
+-		int res;
+-
+-		* (u16 *) (&tmp[0]) = regset->reg;
+-		* (u16 *) (&tmp[2]) = regset->val;
+-		regset++;
+-
+-		if (0 != (res = i2c_transfer(dev, &msg, 1)))
+-			return res;
+-
+-	}
+-
+-	return 0;
+-}
+diff --git a/src/driver/base/i2c.h b/src/driver/base/i2c.h
+deleted file mode 100755
+--- a/src/driver/base/i2c.h
++++ /dev/null
+@@ -1,72 +0,0 @@
+-#ifndef __BASE_I2C_H__
+-#define __BASE_I2C_H__
+-
+-#include <stdlib.h>
+-
+-//
+-//I2C abstraction layer
+-//
+-
+-//I2C flags
+-#define I2C_READ			(1<<0)	//read data
+-#define I2C_STARTCOND		(1<<1)	//generate start-condition
+-#define I2C_STOPCOND			(1<<2)	//generate stop-condition
+-#define I2C_IGNORE_NAK		(1<<3)	//ignore NAK
+-
+-//I2C structures
+-typedef struct i2c_msg {
+-	u16   addr;		//slave address
+-	u8    flags;	//flags
+-	u16   len;		//message length
+-	void* data;		//data buffer
+-} i2c_msg;
+-
+-//smbus8 regset
+-typedef struct {
+-	u8 reg;
+-	u8 val;
+-} smbus8_regset;
+-
+-//smbus16 regset
+-typedef struct {
+-	u16 reg;
+-	u16 val;
+-} smbus16_regset;
+-
+-//dummy-type for I2C-device
+-DECLARE_HANDLE(i2c_dev);
+-
+-//I2C driver ops
+-typedef struct i2c_driver_ops {
+-	int (*transfer)(i2c_dev dev, i2c_msg *msg, int num);
+-    int (*setbaud)(i2c_dev dev, int baud);
+-} i2c_driver_ops;
+-
+-//i2c operations
+-extern int i2c_setbaud   (i2c_dev dev, int baud);
+-extern int i2c_transfer  (i2c_dev dev, i2c_msg *msg, int num);
+-extern int i2c_probe_addr(i2c_dev dev, u8 addr);
+-extern int i2c_read_byte (i2c_dev dev, u8 addr, u8 *data);
+-extern int i2c_write_byte(i2c_dev dev, u8 addr, u8  data);
+-extern int i2c_read_data (i2c_dev dev, u8 addr, u8 *data, int len);
+-extern int i2c_write_data(i2c_dev dev, u8 addr, const u8 *data, int len);
+-
+-//SMBUS wrapper
+-extern int smbus8_write_byte   (i2c_dev dev, u8 addr, u8 reg, u8  data);
+-extern int smbus8_write_data     (i2c_dev dev, u8 addr, u8 reg, const u8 *data, int len);
+-extern int smbus8_read_byte    (i2c_dev dev, u8 addr, u8 reg, u8 *data);
+-extern int smbus8_read_data      (i2c_dev dev, u8 addr, u8 reg, u8 *data, int len);
+-extern int smbus8_write_short  (i2c_dev dev, u8 addr, u8 reg, u16 data);
+-extern int smbus8_read_short   (i2c_dev dev, u8 addr, u8 reg, u16*data);
+-extern int smbus8_write_regset (i2c_dev dev, u8 addr, const smbus8_regset *regset);
+-extern int smbus16_write_data    (i2c_dev dev, u8 addr, u16 reg, const u8 *data, int len);
+-extern int smbus16_write_data_raw(i2c_dev dev, u8 addr, u16 reg, const u8 *data, int len);
+-extern int smbus16_read_data     (i2c_dev dev, u8 addr, u16 reg, u8 *data, int len);
+-extern int smbus16_read_data_raw (i2c_dev dev, u8 addr, u16 reg, u8 *data, int len);
+-extern int smbus16_write_byte  (i2c_dev dev, u8 addr, u16 reg, u8  data);
+-extern int smbus16_read_byte   (i2c_dev dev, u8 addr, u16 reg, u8 *data);
+-extern int smbus16_write_short (i2c_dev dev, u8 addr, u16 reg, u16 data);
+-extern int smbus16_read_short  (i2c_dev dev, u8 addr, u16 reg, u16*data);
+-extern int smbus16_write_regset(i2c_dev dev, u8 addr, const smbus16_regset *regset);
+-
+-#endif //__BASE_I2C_H__
+diff --git a/src/driver/i2c_native.c b/src/driver/i2c_native.c
+deleted file mode 100644
+--- a/src/driver/i2c_native.c
++++ /dev/null
+@@ -1,254 +0,0 @@
+-/* 
+- * File:   i2c.c
+- * Author: be
+- *
+- * Created on 26. April 2019, 15:00
+- */
+-#include <config.h>
+-#include <string.h>
+-#include <stdio.h>
+-#include "i2c_native.h"
+-
+-//config
+-#define I2C_TIMEOUT_INT		 2500 //us
+-#define I2C_TIMEOUT_BUSFREE	10000 //us
+-
+-//prototypes
+-static void i2c_reset(i2c_data_native *ctx);
+-static void i2c_do_setbaud(i2c_data_native *ctx, int baud);
+-static int  i2c_wait_busfree(u32 timeout);
+-static int  i2c_wait_int(u32 timeout);
+-static int  i2c_start(u8 addr, BOOL read, BOOL rep, BOOL wantack);
+-static void i2c_stop(i2c_data_native *ctx);
+-static int  i2c_read(u8 *data, BOOL ack);
+-static int  i2c_write(u8 data, BOOL wantack);
+-static int  i2c_transfer_native(i2c_dev dev, i2c_msg *msg, int num);
+-
+-void i2c_native_init(i2c_data_native *ctx, u32 baud)
+-{
+-    memset(ctx, 0, sizeof(*ctx));
+-    ctx->baud = baud;
+-
+-	//reset status
+-	i2c_reset(ctx);
+-
+-	//return filled device-data
+-	ctx->ops.transfer = i2c_transfer_native;
+-}
+-
+-#define I2C_MASTER_MODE 0x08
+-#define I2C_FW_CTRL_MASTER_MODE 0x0B
+-
+-static void i2c_reset(i2c_data_native *ctx)
+-{
+-    u32 reg;
+-
+-    SSPCON1bits.SSPEN = 0;  //disable MSSP
+-    SSPCON1bits.SSPM = I2C_MASTER_MODE; //I2C Master mode, clock = FOSC/(4 * (SSPADD + 1))
+-    
+-    SSPSTATbits.SMP = 1; //standard speed mode
+-    SSPSTATbits.CKE = 0; //disable SMBus specific inputs
+-    
+-    //I2C Master mode, clock = FOSC/(4 * (SSPADD + 1))
+-    reg = (_XTAL_FREQ / (4*ctx->baud)) - 1;
+-    SSPADD = (reg<127)?reg:127;
+-    
+-    SSPCON1bits.SSPEN = 1;  //enable MSSP
+-}
+-
+-//wait until the bus is free
+-static int i2c_wait_busfree(u32 timeout)
+-{
+-	//check if i2c is enabled
+-	if(SSPCON1bits.SSPEN==0) return 0;
+-
+-	//wait until bus is free
+-	while((PORTCbits.RC3 != 1) || (PORTCbits.RC4 != 1)) {
+-		__delay_us(1);
+-		if(--timeout == 0) {
+-			//-> timeout
+-			return ERROR_TIMEOUT;
+-		}
+-	}
+-
+-	//-> everything ok
+-	return 0;
+-}
+-
+-//wait until current operation has finshed
+-static int i2c_wait_int(u32 timeout)
+-{
+-	//wait for interrupt-flag
+-	while((PIR1bits.SSPIF == 0) && (SSPCON1bits.WCOL == 0)) {
+-		__delay_us(1);
+-		if(--timeout == 0) {
+-			//-> timeout
+-			return ERROR_TIMEOUT;
+-		}
+-	}
+-
+-	//check for bus-error
+-	if(SSPCON1bits.WCOL != 0) {
+-		//-> bus error
+-		SSPCON1bits.WCOL = 0;
+-		return ERROR_BUS;
+-	}
+-
+-	//-> everything ok
+-	return 0;
+-}
+-
+-//create start-condition
+-static int i2c_start(u8 addr, BOOL read, BOOL rep, BOOL wantack)
+-{
+-    int res;
+-
+-    PIR1bits.SSPIF = 0;
+-	//generate (repeated) start-codition
+-	if(rep) SSPCON2bits.RSEN = 1;
+-	else	SSPCON2bits.SEN = 1;
+-
+-	//wait start condition is done
+-    res = i2c_wait_int(I2C_TIMEOUT_INT);
+-	if(res) return res;
+-
+-    PIR1bits.SSPIF = 0;
+-    //write device-adddres & direction-bit
+-	if(read) SSPBUF = (addr<<1) | 1;
+-	else	 SSPBUF = (addr<<1) | 0;
+-    
+-    //wait until byte is written
+-    res = i2c_wait_int(I2C_TIMEOUT_INT);
+-	if(res) return res;
+-
+-	//check if byte was acked
+-	if(wantack && (SSPCON2bits.ACKSTAT != 0)) {
+-		return ERROR_NACK;
+-	}
+-
+-	//-> everything ok
+-	return 0;
+-}
+-
+-//create stop-condition
+-static void i2c_stop(i2c_data_native *ctx)
+-{
+-    PIR1bits.SSPIF = 0;
+-	//generate stop-codition
+-	SSPCON2bits.PEN = 1;
+-
+-	//wait until stop-codition is generated
+-	if(i2c_wait_int(I2C_TIMEOUT_BUSFREE)) {
+-		//error -> reset bus
+-		i2c_reset(ctx);
+-	}
+-}
+-
+-//read byte
+-static int i2c_read(u8 *data, BOOL ack)
+-{
+-	int res;
+-
+-    PIR1bits.SSPIF = 0;
+-
+-	//start reading byte
+-	SSPCON2bits.RCEN = 1;
+-
+-	//wait until byte is read
+-	res = i2c_wait_int(I2C_TIMEOUT_INT);
+-	if(res) return res;
+-    
+-    if(SSPCON2bits.RCEN != 0 || SSPSTATbits.BF == 0) {
+-        printf("bla\n");
+-    }
+-    //save byte
+-	*data = SSPBUF;
+-    
+-    PIR1bits.SSPIF = 0;
+-    //send ack
+-    SSPCON2bits.ACKDT = (ack)?0:1;
+-    SSPCON2bits.ACKEN = 1;
+-    res = i2c_wait_int(I2C_TIMEOUT_INT);
+-    if(res) return res;
+-
+-    return 0;
+-}
+-
+-//write byte
+-static int i2c_write(u8 data, BOOL wantack)
+-{
+-	int res;
+-
+-    PIR1bits.SSPIF = 0;
+-
+-	//write byte
+-	SSPBUF = data;
+-
+-	//wait until byte is written
+-	res = i2c_wait_int(I2C_TIMEOUT_INT);
+-	if(res) return res;
+-
+-	//check if byte was acked
+-    if(wantack && (SSPCON2bits.ACKSTAT != 0)) {
+-		return ERROR_NACK;
+-	}
+-
+-	//-> everything ok
+-	return 0;
+-}
+-
+-//do transfer
+-static int i2c_transfer_native(i2c_dev dev, i2c_msg *msg, int num)
+-{
+-	i2c_data_native *ctx = (i2c_data_native*)dev;
+-	struct i2c_msg *pmsg;
+-	BOOL read, ack, wantack, inmsg;
+-	int  i, res;
+-	u16  left;
+-	u8*  bdata;
+-
+-	inmsg = 0;
+-	for(i=0;i<num;i++) {
+-		//get current message
+-		pmsg    = &msg[i];
+-		bdata	= (u8*)pmsg->data;
+-		read    = ((pmsg->flags & I2C_READ) != 0);
+-		wantack = ((pmsg->flags & I2C_IGNORE_NAK) == 0);
+-
+-		//generate start-condition
+-		if(pmsg->flags&I2C_STARTCOND) {
+-			res = i2c_start(pmsg->addr, read, inmsg, wantack);
+-			if(res) goto error;
+-			inmsg = 1;
+-		}
+-
+-		if(read) {
+-			//read data
+-			left = pmsg->len;
+-			while(left--) {
+-				ack = (left!=0);
+-				res = i2c_read(bdata++, ack);
+-				if(res) goto error;
+-			}
+-		} else {
+-			//write data
+-			left = pmsg->len;
+-			while(left--) {
+-				res = i2c_write(*bdata++, wantack);
+-				if(res) goto error;
+-			}
+-		}
+-
+-		//generate stop-condition
+-		if(pmsg->flags&I2C_STOPCOND) {
+-			i2c_stop(ctx);
+-			inmsg = 0;
+-		}
+-	}
+-	return 0;
+-
+-error:
+-	if(res!=ERROR_BUS && res!=ERROR_ARBLOST) i2c_stop(ctx);
+-	i2c_reset(ctx);
+-	return res;
+-}

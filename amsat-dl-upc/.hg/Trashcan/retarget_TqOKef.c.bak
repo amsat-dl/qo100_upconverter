@@ -1,0 +1,14 @@
+#include <config.h>
+#include <stdio.h>
+#include <driver/usart.h>
+
+//retarget for printf
+int fputc(int c, FILE *fp)
+{
+    if(c == '\n') {
+        usart_putc('\r');
+    }
+    usart_putc((char)c);
+
+    return (unsigned char)c;
+}

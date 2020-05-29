@@ -1,0 +1,7 @@
+#ifndef __AD9553_H__
+#define __AD9553_H__
+
+extern void ad9553_init(void);
+extern void ad9553_set_freq(u32 freq);
+
+#endif //__AD9553_H__

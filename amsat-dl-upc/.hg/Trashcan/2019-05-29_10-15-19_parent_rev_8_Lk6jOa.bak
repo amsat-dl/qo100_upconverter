@@ -1,0 +1,140 @@
+diff --git a/nbproject/configurations.xml b/nbproject/configurations.xml
+--- a/nbproject/configurations.xml
++++ b/nbproject/configurations.xml
+@@ -14,6 +14,7 @@
+         <itemPath>src/driver/usart.h</itemPath>
+         <itemPath>src/driver/irq.h</itemPath>
+         <itemPath>src/driver/gpio.h</itemPath>
++        <itemPath>src/driver/ad9553.h</itemPath>
+       </logicalFolder>
+       <logicalFolder name="mtcrt" displayName="mtcrt" projectFiles="true">
+         <itemPath>src/mtcrt/types.h</itemPath>
+@@ -40,6 +41,7 @@
+         <itemPath>src/driver/lnb.c</itemPath>
+         <itemPath>src/driver/usart.c</itemPath>
+         <itemPath>src/driver/irq.c</itemPath>
++        <itemPath>src/driver/ad9553.c</itemPath>
+       </logicalFolder>
+       <itemPath>src/main.c</itemPath>
+     </logicalFolder>
+diff --git a/src/driver/ad9553.c b/src/driver/ad9553.c
+new file mode 100644
+--- /dev/null
++++ b/src/driver/ad9553.c
+@@ -0,0 +1,116 @@
++#include <config.h>
++#include <pinmap.h>
++#include <stdio.h>
++
++#include "ad9553.h"
++
++//internal helper
++static void write_data(u16 addr, const u8 *data, int len);
++static void read_data(u16 addr, u8 *data, int len);
++static void write_byte(u8 data);
++static void read_byte(u8 *data);
++
++void ad9553_init(void)
++{
++    u8 data[10];
++    
++    read_data(0x00, data, 10);
++    
++    for(int i=0;i<10;i++) {
++        printf("0x%02X: 0x%02X\n", i, data[i]);
++    }
++}
++
++void ad9553_set_frequency(u32 freq)
++{
++
++}
++
++static void write_data(u16 addr, const u8 *data, int len)
++{
++    u16 frame = ((u16)len<<13) | (addr&0x1FFF) | 3;
++    
++    //set chip select
++    gpio_set_output(PIN_AD9553_CS, GPIO_LEVEL_LOW);
++    __delay_us(1);
++    
++    //write start frame
++    write_byte((frame>>0)&0xFF);
++    write_byte((frame>>8)&0xFF);
++
++    //write data
++    while(len--) {
++        write_byte(*data++);
++    }
++
++    //release chip select
++    gpio_set_output(PIN_AD9553_CS, GPIO_LEVEL_HIGH);
++}
++
++static void read_data(u16 addr, u8 *data, int len)
++{
++    u16 frame = (1u<<15) | ((u16)len<<13) | (addr&0x1FFF) | 3;
++    
++    //set chip select
++    gpio_set_output(PIN_AD9553_CS, GPIO_LEVEL_LOW);
++    __delay_us(1);
++
++    //write start frame
++    write_byte((frame>>0)&0xFF);
++    write_byte((frame>>8)&0xFF);
++
++    //read data
++    while(len--) {
++        read_byte(data++);
++    }
++
++    //release chip select
++    gpio_set_output(PIN_AD9553_CS, GPIO_LEVEL_HIGH);
++}
++
++static void write_byte(u8 data)
++{   
++    u8 mask = 0x80;
++
++    gpio_set_direction(PIN_SIO_DATA, GPIO_DIR_OUT);
++    
++    gpio_set_output(PIN_SIO_CLK, GPIO_LEVEL_LOW);
++    __delay_us(1);
++	//write 8bit
++    while(mask) {
++        if(data&mask) {
++            gpio_set_output(PIN_SIO_DATA, GPIO_LEVEL_HIGH);
++        } else {
++            gpio_set_output(PIN_SIO_DATA, GPIO_LEVEL_LOW);
++        }
++        __delay_us(1);
++        gpio_set_output(PIN_SIO_CLK, GPIO_LEVEL_HIGH);
++        __delay_us(1);
++        gpio_set_output(PIN_SIO_CLK, GPIO_LEVEL_LOW);
++        __delay_us(1);
++        //next bit
++        mask >>= 1;
++    }
++    
++    gpio_set_direction(PIN_SIO_DATA, GPIO_DIR_IN);
++}
++
++static void read_byte(u8 *data)
++{   
++    //printf("0x%08lX\n", value);
++    u8 mask = 0x80;
++
++	//read 8bit
++    while(mask) {
++        gpio_set_output(PIN_SIO_CLK, GPIO_LEVEL_HIGH);
++        __delay_us(1);
++        if(gpio_get_input(PIN_SIO_DATA)) {
++            *data |= mask;
++        }
++        __delay_us(1);
++        gpio_set_output(PIN_SIO_CLK, GPIO_LEVEL_LOW);
++        __delay_us(1);
++        //next bit
++        mask >>= 1;
++    }
++}

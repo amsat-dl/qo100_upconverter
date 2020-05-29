@@ -1,0 +1,22 @@
+#include <config.h>
+#include <stdio.h>
+#include "lnb.h"
+
+#define LNB_REG_DATA1 0x02
+#define LNB_REG_DATA2 0x03
+#define LNB_REG_DATA3 0x04
+#define LNB_REG_DATA4 0x05
+
+int lnb_configure(i2c_dev i2c, u8 addr)
+{
+    int res = i2c_probe_addr(i2c, addr);
+    if(res == 0) {
+        //14V 0x04
+        //18V 0x08
+        res = smbus8_write_byte(i2c, addr, LNB_REG_DATA1, 0x84);
+    } else {
+        printf("LNB Chip not found!\n");
+    }
+    
+    return res;
+}

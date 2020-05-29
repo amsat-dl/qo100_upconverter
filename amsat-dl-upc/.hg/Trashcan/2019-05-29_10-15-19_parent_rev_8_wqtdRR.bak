@@ -1,0 +1,512 @@
+diff --git a/nbproject/configurations.xml b/nbproject/configurations.xml
+--- a/nbproject/configurations.xml
++++ b/nbproject/configurations.xml
+@@ -14,6 +14,7 @@
+         <itemPath>src/driver/usart.h</itemPath>
+         <itemPath>src/driver/irq.h</itemPath>
+         <itemPath>src/driver/gpio.h</itemPath>
++        <itemPath>src/driver/ad9553.h</itemPath>
+       </logicalFolder>
+       <logicalFolder name="mtcrt" displayName="mtcrt" projectFiles="true">
+         <itemPath>src/mtcrt/types.h</itemPath>
+@@ -40,5 +41,6 @@
+         <itemPath>src/driver/lnb.c</itemPath>
+         <itemPath>src/driver/usart.c</itemPath>
+         <itemPath>src/driver/irq.c</itemPath>
++        <itemPath>src/driver/ad9553.c</itemPath>
+       </logicalFolder>
+       <itemPath>src/main.c</itemPath>
+@@ -43,5 +45,6 @@
+       </logicalFolder>
+       <itemPath>src/main.c</itemPath>
++      <itemPath>src/pinmap.c</itemPath>
+     </logicalFolder>
+     <logicalFolder name="ExternalFiles"
+                    displayName="Important Files"
+diff --git a/src/driver/ad9553.c b/src/driver/ad9553.c
+new file mode 100644
+--- /dev/null
++++ b/src/driver/ad9553.c
+@@ -0,0 +1,111 @@
++#include <config.h>
++#include <pinmap.h>
++#include <stdio.h>
++
++#include "ad9553.h"
++
++//internal helper
++static void write_data(u16 addr, const u8 *data, int len);
++static void read_data(u16 addr, u8 *data, int len);
++static void write_byte(u8 data);
++static void read_byte(u8 *data);
++
++void ad9553_init(void)
++{
++    u8 data[10];
++    
++    read_data(0x00, data, 10);
++    
++    for(int i=0;i<10;i++) {
++        printf("0x%02X: 0x%02X\n", i, data[i]);
++    }
++}
++
++static void write_data(u16 addr, const u8 *data, int len)
++{
++    u16 frame = ((u16)len<<13) | (addr&0x1FFF) | 3;
++    
++    //set chip select
++    gpio_set_output(PIN_AD9553_CS, GPIO_LEVEL_LOW);
++    __delay_us(1);
++    
++    //write start frame
++    write_byte((frame>>0)&0xFF);
++    write_byte((frame>>8)&0xFF);
++
++    //write data
++    while(len--) {
++        write_byte(*data++);
++    }
++
++    //release chip select
++    gpio_set_output(PIN_AD9553_CS, GPIO_LEVEL_HIGH);
++}
++
++static void read_data(u16 addr, u8 *data, int len)
++{
++    u16 frame = (1u<<15) | ((u16)len<<13) | (addr&0x1FFF) | 3;
++    
++    //set chip select
++    gpio_set_output(PIN_AD9553_CS, GPIO_LEVEL_LOW);
++    __delay_us(1);
++
++    //write start frame
++    write_byte((frame>>0)&0xFF);
++    write_byte((frame>>8)&0xFF);
++
++    //read data
++    while(len--) {
++        read_byte(data++);
++    }
++
++    //release chip select
++    gpio_set_output(PIN_AD9553_CS, GPIO_LEVEL_HIGH);
++}
++
++static void write_byte(u8 data)
++{   
++    u8 mask = 0x80;
++
++    gpio_set_direction(PIN_SIO_DATA, GPIO_DIR_OUT);
++    
++    gpio_set_output(PIN_SIO_CLK, GPIO_LEVEL_LOW);
++    __delay_us(1);
++	//write 8bit
++    while(mask) {
++        if(data&mask) {
++            gpio_set_output(PIN_SIO_DATA, GPIO_LEVEL_HIGH);
++        } else {
++            gpio_set_output(PIN_SIO_DATA, GPIO_LEVEL_LOW);
++        }
++        __delay_us(1);
++        gpio_set_output(PIN_SIO_CLK, GPIO_LEVEL_HIGH);
++        __delay_us(1);
++        gpio_set_output(PIN_SIO_CLK, GPIO_LEVEL_LOW);
++        __delay_us(1);
++        //next bit
++        mask >>= 1;
++    }
++    
++    gpio_set_direction(PIN_SIO_DATA, GPIO_DIR_IN);
++}
++
++static void read_byte(u8 *data)
++{   
++    //printf("0x%08lX\n", value);
++    u8 mask = 0x80;
++
++	//read 8bit
++    while(mask) {
++        gpio_set_output(PIN_SIO_CLK, GPIO_LEVEL_HIGH);
++        __delay_us(1);
++        if(gpio_get_input(PIN_SIO_DATA)) {
++            *data |= mask;
++        }
++        __delay_us(1);
++        gpio_set_output(PIN_SIO_CLK, GPIO_LEVEL_LOW);
++        __delay_us(1);
++        //next bit
++        mask >>= 1;
++    }
++}
+diff --git a/src/driver/ad9553.h b/src/driver/ad9553.h
+new file mode 100644
+--- /dev/null
++++ b/src/driver/ad9553.h
+@@ -0,0 +1,7 @@
++#ifndef __AD9553_H__
++#define __AD9553_H__
++
++extern void ad9553_init(void);
++extern void ad9553_set_freq(u32 freq);
++
++#endif //__AD9553_H__
+diff --git a/src/driver/base/i2c.c b/src/driver/base/i2c.c
+--- a/src/driver/base/i2c.c
++++ b/src/driver/base/i2c.c
+@@ -1,5 +1,4 @@
+ #include <config.h>
+-#include <mtstd/errorcodes.h>
+ #include "i2c.h"
+ 
+ //
+diff --git a/src/driver/gpio.h b/src/driver/gpio.h
+--- a/src/driver/gpio.h
++++ b/src/driver/gpio.h
+@@ -22,8 +22,11 @@
+ typedef const gpio_pin_def *gpio_pin;
+ 
+ //helper macros
+-#define GPIO_DEFINE_PIN(name, port, pin) \
+-	static const gpio_pin_def name##_DEF = {&PORT##port, &TRIS##port, (1<<pin)}; \
+-	static const gpio_pin     name       = &name##_DEF;
++#define GPIO_DEFINE_PIN_C(name, port, pin) \
++	const gpio_pin_def name##_DEF = {&PORT##port, &TRIS##port, (1<<pin)}; \
++	const gpio_pin     name       = &name##_DEF;
++
++#define GPIO_DEFINE_PIN_H(name) \
++	extern const gpio_pin     name;
+ 
+ //gpio functions
+@@ -28,15 +31,14 @@
+ 
+ //gpio functions
+-static inline void gpio_set_direction(gpio_pin pin, u8 out) {
+-	if(out) *(pin->pTRIS) &= ~pin->mask;
+-	else    *(pin->pTRIS) |= pin->mask;
+-}
+-static inline void gpio_set_output(gpio_pin pin, u8 out) {
+-	if(out) *(pin->pPORT) |=  pin->mask;
+-	else    *(pin->pPORT) &= ~pin->mask;
+-}
+-static inline u8 gpio_get_input(gpio_pin pin) {
+-	return (*(pin->pPORT) & pin->mask) != 0;
+-}
++#define gpio_set_direction(pin, dir) \
++        if(dir) { *(pin->pTRIS) &= ~pin->mask; } \
++        else    { *(pin->pTRIS) |= pin->mask; }
++
++#define gpio_set_output(pin, lvl) \
++        if(lvl) { *(pin->pPORT) |=  pin->mask; } \
++        else    { *(pin->pPORT) &= ~pin->mask; }
++
++#define gpio_get_input(pin) ((*(pin->pPORT) & pin->mask) != 0)
++
+ 
+ #endif // __DRIVER_GPIO_H__
+diff --git a/src/driver/lnb.c b/src/driver/lnb.c
+--- a/src/driver/lnb.c
++++ b/src/driver/lnb.c
+@@ -11,6 +11,8 @@
+ {
+     int res = i2c_probe_addr(i2c, addr);
+     if(res == 0) {
++        u8 value;
++
+         //14V 0x04
+         //18V 0x08
+         res = smbus8_write_byte(i2c, addr, LNB_REG_DATA1, 0x84);
+@@ -14,6 +16,17 @@
+         //14V 0x04
+         //18V 0x08
+         res = smbus8_write_byte(i2c, addr, LNB_REG_DATA1, 0x84);
++        if(res != 0) return res;
++        res = smbus8_read_byte(i2c, addr, LNB_REG_DATA4, &value);
++        if(res != 0) return res;
++        value |= (1<<6) | (1<<3);
++        res = smbus8_write_byte(i2c, addr, LNB_REG_DATA4, value);
++        if(res != 0) return res;
++        res = smbus8_read_byte(i2c, addr, LNB_REG_DATA3, &value);
++        if(res != 0) return res;
++        value |= (1<<2) | (1<<6);
++        res = smbus8_write_byte(i2c, addr, LNB_REG_DATA3, value);
++        if(res != 0) return res;
+     } else {
+         printf("LNB Chip not found!\n");
+     }
+diff --git a/src/main.c b/src/main.c
+--- a/src/main.c
++++ b/src/main.c
+@@ -73,6 +73,7 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include <driver/adf4351.h>
++#include <driver/ad9553.h>
+ #include <driver/i2c_native.h>
+ #include <driver/lnb.h>
+ #include <driver/usart.h>
+@@ -81,5 +82,8 @@
+ //local variables
+ static u8 g_pending_cmd = 0xFF;
+ static u8 g_applied_cmd = 0xFF;
++static u8 g_pending_qrg = 0xFF;
++static u8 g_applied_qrg = 0xFF;
++static BOOL g_lnb_configured = FALSE;
+ static adf4351_ctx g_adf4351;
+ static i2c_data_native g_i2c_bus;
+@@ -84,6 +88,6 @@
+ static adf4351_ctx g_adf4351;
+ static i2c_data_native g_i2c_bus;
+-static int g_ipc = ADF4351_ICP_031;
++static int g_ipc = ADF4351_ICP_188;
+ static int g_pout = ADF4351_POUT_1;
+ static char g_cmd_buf[10];
+ static int  g_cmd_buf_pos = 0;
+@@ -95,6 +99,10 @@
+     711000,  689000,  669000,  595000, 594000,
+ };
+ 
++static const u32 qrg_freq_table[4] = {
++    26000000, 27000000, 28000000, 29000000
++};
++
+ //local functions declarations
+ static void check_usart(void);
+ 
+@@ -103,6 +111,9 @@
+ static void update_switch(void);
+ static void update_led(void);
+ static void handle_cmd(u8 cmd);
++static u8 read_qrg(void);
++static void handle_qrg(u8 qrg);
++static void update_qrg(void);
+ static void init_gpios(void);
+ 
+ 
+@@ -111,8 +122,6 @@
+ //
+ void main(void)
+ {
+-    int lnb_good;
+-
+     //clock setup
+     OSCTUNE = 0x80;
+     OSCCON = 0xF2;
+@@ -132,5 +141,5 @@
+     printf("\nAMSAT DL SDC %s\n\n", HG_DISPLAY);
+     
+     i2c_native_init(&g_i2c_bus, 100000);
+-    lnb_good = lnb_configure((i2c_dev)&g_i2c_bus, I2C_ADDR_LNBH26);
++    g_lnb_configured = (lnb_configure((i2c_dev)&g_i2c_bus, I2C_ADDR_LNBH26) == 0);
+     //set lnb good led
+@@ -136,6 +145,6 @@
+     //set lnb good led
+-    gpio_set_output(PIN_LED_LNB_GOOD, (lnb_good==0)?0:1);
+-    adf4351_init(&g_adf4351, 40000ULL, 40000ULL);
++    gpio_set_output(PIN_LED_LNB_GOOD, (gpio_get_input(PIN_LNB_FAULT)&&g_lnb_configured)?0:1);
++    adf4351_init(&g_adf4351, 40000ULL, 10000ULL);
+     adf4351_set_tune(&g_adf4351, g_ipc, g_pout, TRUE);
+     init_switch();
+     adf4351_set_mode(&g_adf4351, TRUE);
+@@ -139,6 +148,7 @@
+     adf4351_set_tune(&g_adf4351, g_ipc, g_pout, TRUE);
+     init_switch();
+     adf4351_set_mode(&g_adf4351, TRUE);
++    ad9553_init();
+ 
+     //disable irq priority system
+     RCONbits.IPEN = 0;
+@@ -156,6 +166,7 @@
+         check_usart();
+         update_switch();
+         update_led();
++        update_qrg();
+         SLEEP(); //This is actually IDLE as of OSCCON:IDLEN configuration
+     }
+ }
+@@ -260,7 +271,8 @@
+     gpio_set_output(PIN_LED_HI_LOW, (g_applied_cmd>4)?1:0);
+     //update ADF lock led
+     gpio_set_output(PIN_LED_ADF_LOCK, (adf4351_get_lock(&g_adf4351)==FALSE)?1:0);
++    gpio_set_output(PIN_LED_LNB_GOOD, (gpio_get_input(PIN_LNB_FAULT)&&g_lnb_configured)?0:1);
+ }
+ 
+ static void handle_cmd(u8 cmd)
+ {
+@@ -263,8 +275,8 @@
+ }
+ 
+ static void handle_cmd(u8 cmd)
+ {
+-    if((cmd < 10) && (cmd != g_applied_cmd)) {
++    if((cmd != g_applied_cmd) && (cmd < 10)) {
+         int timeout = 1000;
+ 
+         adf4351_set_freq(&g_adf4351, freq_table[cmd]);
+@@ -279,6 +291,37 @@
+     }
+ }
+ 
++static u8 read_qrg(void)
++{
++    u8 qrg1, qrg2;
++
++    //read values
++    qrg1 = gpio_get_input(PIN_LNB_QRG1)?0:1;
++    qrg2 = gpio_get_input(PIN_LNB_QRG2)?0:1;
++
++    return (qrg2<<1) | (qrg1<<0);
++}
++
++static void handle_qrg(u8 qrg)
++{
++    if((qrg != g_applied_qrg) && (qrg < 4)) {
++        //ad9553_set_freq(qrg_freq_table[qrg]);
++        g_applied_qrg = qrg;
++    }
++}
++
++static void update_qrg(void)
++{
++    u8 qrg = read_qrg();
++
++    //handle read out value
++    if(g_pending_qrg == qrg) {
++        handle_qrg(g_pending_qrg);
++    } else {
++        g_pending_qrg = qrg;
++    }
++}
++
+ static void init_gpios(void)
+ {
+     ADCON1bits.PCFG = 0xF;
+@@ -298,7 +341,7 @@
+     gpio_set_direction(PIN_ADF_LE, GPIO_DIR_OUT);
+     
+     //Serial Data
+-    gpio_set_output(PIN_ADF_DATA, GPIO_LEVEL_LOW);
+-    gpio_set_direction(PIN_ADF_DATA, GPIO_DIR_OUT);
++    gpio_set_output(PIN_SIO_DATA, GPIO_LEVEL_LOW);
++    gpio_set_direction(PIN_SIO_DATA, GPIO_DIR_OUT);
+     
+     //Serial Clock
+@@ -303,5 +346,5 @@
+     
+     //Serial Clock
+-    gpio_set_output(PIN_ADF_CLK, GPIO_LEVEL_LOW);
+-    gpio_set_direction(PIN_ADF_CLK, GPIO_DIR_OUT);
++    gpio_set_output(PIN_SIO_CLK, GPIO_LEVEL_LOW);
++    gpio_set_direction(PIN_SIO_CLK, GPIO_DIR_OUT);
+ 
+@@ -307,9 +350,10 @@
+ 
+-    //ADF4351 MUXout
+-    gpio_set_direction(PIN_ADF_MUXOUT, GPIO_DIR_IN);
++    //AD9553 Reset
++    gpio_set_output(PIN_AD9553_RESET, GPIO_LEVEL_HIGH);
++    gpio_set_direction(PIN_AD9553_RESET, GPIO_DIR_IN);
+ 
+     //LED high/low
+     gpio_set_output(PIN_LED_HI_LOW, GPIO_LEVEL_LOW);
+     gpio_set_direction(PIN_LED_HI_LOW, GPIO_DIR_OUT);
+ 
+     //AD9553 Chip Select
+@@ -310,10 +354,11 @@
+ 
+     //LED high/low
+     gpio_set_output(PIN_LED_HI_LOW, GPIO_LEVEL_LOW);
+     gpio_set_direction(PIN_LED_HI_LOW, GPIO_DIR_OUT);
+ 
+     //AD9553 Chip Select
+-    gpio_set_direction(PIN_AD9553_CS, GPIO_DIR_IN);
++    gpio_set_output(PIN_AD9553_CS, GPIO_LEVEL_HIGH);
++    gpio_set_direction(PIN_AD9553_CS, GPIO_DIR_OUT);
+ 
+ 
+     //
+@@ -322,8 +367,8 @@
+     INTCON2bits.nRBPU = 0; //enable internal pull-up on Port B
+     
+     //LNB-QRG2
+-    gpio_set_direction(PIN_LNBQRG2, GPIO_DIR_IN);
+-    gpio_set_output(PIN_LNBQRG2, GPIO_LEVEL_HIGH); //pull-up
++    gpio_set_direction(PIN_LNB_QRG2, GPIO_DIR_IN);
++    gpio_set_output(PIN_LNB_QRG2, GPIO_LEVEL_HIGH); //pull-up
+     
+     //SJ3
+     gpio_set_direction(PIN_SJ3, GPIO_DIR_IN);
+@@ -342,8 +387,8 @@
+     gpio_set_output(PIN_SJ6, GPIO_LEVEL_HIGH); //pull-up
+ 
+     //LNB-QRG1
+-    gpio_set_direction(PIN_LNBQRG1, GPIO_DIR_IN);
+-    gpio_set_output(PIN_LNBQRG1, GPIO_LEVEL_HIGH); //pull-up
++    gpio_set_direction(PIN_LNB_QRG1, GPIO_DIR_IN);
++    gpio_set_output(PIN_LNB_QRG1, GPIO_LEVEL_HIGH); //pull-up
+     
+ 
+     //
+diff --git a/src/pinmap.h b/src/pinmap.h
+--- a/src/pinmap.h
++++ b/src/pinmap.h
+@@ -4,13 +4,13 @@
+ #include <driver/gpio.h>
+ 
+ //port A
+-GPIO_DEFINE_PIN(PIN_ADF_LOCK,     A, 0)
+-GPIO_DEFINE_PIN(PIN_ADF_CE,       A, 1)
+-GPIO_DEFINE_PIN(PIN_ADF_LE,       A, 2)
+-GPIO_DEFINE_PIN(PIN_ADF_DATA,     A, 3)
+-GPIO_DEFINE_PIN(PIN_ADF_CLK,      A, 4)
+-GPIO_DEFINE_PIN(PIN_ADF_MUXOUT,   A, 5)
+-GPIO_DEFINE_PIN(PIN_LED_HI_LOW,   A, 6)
+-GPIO_DEFINE_PIN(PIN_AD9553_CS,    A, 7)
++GPIO_DEFINE_PIN_H(PIN_ADF_LOCK)
++GPIO_DEFINE_PIN_H(PIN_ADF_CE)
++GPIO_DEFINE_PIN_H(PIN_ADF_LE)
++GPIO_DEFINE_PIN_H(PIN_SIO_DATA)
++GPIO_DEFINE_PIN_H(PIN_SIO_CLK)
++GPIO_DEFINE_PIN_H(PIN_AD9553_RESET)
++GPIO_DEFINE_PIN_H(PIN_LED_HI_LOW)
++GPIO_DEFINE_PIN_H(PIN_AD9553_CS)
+ 
+ //port B
+@@ -15,10 +15,10 @@
+ 
+ //port B
+-GPIO_DEFINE_PIN(PIN_LNBQRG2,      B, 0)
+-GPIO_DEFINE_PIN(PIN_SJ3,          B, 1)
+-GPIO_DEFINE_PIN(PIN_SJ4,          B, 2)
+-GPIO_DEFINE_PIN(PIN_SJ5,          B, 3)
+-GPIO_DEFINE_PIN(PIN_SJ6,          B, 4)
+-GPIO_DEFINE_PIN(PIN_LNBQRG1,      B, 5)
++GPIO_DEFINE_PIN_H(PIN_LNB_QRG2)
++GPIO_DEFINE_PIN_H(PIN_SJ3)
++GPIO_DEFINE_PIN_H(PIN_SJ4)
++GPIO_DEFINE_PIN_H(PIN_SJ5)
++GPIO_DEFINE_PIN_H(PIN_SJ6)
++GPIO_DEFINE_PIN_H(PIN_LNB_QRG1)
+ 
+ //port C
+@@ -23,12 +23,12 @@
+ 
+ //port C
+-GPIO_DEFINE_PIN(PIN_LED_CPU_OK,   C, 0)
+-GPIO_DEFINE_PIN(PIN_LED_ADF_LOCK, C, 1)
+-GPIO_DEFINE_PIN(PIN_LED_LNB_GOOD, C, 2)
+-GPIO_DEFINE_PIN(PIN_I2C_SCL,      C, 3)
+-GPIO_DEFINE_PIN(PIN_I2C_SDA,      C, 4)
+-GPIO_DEFINE_PIN(PIN_LNB_FAULT,    C, 5)
+-GPIO_DEFINE_PIN(PIN_USART_TX,     C, 6)
+-GPIO_DEFINE_PIN(PIN_USART_RX,     C, 7)
++GPIO_DEFINE_PIN_H(PIN_LED_CPU_OK)
++GPIO_DEFINE_PIN_H(PIN_LED_ADF_LOCK)
++GPIO_DEFINE_PIN_H(PIN_LED_LNB_GOOD)
++GPIO_DEFINE_PIN_H(PIN_I2C_SCL)
++GPIO_DEFINE_PIN_H(PIN_I2C_SDA)
++GPIO_DEFINE_PIN_H(PIN_LNB_FAULT)
++GPIO_DEFINE_PIN_H(PIN_USART_TX)
++GPIO_DEFINE_PIN_H(PIN_USART_RX)
+         
+ #endif //__PINMAP_H__

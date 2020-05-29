@@ -1,0 +1,142 @@
+#!/bin/bash
+
+TMPFILE=`mktemp `
+OUTFILE=$1
+
+SRC_ID=`hg -q identify -i`
+SRC_BRANCH=`hg -q identify -b`
+SRC_TAGS=`hg -q identify -t`
+SRC_ANCESTOR_TAGS=`LANG="en_US" LANGUAGE="en_US" hg log -f | less | grep "^tag:" | cut -d " " -f10`
+SRC_BASE=${SRC_ID:0:12}
+SRC_PLUS=${SRC_ID:12:1}
+
+SRC_ANCESTOR_TAG=notag
+
+for tag in $SRC_TAGS
+do
+	if [ ${tag:0:1} != "V" ]
+	then
+		continue
+	fi
+
+	SRC_TAG=$tag
+	break
+done
+
+for tag in $SRC_ANCESTOR_TAGS
+do
+	if [ ${tag:0:1} != "V" ]
+	then
+		continue
+	fi
+
+	SRC_ANCESTOR_TAG=$tag
+	break
+done
+
+SRC_VERSION_TAG="notag"
+
+if [ $SRC_ANCESTOR_TAG ]
+then
+	if [ $SRC_ANCESTOR_TAG != "notag" ]
+	then
+		SRC_VERSION_TAG=${SRC_ANCESTOR_TAG:1}
+	else
+		SRC_VERSION_TAG="notag"
+	fi
+fi
+
+if [ $SRC_TAG ]
+then
+	if [ $SRC_VERSION_TAG != "notag" ]
+	then
+		SRC_VERSION_TAG=${SRC_TAG:1}
+	else
+		SRC_VERSION_TAG="notag"
+	fi
+fi
+
+echo $SRC_VERSION_TAG
+if [ $SRC_VERSION_TAG != "notag" ]
+then
+	VERSION_MAJOR=`echo "$SRC_VERSION_TAG" | cut -d. -f1`
+	VERSION_MINOR=`echo "$SRC_VERSION_TAG" | cut -d. -f2`
+else
+	VERSION_MAJOR=0
+	VERSION_MINOR=0
+fi
+
+DVERSION="{$SRC_ANCESTOR_TAG-$SRC_ID}"
+FILENAME="$SRC_ANCESTOR_TAG-$SRC_BASE"
+
+if [ $SRC_BRANCH = "default" ]
+then
+	SRC_BRANCH=""
+fi
+
+if [ $SRC_BRANCH ]
+then
+	FILENAME="$SRC_BRANCH.$FILENAME"
+	DVERSION="{$SRC_BRANCH:$SRC_ANCESTOR_TAG-$SRC_ID}"
+fi
+
+
+echo "#define HG_ID      \"$SRC_ID\""        >> $TMPFILE
+echo "#define HG_TAG     \"$SRC_TAG\""       >> $TMPFILE
+echo "#define HG_BRANCH  \"$SRC_BRANCH\""    >> $TMPFILE
+
+if [ $SRC_PLUS ]
+then
+        echo '#define HG_MODIFIED 1'         >> $TMPFILE
+        echo '#define HG_TAGGED   0'         >> $TMPFILE
+        FILENAME="$FILENAME.MODIFIED"
+else
+        echo '#define HG_MODIFIED 0'         >> $TMPFILE
+
+        if [ $SRC_TAG ]
+        then
+                echo '#define HG_TAGGED   1' >> $TMPFILE
+                DVERSION="$SRC_TAG"
+                FILENAME="$SRC_TAG"
+        else
+                echo '#define HG_TAGGED   0' >> $TMPFILE
+        fi
+fi
+
+echo "#define HG_DISPLAY  \"$DVERSION\""     >> $TMPFILE
+echo "#define HG_FILENAME \"$FILENAME\""     >> $TMPFILE
+
+echo "#define HG_MAJOR    $VERSION_MAJOR"    >> $TMPFILE
+echo "#define HG_MINOR    $VERSION_MINOR"    >> $TMPFILE
+
+echo "/* The follwing tokens are for easy grepping from bash scripts " >> $TMPFILE
+echo "   use something like"                                           >> $TMPFILE
+echo '        FOOBAR=`cat config_hg.h | grep "^FOOBAR" | cut -d\| -f2`'>> $TMPFILE
+echo ""                                                                >> $TMPFILE
+echo "FILENAME|$FILENAME"                                              >> $TMPFILE
+echo "*/"                                                              >> $TMPFILE
+
+if [ $OUTFILE ]
+then
+        if [ -e $OUTFILE ]
+        then
+                TMPSUM=`sha1sum "$TMPFILE"`
+                OUTSUM=`sha1sum "$OUTFILE"`
+
+                TMPSUM=${TMPSUM:0:40}
+                OUTSUM=${OUTSUM:0:40}
+
+                if [ "$TMPSUM" == "$OUTSUM" ]
+		then
+			rm "$TMPFILE"
+			exit 0
+		fi
+	fi
+
+	cp "$TMPFILE" "$OUTFILE"
+else
+	cat "$TMPFILE"
+fi
+
+rm "$TMPFILE"
+

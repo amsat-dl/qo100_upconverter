@@ -1,0 +1,30 @@
+diff --git a/src/driver/adf4351.c b/src/driver/adf4351.c
+--- a/src/driver/adf4351.c
++++ b/src/driver/adf4351.c
+@@ -225,6 +225,6 @@
+ {
+ 	int div = 0;
+ 
+-	if (rf_out_freq > 4400000)
++	if (rf_out_freq > 4400000ULL)
+ 		return ERROR_RANGE;
+ 
+@@ -229,7 +229,7 @@
+ 		return ERROR_RANGE;
+ 
+-	while ((rf_out_freq <= 2200000) && (div <= 4)) {
++	while ((rf_out_freq <= 2200000ULL) && (div <= 4)) {
+ 		rf_out_freq *= 2;
+ 		div += 1;
+ 	}
+ 
+@@ -232,8 +232,8 @@
+ 		rf_out_freq *= 2;
+ 		div += 1;
+ 	}
+ 
+-	if ((rf_out_freq <= 2200000) || (div > 4)) {
++	if ((rf_out_freq <= 2200000ULL) || (div > 4)) {
+ 		return ERROR_RANGE;
+     }
+ 

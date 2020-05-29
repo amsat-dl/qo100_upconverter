@@ -1,0 +1,16 @@
+/* 
+ * File:   lnb.h
+ * Author: be
+ *
+ * Created on 29. April 2019, 12:32
+ */
+
+#ifndef LNB_H
+#define	LNB_H
+
+#include <driver/base/i2c.h>
+
+extern int lnb_configure(i2c_dev i2c, u8 addr);
+
+#endif	/* LNB_H */
+

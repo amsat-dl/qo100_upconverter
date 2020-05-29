@@ -1,0 +1,16 @@
+diff --git a/src/pinmap.h b/src/pinmap.h
+--- a/src/pinmap.h
++++ b/src/pinmap.h
+@@ -7,9 +7,9 @@
+ GPIO_DEFINE_PIN(PIN_ADF_LOCK,     A, 0)
+ GPIO_DEFINE_PIN(PIN_ADF_CE,       A, 1)
+ GPIO_DEFINE_PIN(PIN_ADF_LE,       A, 2)
+-GPIO_DEFINE_PIN(PIN_ADF_DATA,     A, 3)
+-GPIO_DEFINE_PIN(PIN_ADF_CLK,      A, 4)
+-GPIO_DEFINE_PIN(PIN_ADF_MUXOUT,   A, 5)
++GPIO_DEFINE_PIN(PIN_SIO_DATA,     A, 3)
++GPIO_DEFINE_PIN(PIN_SIO_CLK,      A, 4)
++GPIO_DEFINE_PIN(PIN_AD9553_RESET, A, 5)
+ GPIO_DEFINE_PIN(PIN_LED_HI_LOW,   A, 6)
+ GPIO_DEFINE_PIN(PIN_AD9553_CS,    A, 7)
+ 

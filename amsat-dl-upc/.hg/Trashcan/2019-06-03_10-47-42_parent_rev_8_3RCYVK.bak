@@ -1,0 +1,57 @@
+diff --git a/src/driver/gpio.h b/src/driver/gpio.h
+--- a/src/driver/gpio.h
++++ b/src/driver/gpio.h
+@@ -1,16 +1,6 @@
+ #ifndef __DRIVER_GPIO_H__
+ #define __DRIVER_GPIO_H__
+ 
+-typedef enum {
+-	GPIO_DIR_IN  = 0,
+-	GPIO_DIR_OUT = 1,
+-} gpio_direction;
+-
+-typedef enum {
+-	GPIO_LEVEL_LOW = 0,
+-	GPIO_LEVEL_HIGH = 1,
+-} gpio_level;
+-
+ //gpio-pin-definition
+ typedef struct gpio_pin_def {
+ 	volatile unsigned char *pPORT;
+@@ -22,8 +12,11 @@
+ typedef const gpio_pin_def *gpio_pin;
+ 
+ //helper macros
+-#define GPIO_DEFINE_PIN(name, port, pin) \
+-	static const gpio_pin_def name##_DEF = {&PORT##port, &TRIS##port, (1<<pin)}; \
+-	static const gpio_pin     name       = &name##_DEF;
++#define GPIO_DEFINE_PIN_C(name, port, pin) \
++	const gpio_pin_def name##_DEF = {&PORT##port, &TRIS##port, (1<<pin)}; \
++	const gpio_pin     name       = &name##_DEF;
++
++#define GPIO_DEFINE_PIN_H(name) \
++	extern const gpio_pin     name;
+ 
+ //gpio functions
+@@ -28,15 +21,10 @@
+ 
+ //gpio functions
+-static inline void gpio_set_direction(gpio_pin pin, u8 out) {
+-	if(out) *(pin->pTRIS) &= ~pin->mask;
+-	else    *(pin->pTRIS) |= pin->mask;
+-}
+-static inline void gpio_set_output(gpio_pin pin, u8 out) {
+-	if(out) *(pin->pPORT) |=  pin->mask;
+-	else    *(pin->pPORT) &= ~pin->mask;
+-}
+-static inline u8 gpio_get_input(gpio_pin pin) {
+-	return (*(pin->pPORT) & pin->mask) != 0;
+-}
++#define gpio_set_dir_in(pin)  *((pin)->pTRIS) |=  (pin)->mask
++#define gpio_set_dir_out(pin) *((pin)->pTRIS) &= ~(pin)->mask
++#define gpio_set_lvl_low(pin)     *((pin)->pPORT) |=  (pin)->mask
++#define gpio_set_lvl_high(pin)    *((pin)->pPORT) &= ~(pin)->mask
++#define gpio_get_input(pin) ((*((pin)->pPORT) & (pin)->mask) != 0)
++
+ 
+ #endif // __DRIVER_GPIO_H__

@@ -1,0 +1,15 @@
+/* 
+ * File:   app.h
+ * Author: be
+ *
+ * Created on 9. Mai 2019, 10:32
+ */
+
+#ifndef __APP_H__
+#define	__APP_H__
+
+extern void app_init(void);
+extern void app_event_loop(void);
+
+#endif	/* __APP_H__ */
+

@@ -1,0 +1,234 @@
+diff --git a/src/driver/adf4351.c b/src/driver/adf4351.c
+--- a/src/driver/adf4351.c
++++ b/src/driver/adf4351.c
+@@ -103,7 +103,7 @@
+ //set tuning parameters
+ void adf4351_set_tune(adf4351_ctx* ctx, u8 icp, u8 pout, BOOL lownoise)
+ {
+-	//printf("adf4351_set_tune(%p, %u, %u, %i)\n", ctx, icp, pout, lownoise);
++	printf("adf4351_set_tune(%p, %u, %u, %i)\n", ctx, icp, pout, lownoise);
+ 
+     //update registers
+     ctx->reg2.lownoise = lownoise?0:3;
+@@ -132,7 +132,7 @@
+ 
+ static void adf4351_setup(adf4351_ctx* ctx)
+ {
+-    //printf("freq [%lu]:\n", g_freq);
++    printf("freq [%lu]:\n", g_freq);
+     adf4351_write_reg5(ctx);
+     adf4351_write_reg4(ctx);
+     adf4351_write_reg3(ctx);
+@@ -377,7 +377,7 @@
+ //write value into latch
+ static void adf4351_write_latch(u32 value)
+ {
+-    //printf("0x%08lX\n", value);
++    printf("0x%08lX\n", value);
+     u32 mask = 0x80000000ULL;
+ 
+     gpio_set_output(PIN_ADF_CLK, GPIO_LEVEL_LOW);
+diff --git a/src/main.c b/src/main.c
+--- a/src/main.c
++++ b/src/main.c
+@@ -79,7 +79,5 @@
+ #include "../hg.h"
+ 
+ //local variables
+-static u8 g_pending_cmd = 0xFF;
+-static u8 g_applied_cmd = 0xFF;
+ static adf4351_ctx g_adf4351;
+ static i2c_data_native g_i2c_bus;
+@@ -84,8 +82,8 @@
+ static adf4351_ctx g_adf4351;
+ static i2c_data_native g_i2c_bus;
+-static int g_ipc = ADF4351_ICP_031;
++static int g_ipc = ADF4351_ICP_125;
+ static int g_pout = ADF4351_POUT_1;
+ static char g_cmd_buf[10];
+ static int  g_cmd_buf_pos = 0;
+ static int g_cpu_led_update_cnt = 0;
+ 
+@@ -87,13 +85,7 @@
+ static int g_pout = ADF4351_POUT_1;
+ static char g_cmd_buf[10];
+ static int  g_cmd_buf_pos = 0;
+ static int g_cpu_led_update_cnt = 0;
+ 
+-//1129000 LNB Freq
+-static const u32 freq_table[10] = {
+-    1101000, 1079000, 1059000, 985000, 984000,
+-    711000,  689000,  669000,  595000, 594000,
+-};
+-
+ //local functions declarations
+ static void check_usart(void);
+@@ -98,5 +90,3 @@
+ //local functions declarations
+ static void check_usart(void);
+-
+-static u8  read_switch(void);
+ static void init_switch(void);
+@@ -102,6 +92,5 @@
+ static void init_switch(void);
+-static void update_switch(void);
+ static void update_led(void);
+ static void handle_cmd(u8 cmd);
+ static void init_gpios(void);
+ 
+@@ -104,10 +93,11 @@
+ static void update_led(void);
+ static void handle_cmd(u8 cmd);
+ static void init_gpios(void);
+ 
++#define UPC_FREQ_KHZ 2750000ULL
+ 
+ //
+ //main function
+ //
+ void main(void)
+ {
+@@ -108,10 +98,10 @@
+ 
+ //
+ //main function
+ //
+ void main(void)
+ {
+-    int lnb_good;
++    BOOL lnb_good;
+ 
+     //clock setup
+     OSCTUNE = 0x80;
+@@ -129,9 +119,9 @@
+     usart_init(115200);
+     
+     //welcome message
+-    printf("\nAMSAT DL SDC %s\n\n", HG_DISPLAY);
++    printf("\nUPC %iMHz\n", UPC_FREQ_KHZ/1000ULL);
+     
+     i2c_native_init(&g_i2c_bus, 100000);
+     lnb_good = lnb_configure((i2c_dev)&g_i2c_bus, I2C_ADDR_LNBH26);
+     //set lnb good led
+     gpio_set_output(PIN_LED_LNB_GOOD, (lnb_good==0)?0:1);
+@@ -133,9 +123,9 @@
+     
+     i2c_native_init(&g_i2c_bus, 100000);
+     lnb_good = lnb_configure((i2c_dev)&g_i2c_bus, I2C_ADDR_LNBH26);
+     //set lnb good led
+     gpio_set_output(PIN_LED_LNB_GOOD, (lnb_good==0)?0:1);
+-    adf4351_init(&g_adf4351, 40000ULL, 40000ULL);
++    adf4351_init(&g_adf4351, 40000ULL, 10000ULL);
+     adf4351_set_tune(&g_adf4351, g_ipc, g_pout, TRUE);
+     init_switch();
+     adf4351_set_mode(&g_adf4351, TRUE);
+@@ -147,10 +137,8 @@
+     //enable all interrupt sources
+     INTCONbits.GIE = 1;
+     
+-    printf("cmd: ");
+-    
+     //main loop
+     for(;;) {
+         WDTCON=1;
+         CLRWDT();
+         check_usart();
+@@ -152,9 +140,8 @@
+     //main loop
+     for(;;) {
+         WDTCON=1;
+         CLRWDT();
+         check_usart();
+-        update_switch();
+         update_led();
+         SLEEP(); //This is actually IDLE as of OSCCON:IDLEN configuration
+     }
+@@ -218,18 +205,5 @@
+     }
+ }
+ 
+-static u8 read_switch(void)
+-{
+-    u8 rb1, rb2, rb3, rb4;
+-
+-    //read values
+-    rb1 = gpio_get_input(PIN_SJ3)?0:1;
+-    rb2 = gpio_get_input(PIN_SJ4)?0:1;
+-    rb3 = gpio_get_input(PIN_SJ5)?0:1;
+-    rb4 = gpio_get_input(PIN_SJ6)?0:1;
+-
+-    return (rb4<<0) | (rb3<<1) | (rb2<<2) | (rb1<<3);
+-}
+-
+ static void init_switch(void)
+ {
+@@ -234,6 +208,4 @@
+ static void init_switch(void)
+ {
+-    g_pending_cmd = read_switch();
+-    handle_cmd(g_pending_cmd);
+-}
++    int timeout = 1000;
+ 
+@@ -239,13 +211,11 @@
+ 
+-static void update_switch(void)
+-{
+-    u8 cmd = read_switch();
+-
+-    //handle read out value
+-    if(g_pending_cmd == cmd) {
+-        handle_cmd(g_pending_cmd);
+-    } else {
+-        g_pending_cmd = cmd;
++    adf4351_set_freq(&g_adf4351, UPC_FREQ_KHZ);
++    while((adf4351_get_lock(&g_adf4351) == FALSE) && timeout) {
++        timeout--;
++        __delay_ms(1);
++    }
++    if(timeout <= 0) {
++        printf("lock timed out!\n");
+     }
+ }
+ 
+@@ -254,5 +224,6 @@
+     //update cpu alive led more or less every second (~250ms*4)
+     if(g_cpu_led_update_cnt++ >= 4) {
+         gpio_set_output(PIN_LED_CPU_OK, gpio_get_input(PIN_LED_CPU_OK)?0:1);
++        gpio_set_output(PIN_LED_HI_LOW, gpio_get_input(PIN_LED_CPU_OK)?0:1);
+         g_cpu_led_update_cnt = 0;
+     }
+@@ -257,8 +228,6 @@
+         g_cpu_led_update_cnt = 0;
+     }
+-    //update hi/low led
+-    gpio_set_output(PIN_LED_HI_LOW, (g_applied_cmd>4)?1:0);
+     //update ADF lock led
+     gpio_set_output(PIN_LED_ADF_LOCK, (adf4351_get_lock(&g_adf4351)==FALSE)?1:0);
+ }
+ 
+@@ -261,24 +230,7 @@
+     //update ADF lock led
+     gpio_set_output(PIN_LED_ADF_LOCK, (adf4351_get_lock(&g_adf4351)==FALSE)?1:0);
+ }
+ 
+-static void handle_cmd(u8 cmd)
+-{
+-    if((cmd < 10) && (cmd != g_applied_cmd)) {
+-        int timeout = 1000;
+-
+-        adf4351_set_freq(&g_adf4351, freq_table[cmd]);
+-        while((adf4351_get_lock(&g_adf4351) == FALSE) && timeout) {
+-            timeout--;
+-            __delay_ms(1);
+-        }
+-        if(timeout <= 0) {
+-            printf("lock timed out!\n");
+-        }
+-        g_applied_cmd = cmd;
+-    }
+-}
+-
+ static void init_gpios(void)
+ {
+     ADCON1bits.PCFG = 0xF;

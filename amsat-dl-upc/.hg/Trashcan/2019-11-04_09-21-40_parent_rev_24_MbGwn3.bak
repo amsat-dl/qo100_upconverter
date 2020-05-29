@@ -1,0 +1,27 @@
+diff --git a/src/main.c b/src/main.c
+--- a/src/main.c
++++ b/src/main.c
+@@ -289,12 +289,6 @@
+         }
+         g_cpu_led_update_cnt = 0;
+     }
+-    //update hi/low led
+-    if(g_applied_cmd > 4) {
+-        gpio_set_lvl_high(PIN_LED_HI_LOW);
+-    } else {
+-        gpio_set_lvl_low(PIN_LED_HI_LOW);
+-    }
+     //update ADF lock led
+     if(adf4351_get_lock(&g_adf4351) == FALSE) {
+         gpio_set_lvl_high(PIN_LED_ADF_LOCK);
+@@ -363,8 +357,8 @@
+     gpio_set_dir_out(PIN_AD9553_RESET);
+ 
+     //LED high/low
+-    gpio_set_lvl_low(PIN_LED_HI_LOW);
+-    gpio_set_dir_out(PIN_LED_HI_LOW);
++    gpio_set_dir_in(PIN_ADF_FREQ_SEL);
++    gpio_set_lvl_high(PIN_ADF_FREQ_SEL);
+ 
+     //AD9553 Chip Select
+     gpio_set_dir_in(PIN_PTT_INPUT);
