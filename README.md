@@ -10,6 +10,7 @@ Version: 1.0
 
 # running on
 PIC 18F2520
+Board Hardware Version: 4.2
 
 # Important Remarks
 
