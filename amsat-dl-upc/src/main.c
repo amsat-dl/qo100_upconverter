@@ -156,6 +156,11 @@ void main(void)
     PIE1 = 0;
     PIE2 = 0;
 
+    for (int i=0; i<20; i++) {
+        CLRWDT();
+        __delay_ms(100);
+    }
+
     init_gpios();
 
     adc_init();
